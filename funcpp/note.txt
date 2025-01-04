@@ -1,0 +1,43 @@
+y a un probleme avec les stats 
+|-> si on a 995 d'attaque que l'on fait plus 10 on reste à 999 puis -10 = 989
+|-> donc 995 + 10 -10 = 989
+|=> séparer stat réel et stat effective
+|=> les variable stats peuvent dépasser le plafond de stat mais les vrais stats effectives(retourné par une fonction) seront limité	a un plafond
+
+Est-ce que je dois faire une classe mere pour tout les équipement voir tous les objet
+|-> pourrait etre pas mal pour le loot
+|=> une classe item sera ajouté
+
+Choisir quel structure de donnée utiliser pour l'inventaire
+|-> array ou vector pour acces O(1) mais difficulté de suppression
+|-> list ou forward_list pour l'ajout et suppression rapide mais recherche O(n)
+|-> array il sera difficile de changer la taille de l'inventaire en cours de partie
+|=> utiliser un array pour l'inventaire de base + les extension seront ajouter sous forme d'une list
+
+Où mettre la Classe
+|-> une dans perso et une non obligatoire dans monstre
+|-> dans entite avec une classe utiliser comme sans classe
+
+consomable.utilisaton(Entite cible); ne peut pas fonctionner car Entite est une classe abstrait
+|=> utiliser une reference (Entite& cible)
+
+L'inventaire de Perso ne subissait pas les changement fait dans la classe Inventaire
+|=> j'ai gardé inventaire comme static dans la classe Perso mais getInventaire renvoi un pointeur
+
+Faire des Consommable à la main, classe par classe est trops long et tres beau
+|=> utiliser des pointeur de fonction permetant d'avoir des objets de la meme classe mais avec des effets different
+
+Je sais pas si je dois faire des classe apart pour les equipement magique
+|-> plus long mais plus versatile
+|-> ou bien juste mettre une variable en plus pouvant etre NULL dans les classes equipments
+
+Comment stocker les loot des monstre pour avoir l'item et la chance de drop
+|=> une map mais va falloir bucher pour bien comprendre
+|=> Item est la cle pour obtenir son pourcentage de drop
+
+Dans la maniere dont le consomable fonctionnent ont ne peut cibler qu'une seul  entite avec
+|-> chercher un equivalent de params de c#
+
+Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfois au dessus de leurs max
+|=> faire passer l'équipement des équipements par la classe Perso uniquement pour pouvoir controller les stats
+:> faire gaffe je crois les stat reel peuvent passer en dessous de 0 lorsqu'elle interagissent avec des equipement

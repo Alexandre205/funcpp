@@ -1,0 +1,11 @@
+#pragma once
+#include "Item.h"
+class Botte :
+    public Item
+{
+private:
+    int vitesseBonus;
+public:
+    Botte(std::string nom, std::string description, int vitesseBonus);
+    int getVitesseBonus();
+};

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Objet">
+      <UniqueIdentifier>{fbac7d95-cf9a-4175-b24a-34da05a20f32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objet">
+      <UniqueIdentifier>{1e6acc65-498b-417a-990a-0037a98a94c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objet\Utilisable">
+      <UniqueIdentifier>{f271313b-4ba2-40c2-b436-9ec3ad1110df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Objet\Utilisable">
+      <UniqueIdentifier>{fbb93760-e542-41bc-bcb2-c4683eb541d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Objet\Equipement">
+      <UniqueIdentifier>{ff33aecd-8952-42b4-b952-2adfb47aec6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objet\Equipement">
+      <UniqueIdentifier>{4d94213a-6dea-4592-b016-fc428be29146}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Entite.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Perso.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Monstre.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Salle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="erreurHandler.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventaire.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Fichiers sources\Objet</Filter>
+    </ClCompile>
+    <ClCompile Include="Consommable.cpp">
+      <Filter>Fichiers sources\Objet</Filter>
+    </ClCompile>
+    <ClCompile Include="Arme.cpp">
+      <Filter>Fichiers sources\Objet\Equipement</Filter>
+    </ClCompile>
+    <ClCompile Include="Potion.cpp">
+      <Filter>Fichiers sources\Objet\Utilisable</Filter>
+    </ClCompile>
+    <ClCompile Include="EffetsConsommable.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Armure.cpp">
+      <Filter>Fichiers sources\Objet\Equipement</Filter>
+    </ClCompile>
+    <ClCompile Include="Botte.cpp">
+      <Filter>Fichiers sources\Objet\Equipement</Filter>
+    </ClCompile>
+    <ClCompile Include="Casque.cpp">
+      <Filter>Fichiers sources\Objet\Equipement</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Perso.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Monstre.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Salle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="erreurHandler.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventaire.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Fichiers d%27en-tête\Objet</Filter>
+    </ClInclude>
+    <ClInclude Include="Consommable.h">
+      <Filter>Fichiers d%27en-tête\Objet</Filter>
+    </ClInclude>
+    <ClInclude Include="Arme.h">
+      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+    </ClInclude>
+    <ClInclude Include="Potion.h">
+      <Filter>Fichiers d%27en-tête\Objet\Utilisable</Filter>
+    </ClInclude>
+    <ClInclude Include="EffetsConsommable.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Armure.h">
+      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+    </ClInclude>
+    <ClInclude Include="Botte.h">
+      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+    </ClInclude>
+    <ClInclude Include="Casque.h">
+      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="log.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
+    <Text Include="note.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
+    <Text Include="Avancement.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
