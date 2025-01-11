@@ -21,7 +21,8 @@ int main(int argc, char* argv[]) {
 	std::cout << j.toString();
 	j.getInventaire()->ajouterEquipement(sc);
 	std::cout << j.toString();
-	
+	j.getInventaire()->utiliserConsommable(0, j);
+
 
 
 	return EXIT_SUCCESS;

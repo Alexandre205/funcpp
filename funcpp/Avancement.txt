@@ -5,3 +5,6 @@ Je dois decider si je fait une classe mere Equipement pour les items equipable
 Va falloir faire une classe utilitaire pour faire de l'affichage mais à la fin
 
 Faire que les classes équipement passe par la classe Perso
+Faire en sorte que équiper une nouveau casque donne des pv/pm en plus
+|>faire des recherche sur les autes RPG
+|:>FFT : on garde les point de vie de quand on avait l'equipement le plus faible -> donner alors plus de moyen de soigner
