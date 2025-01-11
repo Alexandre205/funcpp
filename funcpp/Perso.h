@@ -17,10 +17,14 @@ public:
 
     Inventaire* getInventaire();
 
-
     int getPvMax();
     int getPmMax();
     int getAttaque();
     int getDefence();
     int getVitesse();
+
+    void changerEquipement(Casque nouvCasque);
+    void changerEquipement(Arme nouvArme);
+    void changerEquipement(Armure nouvArmure);
+    void changerEquipement(Botte nouvBotte);
 };

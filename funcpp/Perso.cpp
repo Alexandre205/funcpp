@@ -44,3 +44,21 @@ int Perso::getVitesse() {
 	int test = vitesse + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
+
+// plus complexe car gestion pv
+void Perso::changerEquipement(Casque nouvCasque) {
+	getInventaire()->ajouterEquipement(nouvCasque);
+	
+	//sert de check // pas ouf mais
+	altererPv(0);
+	altererPm(0);
+}
+void Perso::changerEquipement(Arme nouvArme) {
+	getInventaire()->ajouterEquipement(nouvArme);
+}
+void Perso::changerEquipement(Armure nouvArmure) {
+	getInventaire()->ajouterEquipement(nouvArmure);
+}
+void Perso::changerEquipement(Botte nouvBotte) {
+	getInventaire()->ajouterEquipement(nouvBotte);
+}
