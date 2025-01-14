@@ -11,7 +11,7 @@ private:
 	bool estInitialise;
 	std::string nom;
 
-	//int level
+	//int level, int exp
 	//class
 
 	void modifierStat(int& stat, int modifSubi, int statMax);

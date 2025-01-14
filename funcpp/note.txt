@@ -41,3 +41,4 @@ Dans la maniere dont le consomable fonctionnent ont ne peut cibler qu'une seul  
 Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfois au dessus de leurs max
 |=> faire passer l'équipement des équipements par la classe Perso uniquement pour pouvoir controller les stats
 :> faire gaffe je crois les stat reel peuvent passer en dessous de 0 lorsqu'elle interagissent avec des equipement
+|=> je pense avoir réglé le probleme
