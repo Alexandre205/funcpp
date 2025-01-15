@@ -23,6 +23,7 @@
     <ClCompile Include="Armure.cpp" />
     <ClCompile Include="Botte.cpp" />
     <ClCompile Include="Casque.cpp" />
+    <ClCompile Include="Competence.cpp" />
     <ClCompile Include="Consommable.cpp" />
     <ClCompile Include="EffetsConsommable.cpp" />
     <ClCompile Include="Entite.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="Armure.h" />
     <ClInclude Include="Botte.h" />
     <ClInclude Include="Casque.h" />
+    <ClInclude Include="Competence.h" />
     <ClInclude Include="Consommable.h" />
     <ClInclude Include="EffetsConsommable.h" />
     <ClInclude Include="Entite.h" />
