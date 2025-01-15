@@ -122,6 +122,9 @@
     <ClInclude Include="Casque.h">
       <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
     </ClInclude>
+    <ClInclude Include="Competence.h">
+      <Filter>Fichiers d%27en-tête\Competence</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="log.txt">
