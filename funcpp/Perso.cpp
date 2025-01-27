@@ -48,10 +48,12 @@ int Perso::getVitesse() {
 // plus complexe car gestion pv
 void Perso::changerEquipement(Casque nouvCasque) {
 	getInventaire()->ajouterEquipement(nouvCasque);
-	
-	//sert de check // pas ouf mais
-	altererPv(0);
-	altererPm(0);
+	if (pv > getPvMax()) {
+		pv = getPvMax();
+	}
+	if (pm > getPmMax()) {
+		pm = getPmMax();
+	}
 }
 void Perso::changerEquipement(Arme nouvArme) {
 	getInventaire()->ajouterEquipement(nouvArme);

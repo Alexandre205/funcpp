@@ -35,10 +35,13 @@ Comment stocker les loot des monstre pour avoir l'item et la chance de drop
 |=> une map mais va falloir bucher pour bien comprendre
 |=> Item est la cle pour obtenir son pourcentage de drop
 
-Dans la maniere dont le consomable fonctionnent ont ne peut cibler qu'une seul  entite avec
+Dans la maniere dont le Effet fonctionnent ont ne peut cibler qu'une seul  entite avec
 |-> chercher un equivalent de params de c#
 
 Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfois au dessus de leurs max
 |=> faire passer l'équipement des équipements par la classe Perso uniquement pour pouvoir controller les stats
 :> faire gaffe je crois les stat reel peuvent passer en dessous de 0 lorsqu'elle interagissent avec des equipement
 |=> je pense avoir réglé le probleme
+
+Faire une "Interface" combatable pour Certaines Entite ?
+|-> Permet de faire faire la difference entre PNJ, Monstre et Perso

@@ -1,6 +1,6 @@
 #pragma once
 #include"Entite.h"
-class EffetsConsommable
+class Effets
 {
 
 public:
