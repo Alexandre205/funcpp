@@ -29,6 +29,7 @@ void testHandler(bool test,const char* message,bool afficheSucces) {
 	}
 	else {
 		std::cout << "Fichier log non ouvert";
+		exit(EXIT_FAILURE);
 	}
 }
 void writeInLog(const char* message) {

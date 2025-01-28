@@ -1,7 +1,7 @@
 #pragma once
 #include<string>
-
 #include<array>
+#include<initializer_list>
 #include"erreurHandler.h"
 #include"Competence.h"
 class Entite
@@ -44,7 +44,7 @@ public:
 	void altererVitesse(int modifSubi);
 
 	void apprendreCompetence(Competence *newComp);
-	void utiliserCompetence(int indiceDeCompetence, Entite& cible);
+	void utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cibles);
 
 	virtual void attaqueDeBase(Entite& cible) = 0;
 

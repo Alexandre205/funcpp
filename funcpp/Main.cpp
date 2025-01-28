@@ -11,15 +11,16 @@
 
 int main(int argc, char* argv[]) {
 	//nettoyerLog();
-	Perso j{ "jean",100,100,100,100,100 };
-	Competence c{"heal","soigne",Effets::soinPv,10};
+	Perso j{ "jean",100,100,10,100,100 };
+	Monstre m1{ "goblin",100,100,100,100,100 };
+	Monstre m2{ "slime",100,100,100,100,100 };
+	Competence c{"tape","fait mal",Effets::infligerDegat,10, false};
 	j.apprendreCompetence(&c);
-	j.altererPv(-15);
-	std::cout << j.toString();
+	
+	std::cout << m1.toString() + "\n" + m2.toString() + "\n";
+	j.utiliserCompetence(0, { &m1,&m2 });
+	std::cout << m1.toString() +"\n" +m2.toString()+"\n";
 
-	j.utiliserCompetence(0, j);
-
-	std::cout << j.toString();
 	
 	return EXIT_SUCCESS;
 }

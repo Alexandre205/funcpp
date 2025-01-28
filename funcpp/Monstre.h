@@ -7,7 +7,7 @@ class Monstre :
 {
 private:
     //Race
-    //std::map<Item, int> loot;
+    std::map<int, Item> loot;
 public:
     Monstre();
     Monstre(const Monstre& monstre);

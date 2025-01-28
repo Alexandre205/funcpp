@@ -37,6 +37,8 @@ Comment stocker les loot des monstre pour avoir l'item et la chance de drop
 
 Dans la maniere dont le Effet fonctionnent ont ne peut cibler qu'une seul  entite avec
 |-> chercher un equivalent de params de c#
+|=> std::initializer_list<> :> non c'est que pour de truc constant
+|=> vector<Entite*>
 
 Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfois au dessus de leurs max
 |=> faire passer l'équipement des équipements par la classe Perso uniquement pour pouvoir controller les stats

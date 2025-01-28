@@ -73,11 +73,11 @@ void Entite::apprendreCompetence(Competence *newComp) {
 		writeInLog("Deja trops de competence");
 	}
 }
-void Entite::utiliserCompetence(int indiceDeCompetence, Entite& cible) {
-	testHandler(indiceDeCompetence < nbCompetence && indiceDeCompetence >= 0, "indice de la competence hors portée", false);
-	competences[indiceDeCompetence].utiliser(cible);
-}
 
+void Entite::utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cibles) {
+	testHandler(indiceDeCompetence < nbCompetence && indiceDeCompetence >= 0, "indice de la competence hors portée", false);
+	competences[indiceDeCompetence].utiliser(cibles);
+}
 std::string Entite::getNom() { return nom; }
 bool Entite::estInitialis() { return estInitialise; }
 bool Entite::estVivant() {return pv > 0;}
