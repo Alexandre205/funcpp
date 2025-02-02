@@ -47,3 +47,8 @@ Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfoi
 
 Faire une "Interface" combatable pour Certaines Entite ?
 |-> Permet de faire faire la difference entre PNJ, Monstre et Perso
+
+Comment bien faire les competences ?
+-> faire une classe pricipale competence avec des classe filles specifique
+-> faire une seule classe tres complete mais avec beaucoup d'abstraction :: pourquoi j'ai ecrit ca? c une idée de merde
+=> formule de dégat : j'ai fait ca. Ca ma pris une semaine bordel

@@ -1,4 +1,5 @@
 #include "Inventaire.h"
+#include"Utilitaire.h"
 
 std::string Inventaire::toString() {
 	std::string retour = "";
@@ -32,14 +33,14 @@ void Inventaire::ajouterConsommable(Consommable& nouvConso) {
 	}
 }
 void Inventaire::supprimerConsommable(int indiceConso) {
-	testHandler(indiceConso < nbConsommable, "indice de suppression hors portee", false);
+	Utilitaire::testHandler(indiceConso < nbConsommable, "indice de suppression hors portee", false);
 	for (int i = indiceConso; i < nbConsommable - 1; i++) {
 		inventaire[i] = inventaire[i + 1];
 	}
 	nbConsommable--;
 }
 void Inventaire::utiliserConsommable(int indiceConso,Entite& cible) {
-	testHandler(indiceConso < nbConsommable, "indice d'utilisation hors portee", false);
+	Utilitaire::testHandler(indiceConso < nbConsommable, "indice d'utilisation hors portee", false);
 	inventaire[indiceConso]->utilisation(cible);
 	supprimerConsommable(indiceConso);
 }

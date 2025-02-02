@@ -16,5 +16,6 @@ void Effets::resucitePlusSoin(Entite& cible, int puissance) {
 	}
 }
 void Effets::infligerDegat(Entite& cible, int puissance) {
+	if (puissance < 1) puissance = 1;
 	cible.altererPv(-puissance);
 }

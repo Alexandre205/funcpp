@@ -5,3 +5,5 @@ Decider où je mets la variable classe
 Va falloir faire une classe utilitaire pour faire de l'affichage mais à la fin
 
 faire les competences
+	Trouver un moyen de normaliser la formule d'attaque des competence
+	Calcule de formule de competence +- pret. Plus que quelques ajustements pour le faire rentrer dans le projet correctement

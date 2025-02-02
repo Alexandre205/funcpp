@@ -31,6 +31,12 @@
     <Filter Include="Fichiers sources\Objet\Equipement">
       <UniqueIdentifier>{4d94213a-6dea-4592-b016-fc428be29146}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Competence">
+      <UniqueIdentifier>{ed75de0c-c974-4d71-91c6-71b3190ee7c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Competence">
+      <UniqueIdentifier>{6a63b446-1568-41ec-b047-73205c226f0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -48,9 +54,6 @@
     <ClCompile Include="Salle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="erreurHandler.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Inventaire.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -66,9 +69,6 @@
     <ClCompile Include="Potion.cpp">
       <Filter>Fichiers sources\Objet\Utilisable</Filter>
     </ClCompile>
-    <ClCompile Include="EffetsConsommable.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Armure.cpp">
       <Filter>Fichiers sources\Objet\Equipement</Filter>
     </ClCompile>
@@ -77,6 +77,15 @@
     </ClCompile>
     <ClCompile Include="Casque.cpp">
       <Filter>Fichiers sources\Objet\Equipement</Filter>
+    </ClCompile>
+    <ClCompile Include="Competence.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Effets.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilitaire.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +99,6 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Salle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="erreurHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Inventaire.h">
@@ -110,9 +116,6 @@
     <ClInclude Include="Potion.h">
       <Filter>Fichiers d%27en-tête\Objet\Utilisable</Filter>
     </ClInclude>
-    <ClInclude Include="EffetsConsommable.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Armure.h">
       <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
     </ClInclude>
@@ -123,7 +126,13 @@
       <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
     </ClInclude>
     <ClInclude Include="Competence.h">
-      <Filter>Fichiers d%27en-tête\Competence</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Effets.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilitaire.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

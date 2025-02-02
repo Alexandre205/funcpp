@@ -2,7 +2,6 @@
 #include<string>
 #include<array>
 #include<initializer_list>
-#include"erreurHandler.h"
 #include"Competence.h"
 class Entite
 {
