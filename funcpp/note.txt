@@ -34,6 +34,9 @@ Je sais pas si je dois faire des classe apart pour les equipement magique
 Comment stocker les loot des monstre pour avoir l'item et la chance de drop
 |=> une map mais va falloir bucher pour bien comprendre
 |=> Item est la cle pour obtenir son pourcentage de drop
+:> enfaite non
+|=> on fait une structure loot utilisable dans las classes Monstre contenant le pourcentage de drop de l'Item et l'Item qui va avec
+|-> on garde la structure sous la forme d'un vecteur pour le moment mais voir à l'optimisation ce que ca donne
 
 Dans la maniere dont le Effet fonctionnent ont ne peut cibler qu'une seul  entite avec
 |-> chercher un equivalent de params de c#
@@ -51,4 +54,4 @@ Faire une "Interface" combatable pour Certaines Entite ?
 Comment bien faire les competences ?
 -> faire une classe pricipale competence avec des classe filles specifique
 -> faire une seule classe tres complete mais avec beaucoup d'abstraction :: pourquoi j'ai ecrit ca? c une idée de merde
-=> formule de dégat : j'ai fait ca. Ca ma pris une semaine bordel
+=> formule de dégat : j'ai fait ca. Ca ma pris 3 jours bordel

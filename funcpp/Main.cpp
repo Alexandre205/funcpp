@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 	j.apprendreCompetence(&c);
 	
 	std::cout << m1.toString() + "\n" + m2.toString() + "\n";
-	j.utiliserCompetence(0, { &m1,&m2 });
+	j.utiliserCompetence(0, { &m1 });
 	std::cout << m1.toString() +"\n" +m2.toString()+"\n"+j.toString();
 
 	

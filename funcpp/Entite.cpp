@@ -1,5 +1,5 @@
 #include "Entite.h"
-#include"Utilitaire.h"
+#include "Utilitaire.h"
 std::string Entite::toString() {
 	using namespace std;
 	return nom + " (" + to_string(pv) + "/" + to_string(getPvMax()) + "pv)(" + to_string(pm) + "/" + to_string(getPmMax()) + "pm)("+to_string(getAttaque())+" "+to_string(getDefence())+" "+to_string(getVitesse())+")";

@@ -1,9 +1,20 @@
 Decider si je fait une classe mere Equipement pour les items equipable
 Decider où je mets la variable classe
-
+Optimisation:
+	Revoir l'algorthime de shunting yard pour accélérer le processus de calcule des formules
+	Par exemple, utiliser directement une queue plutot que de convertir apres
 
 Va falloir faire une classe utilitaire pour faire de l'affichage mais à la fin
 
-faire les competences
-	Trouver un moyen de normaliser la formule d'attaque des competence
-	Calcule de formule de competence +- pret. Plus que quelques ajustements pour le faire rentrer dans le projet correctement
+
+Faire la gestion des loot des monstres avec la structure loot
+
+
+faire le systeme de combat en tour par tour -> ouais juste ça
+|
+|_Dans l'ordre un combat
+|-> Le joueur choisis une competence
+|-> le/les monstres choisis une competence
+|-> On check qui joue en premier (vitesse et priorité)
+|-> On applique les actions dans l'ordre (avec vérification de faisabilité -> peut-on taper un mort ?)
+|-> On repete jusqu'a mort de tout les monstres ou du joueur

@@ -37,6 +37,12 @@
     <Filter Include="Fichiers d%27en-tête\Competence">
       <UniqueIdentifier>{6a63b446-1568-41ec-b047-73205c226f0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\Gestion de projet">
+      <UniqueIdentifier>{33000419-81c9-48c3-a031-bfe501a3ee09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Ressources">
+      <UniqueIdentifier>{690e37da-6995-49b5-8959-7bd53c302372}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -136,14 +142,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="log.txt">
-      <Filter>Fichiers de ressources</Filter>
-    </Text>
     <Text Include="note.txt">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers de ressources\Gestion de projet</Filter>
+    </Text>
+    <Text Include="log.txt">
+      <Filter>Fichiers de ressources\Gestion de projet</Filter>
     </Text>
     <Text Include="Avancement.txt">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers de ressources\Gestion de projet</Filter>
     </Text>
   </ItemGroup>
 </Project>
