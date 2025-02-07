@@ -25,9 +25,8 @@
     <ClCompile Include="Casque.cpp" />
     <ClCompile Include="Competence.cpp" />
     <ClCompile Include="Consommable.cpp" />
-    <ClCompile Include="EffetsConsommable.cpp" />
+    <ClCompile Include="Effets.cpp" />
     <ClCompile Include="Entite.cpp" />
-    <ClCompile Include="erreurHandler.cpp" />
     <ClCompile Include="Inventaire.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -35,6 +34,7 @@
     <ClCompile Include="Perso.cpp" />
     <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Salle.cpp" />
+    <ClCompile Include="Utilitaire.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arme.h" />
@@ -43,15 +43,15 @@
     <ClInclude Include="Casque.h" />
     <ClInclude Include="Competence.h" />
     <ClInclude Include="Consommable.h" />
-    <ClInclude Include="EffetsConsommable.h" />
+    <ClInclude Include="Effets.h" />
     <ClInclude Include="Entite.h" />
-    <ClInclude Include="erreurHandler.h" />
     <ClInclude Include="Inventaire.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Monstre.h" />
     <ClInclude Include="Perso.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="Salle.h" />
+    <ClInclude Include="Utilitaire.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Avancement.txt" />

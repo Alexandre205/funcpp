@@ -6,7 +6,7 @@
 #include"Armure.h"
 #include"Botte.h"
 #include"Consommable.h"
-#include"erreurHandler.h"
+
 class Inventaire
 {
 public:

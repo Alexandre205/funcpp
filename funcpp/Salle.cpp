@@ -1,5 +1,5 @@
 #include"Salle.h"
-#include"erreurHandler.h"
+#include"Utilitaire.h"
 #include<vector>
 
 std::string Salle::toSring() {
@@ -21,7 +21,7 @@ void Salle::AddEnnemis(Monstre ennemi) {
 		nbMonstre++;
 	}
 	else {
-		writeInLog("Plus d'espace pour faire apparaitre un nouveau monstre");
+		Utilitaire::writeInLog("Plus d'espace pour faire apparaitre un nouveau monstre");
 	}
 }
 std::string Salle::listeMonstrePresent() {

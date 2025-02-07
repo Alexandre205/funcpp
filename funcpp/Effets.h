@@ -1,6 +1,6 @@
 #pragma once
 #include"Entite.h"
-class EffetsConsommable
+class Effets
 {
 
 public:
@@ -8,4 +8,5 @@ public:
 	static void soinPm(Entite& cible,int puissance);
 	static void soinPvEtPm(Entite& cible, int puissance);
 	static void resucitePlusSoin(Entite& cible, int puissance);
+	static void infligerDegat(Entite& cible, int puissance);
 };

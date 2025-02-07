@@ -1,13 +1,18 @@
 #pragma once
 #include "Entite.h"
 #include"Item.h"
-#include<map>
+#include<vector>
 class Monstre :
     public Entite
 {
 private:
     //Race
-    //std::map<Item, int> loot;
+    struct Loot
+    {
+        Item objet;
+        int pourcentageDeDrop;
+    };
+    std::vector<struct Loot> objetsLootable;
 public:
     Monstre();
     Monstre(const Monstre& monstre);
