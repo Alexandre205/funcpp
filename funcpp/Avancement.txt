@@ -18,3 +18,6 @@ faire le systeme de combat en tour par tour -> ouais juste ça
 |-> On check qui joue en premier (vitesse et priorité)
 |-> On applique les actions dans l'ordre (avec vérification de faisabilité -> peut-on taper un mort ?)
 |-> On repete jusqu'a mort de tout les monstres ou du joueur
+
+
+Commencer l'affichage
