@@ -2,6 +2,7 @@
 #include<string>
 
 #include"Entite.h"
+#include"AffichageConsole.h"
 namespace Utilitaire
 {
 	static const char* NOM_FICHIER = "log.txt";

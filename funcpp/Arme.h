@@ -8,6 +8,9 @@ private:
 	//ElementD'attaque
 	//Competence lié
 public:
+
+	std::string toString();
+
 	Arme(std::string nom,std::string description,int attaqueBonus);
 	int getAttaqueBonus();
 };

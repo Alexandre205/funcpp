@@ -1,7 +1,7 @@
 #include "Perso.h"
 
 std::string Perso::toString() {
-	std::string retour =  Entite::toString() + " (" + std::to_string(nbGold) + " gold)\n";
+	std::string retour =  Entite::toString() + "(" + std::to_string(nbGold) + " gold)\n";
 	retour += inventaire.toString();
 	return retour;
 }
@@ -14,7 +14,7 @@ Perso::Perso(std::string nom, int pv, int pm, int attaque, int defence, int vite
 	:Perso{ nom,pv,pm,attaque,defence,vitesse,0 } {}
 
 
-// a modifier //peut-etre
+// a supprimer //peut-etre //surement
 void Perso::attaqueDeBase(Entite& cible) {
 	int degatInflige = getAttaque() - cible.getDefence();
 	cible.altererPv(degatInflige>=1?degatInflige:1);

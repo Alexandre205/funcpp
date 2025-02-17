@@ -1,7 +1,7 @@
 #include "Item.h"
 
 std::string Item::toString() {
-	return nom + " : " + description +"\n";
+	return nom + " \"" + description +"\"";
 }
 
 Item::Item(std::string nom, std::string description) :nom{ nom }, description{ description } {}

@@ -41,7 +41,7 @@ Comment stocker les loot des monstre pour avoir l'item et la chance de drop
 Dans la maniere dont le Effet fonctionnent ont ne peut cibler qu'une seul  entite avec
 |-> chercher un equivalent de params de c#
 |=> std::initializer_list<> :> non c'est que pour de truc constant
-|=> vector<Entite*>
+|=> vector<Entite*> car on peut passer les argument {arg1,arg2}
 
 Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfois au dessus de leurs max
 |=> faire passer l'équipement des équipements par la classe Perso uniquement pour pouvoir controller les stats
@@ -55,3 +55,7 @@ Comment bien faire les competences ?
 -> faire une classe pricipale competence avec des classe filles specifique
 -> faire une seule classe tres complete mais avec beaucoup d'abstraction :: pourquoi j'ai ecrit ca? c une idée de merde
 => formule de dégat : j'ai fait ca. Ca ma pris 3 jours bordel
+
+L'Affichage a ete mis dans un namespace a part pour faciliter les peut-etre future modification
+|-> j'ai probablement mal gérer la gestion du nom des fonctions d'affichage
+|-> j'aurais du partir sur des nom plus en rapport avec l'utilite de se que la fonction affiche

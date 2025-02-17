@@ -16,14 +16,14 @@ protected:
 	int nbCompetence;
 	std::array<Competence,NB_COMP_MAX> competences;
 private:
-	bool estInitialise;
+	bool estInitialise; // ne pas enlever
 	std::string nom;
 
 	//int level, int exp
 	//class
 	//statut
 
-	void modifierStat(int& stat, int modifSubi, int statMax);
+	static void modifierStat(int& stat, int modifSubi, int statMax);
 public:
 
 	std::string toString();
@@ -59,4 +59,6 @@ public:
 	virtual int getAttaque();
 	virtual int getDefence();
 	virtual int getVitesse();
+	int getNbCompetence();
+	Competence getCompetence(int indice);
 };

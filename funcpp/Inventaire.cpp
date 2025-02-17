@@ -14,10 +14,10 @@ std::string Inventaire::toString() {
 }
 
 Inventaire::Inventaire() :nbConsommable{ 0 }, tailleInventaire(TAILLE_DE_BASE_INVENTAIRE),
-	casque{ "non equipe","",0,0 },
-	arme{ "non equipe", "", 0 },
-	armure{ "non equipe","",0 },
-	botte{ "non equipe","",0 } {
+	casque{ "non equipe","pas de description",0,0 },
+	arme{ "non equipe", "pas de description", 0 },
+	armure{ "non equipe","pas de description",0 },
+	botte{ "non equipe","pas de description",0 } {
 	inventaire.fill(NULL);
 }
 
@@ -41,6 +41,7 @@ void Inventaire::supprimerConsommable(int indiceConso) {
 }
 void Inventaire::utiliserConsommable(int indiceConso,Entite& cible) {
 	Utilitaire::testHandler(indiceConso < nbConsommable, "indice d'utilisation hors portee", false);
+	Affichage::afficher("--- utilise un(e) " + inventaire[indiceConso]->getNom());
 	inventaire[indiceConso]->utilisation(cible);
 	supprimerConsommable(indiceConso);
 }
