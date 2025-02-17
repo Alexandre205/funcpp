@@ -24,5 +24,3 @@ faire le systeme de combat en tour par tour -> ouais juste ça
 |-> On repete jusqu'a mort de tout les monstres ou du joueur
 
 Rework la classe consommable pour que les objets ressemblent plus a des competences
-
-Commencer l'affichage
