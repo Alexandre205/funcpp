@@ -2,26 +2,30 @@
 #include "Utilitaire.h"
 std::string Entite::toString() {
 	using namespace std;
-	return nom + " (" + to_string(pv) + "/" + to_string(getPvMax()) + "pv)(" + to_string(pm) + "/" + to_string(getPmMax()) + "pm)("+to_string(getAttaque())+" "+to_string(getDefence())+" "+to_string(getVitesse())+")";
+	string output = nom + " (" + to_string(pv) + "/" + to_string(getPvMax()) + "pv)(" + to_string(pm) + "/" + to_string(getPmMax()) + "pm)(" + to_string(getAttaque()) + " atk, " + to_string(getDefence()) + " def, " + to_string(getVitesse()) + " vit)\n";
+	int i = 0;
+	for (i; i < nbCompetence; i++) {
+		output += competences[i].toString() + "\n";
+	}
+	for (i; i < NB_COMP_MAX; i++) {
+		output += "-\n";
+	}
+	return output;
 }
 
 Entite::Entite() :estInitialise{ false } {};
 Entite::Entite(const Entite& entite):
 	Entite(entite.nom,entite.pv,entite.pvMax,entite.pm,entite.pmMax,entite.attaque,entite.defence,entite.vitesse){ }
 Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaque, int defence, int vitesse):
-	nom{ nom }, pv{ 0 }, pvMax{ 0 }, pm{ 0 }, pmMax{ 0 }, attaque{ 0 }, defence{ 0 }, vitesse{ 0 }, nbCompetence{0}, estInitialise{ true } {
-	altererPvMax(pvMax);
-	altererPv(pv);
-	altererPmMax(pmMax);
-	altererPm(pm);
-	altererAttaque(attaque);
-	altererDefence(defence);
-	altererVitesse(vitesse);
+	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque }, defence{ defence }, vitesse{ vitesse }, nbCompetence{0}, estInitialise{ true } 
+{
+	// quelque modification de robustesse a prevoir
 }
 Entite::Entite(std::string nom, int pv, int pm,int attaque, int defence, int vitesse):
 	Entite(nom, pv, pv, pm, pm,attaque,defence,vitesse){}
 
 void Entite::modifierStat(int& stat, int modifSubi, int statMax) {
+	Affichage::afficher(std::to_string(abs(modifSubi)));
 	stat += modifSubi;
 	if (stat <= 0) {
 		stat = 0;
@@ -32,15 +36,18 @@ void Entite::modifierStat(int& stat, int modifSubi, int statMax) {
 }
 void Entite::altererPv(int modifSubi) {
 	modifierStat(pv, modifSubi, getPvMax());
+	Affichage::afficher("pv\n");
 }
 void Entite::altererPm(int modifSubi) {
 	modifierStat(pm, modifSubi, getPmMax());
+	Affichage::afficher("pm\n");
 }
 void Entite::altererPvMax(int modifSubi) {
 	modifierStat(pvMax, modifSubi, STAT_MAX);
 	if (pv > getPvMax()) {
 		pv = getPvMax();
 	}
+	Affichage::afficher("pv max\n");
 	Utilitaire::testHandler(pvMax != STAT_MAX, "check limite pvMax",false);
 }
 void Entite::altererPmMax(int modifSubi) {
@@ -48,18 +55,22 @@ void Entite::altererPmMax(int modifSubi) {
 	if (pm > getPmMax()) {
 		pm = getPmMax();
 	}
+	Affichage::afficher("pm max\n");
 	Utilitaire::testHandler(pmMax != STAT_MAX, "check limite pmMax",false);
 }
 void Entite::altererAttaque(int modifSubi) {
 	modifierStat(attaque, modifSubi, STAT_MAX);
+	Affichage::afficher("atk\n");
 	Utilitaire::testHandler(attaque != STAT_MAX, "check limite attaque",false);
 }
 void Entite::altererDefence(int modifSubi) {
 	modifierStat(defence, modifSubi, STAT_MAX);
+	Affichage::afficher("def\n");
 	Utilitaire::testHandler(defence != STAT_MAX, "check limite defence",false);
 }
 void Entite::altererVitesse(int modifSubi) {
 	modifierStat(vitesse, modifSubi, STAT_MAX);
+	Affichage::afficher("vit\n");
 	Utilitaire::testHandler(vitesse != STAT_MAX, "check limite vitesse",false);
 }
 
@@ -102,4 +113,11 @@ int Entite::getDefence() {
 }
 int Entite::getVitesse() {
 	return vitesse <= STAT_MAX_EFFECTIVE ? vitesse : STAT_MAX_EFFECTIVE;
+}
+int Entite::getNbCompetence() {
+	return nbCompetence;
+}
+Competence Entite::getCompetence(int indice) {
+	Utilitaire::testHandler(indice < nbCompetence && indice >= 0, "indice de la competence hors portée", false);
+	return competences[indice];
 }

@@ -85,14 +85,14 @@ static std::stack<std::string> shuntingYard(std::string formuleMathematique) {
                                 pileOperateur.pop();
                             }
                             if (pileOperateur.empty()) {
-                                std::cout << "Il manque le caractere '('";
+                                Utilitaire::writeInLog("Il manque le caractere '('");
                                 exit(EXIT_FAILURE);
                             }
                             pileOperateur.pop();
                         }
                         else {
                             if (!isspace(*it)) {
-                                std::cout << "Caractere invalide rencontre '" << *it << "'\n";
+                                Utilitaire::writeInLog("Caractere invalide rencontre " + *it);
                                 exit(EXIT_FAILURE);
                             }
                         }
@@ -136,13 +136,13 @@ static int calculeNotationPolonaiseInverse(std::queue<std::string> pileDeCalcule
                     else {
                         if (pileDeCalcule.front() == "/") {
                             if (b == 0) {
-                                std::cout << "Division par 0";
+                                Utilitaire::writeInLog("Division par 0");
                                 exit(EXIT_FAILURE);
                             }
                             sortie.push((a / b));
                         }
                         else {
-                            std::cout << "Operateur invalide dans la pile NPI";
+                            Utilitaire::writeInLog("Operateur invalide dans la pile NPI");
                             exit(EXIT_FAILURE);
                         }
                     }
@@ -152,7 +152,7 @@ static int calculeNotationPolonaiseInverse(std::queue<std::string> pileDeCalcule
         pileDeCalcule.pop();
     }
     if (sortie.size() != 1) {
-        std::cout << "La sortie est completement vide ou est encore trops remplie";
+        Utilitaire::writeInLog("La sortie est completement vide ou est encore trops remplie");
         exit(EXIT_FAILURE);
     }
     return sortie.top();

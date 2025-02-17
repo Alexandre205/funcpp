@@ -17,6 +17,9 @@ private:
 
 	void utiliser(Entite& cible);
 public:
+
+	std::string toString();
+
 	Competence();
 	Competence(const Competence& competence);
 	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat, int coutPm, bool multiCible);

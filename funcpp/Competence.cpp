@@ -2,6 +2,10 @@
 #include "Entite.h"
 #include "Utilitaire.h"
 
+std::string Competence::toString() {
+	return "- " + nom + " (" + description + ") " + std::to_string(coutPm) + " pm.";
+}
+
 Competence::Competence() {};
 Competence::Competence(const Competence& competence) :
 	Competence(competence.nom, competence.description, competence.effet,competence.formuleDeDegat, competence.coutPm,competence.multiCible){}
@@ -21,8 +25,15 @@ void Competence::utiliser(Entite& cible) {
 	effet(cible, n);
 }
 void Competence::utiliser(std::vector<Entite*> cibles) {
-	possesseur->altererPm(-coutPm);
-	for (Entite *cible : cibles) {
-		utiliser(*cible);
+	if (possesseur->getPm() >= coutPm) {
+		Affichage::afficher(possesseur->getNom() + " utilise " + nom+", -");
+		possesseur->altererPm(-coutPm);
+		for (Entite* cible : cibles) {
+			utiliser(*cible);
+		}
+	}
+	else {
+		Affichage::afficher("Pas assez de PM pour lancer " + nom + "\n");
+		//retourner à la selection de competence
 	}
 }

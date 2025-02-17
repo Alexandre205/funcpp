@@ -31,12 +31,6 @@
     <Filter Include="Fichiers sources\Objet\Equipement">
       <UniqueIdentifier>{4d94213a-6dea-4592-b016-fc428be29146}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Competence">
-      <UniqueIdentifier>{ed75de0c-c974-4d71-91c6-71b3190ee7c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Competence">
-      <UniqueIdentifier>{6a63b446-1568-41ec-b047-73205c226f0b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers de ressources\Gestion de projet">
       <UniqueIdentifier>{33000419-81c9-48c3-a031-bfe501a3ee09}</UniqueIdentifier>
     </Filter>
@@ -93,6 +87,9 @@
     <ClCompile Include="Utilitaire.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="AffichageConsole.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entite.h">
@@ -138,6 +135,9 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Utilitaire.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="AffichageConsole.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

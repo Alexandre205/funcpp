@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AffichageConsole.cpp" />
     <ClCompile Include="Arme.cpp" />
     <ClCompile Include="Armure.cpp" />
     <ClCompile Include="Botte.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="Utilitaire.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AffichageConsole.h" />
     <ClInclude Include="Arme.h" />
     <ClInclude Include="Armure.h" />
     <ClInclude Include="Botte.h" />

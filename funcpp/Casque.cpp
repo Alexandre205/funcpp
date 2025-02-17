@@ -1,5 +1,9 @@
 #include "Casque.h"
 
+std::string Casque::toString() {
+	return Item::toString() + " (" + std::to_string(pvBonus) + " pv, " + std::to_string(pmBonus) + "pm)\n";
+}
+
 Casque::Casque(std::string nom, std::string description, int pvBonus, int pmBonus) : 
 	Item(nom,description),pvBonus{pvBonus},pmBonus{pmBonus}{ }
 
