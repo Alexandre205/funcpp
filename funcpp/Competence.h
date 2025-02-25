@@ -3,8 +3,10 @@
 #include<functional>
 #include<vector>
 
+#include"IUsable.h"
+
 class Entite;
-class Competence
+class Competence : public IUsable
 {
 private:
 	std::string nom;
