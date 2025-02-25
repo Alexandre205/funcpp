@@ -45,6 +45,7 @@ public:
 	void apprendreCompetence(Competence *newComp);
 	void utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cibles);
 
+	//dead
 	virtual void attaqueDeBase(Entite& cible) = 0;
 
 	//getteur

@@ -18,7 +18,7 @@ Où mettre la Classe
 |-> une dans perso et une non obligatoire dans monstre
 |-> dans entite avec une classe utiliser comme sans classe
 
-consomable.utilisaton(Entite cible); ne peut pas fonctionner car Entite est une classe abstrait
+consomable.utilisation(Entite cible); ne peut pas fonctionner car Entite est une classe abstrait
 |=> utiliser une reference (Entite& cible)
 
 L'inventaire de Perso ne subissait pas les changement fait dans la classe Inventaire
@@ -59,3 +59,7 @@ Comment bien faire les competences ?
 L'Affichage a ete mis dans un namespace a part pour faciliter les peut-etre future modification
 |-> j'ai probablement mal gérer la gestion du nom des fonctions d'affichage
 |-> j'aurais du partir sur des nom plus en rapport avec l'utilite de se que la fonction affiche
+
+Faire une interface IUsable pour tout ce qui aura besoin d'une formule de degat et d'effets pour etre utiliser
+$-> obliger de mettre un destructor vide dans l'interface pour que la destruction se passe correctement
+|-> Ni les Consommable ni l'Inventaire à acces au info sur le porteur
