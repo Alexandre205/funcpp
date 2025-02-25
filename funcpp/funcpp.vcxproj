@@ -49,6 +49,7 @@
     <ClInclude Include="Entite.h" />
     <ClInclude Include="Inventaire.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="IUsable.h" />
     <ClInclude Include="Monstre.h" />
     <ClInclude Include="Perso.h" />
     <ClInclude Include="Potion.h" />
