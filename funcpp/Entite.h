@@ -43,6 +43,7 @@ public:
 	void altererVitesse(int modifSubi);
 
 	void apprendreCompetence(Competence *newComp);
+	void utiliserCompetence(int indiceDeCompetence, Entite& cible);
 	void utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cibles);
 
 	//dead

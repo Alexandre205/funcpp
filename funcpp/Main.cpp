@@ -13,10 +13,10 @@ int main(int argc, char* argv[]) {
 	//nettoyerLog();
 	Perso j{ "jean",100,10,100,100,100 };
 	j.altererPv(-50);
-	Consommable co1{ "potion","soigne pv",Effets::soinPv,"25",&j };
+	Competence co1{ "soin","soigne pv",Effets::soinPv,"25",10 };
 	Affichage::afficher(j);
-	j.getInventaire()->ajouterConsommable(co1);
-	j.getInventaire()->utiliserConsommable(0,j);
+	j.apprendreCompetence(&co1);
+	j.utiliserCompetence(0,j );
 	Affichage::afficher(j);
 
 	return EXIT_SUCCESS;
