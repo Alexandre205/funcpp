@@ -89,6 +89,10 @@ void Entite::utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cib
 	Utilitaire::testHandler(indiceDeCompetence < nbCompetence && indiceDeCompetence >= 0, "indice de la competence hors portée", false);
 	competences[indiceDeCompetence].utiliser(cibles);
 }
+void Entite::utiliserCompetence(int indiceDeCompetence, Entite& cible) {
+	Utilitaire::testHandler(indiceDeCompetence < nbCompetence && indiceDeCompetence >= 0, "indice de la competence hors portée", false);
+	competences[indiceDeCompetence].utiliser(cible);
+}
 std::string Entite::getNom() { return nom; }
 bool Entite::estInitialis() { return estInitialise; }
 bool Entite::estVivant() {return pv > 0;}

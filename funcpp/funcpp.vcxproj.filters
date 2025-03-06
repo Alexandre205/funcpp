@@ -19,12 +19,6 @@
     <Filter Include="Fichiers sources\Objet">
       <UniqueIdentifier>{1e6acc65-498b-417a-990a-0037a98a94c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Objet\Utilisable">
-      <UniqueIdentifier>{f271313b-4ba2-40c2-b436-9ec3ad1110df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Objet\Utilisable">
-      <UniqueIdentifier>{fbb93760-e542-41bc-bcb2-c4683eb541d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\Objet\Equipement">
       <UniqueIdentifier>{ff33aecd-8952-42b4-b952-2adfb47aec6d}</UniqueIdentifier>
     </Filter>
@@ -65,9 +59,6 @@
     </ClCompile>
     <ClCompile Include="Arme.cpp">
       <Filter>Fichiers sources\Objet\Equipement</Filter>
-    </ClCompile>
-    <ClCompile Include="Potion.cpp">
-      <Filter>Fichiers sources\Objet\Utilisable</Filter>
     </ClCompile>
     <ClCompile Include="Armure.cpp">
       <Filter>Fichiers sources\Objet\Equipement</Filter>
@@ -115,9 +106,6 @@
     </ClInclude>
     <ClInclude Include="Arme.h">
       <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
-    </ClInclude>
-    <ClInclude Include="Potion.h">
-      <Filter>Fichiers d%27en-tête\Objet\Utilisable</Filter>
     </ClInclude>
     <ClInclude Include="Armure.h">
       <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
