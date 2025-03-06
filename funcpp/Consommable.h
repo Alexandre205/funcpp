@@ -1,15 +1,14 @@
 #pragma once
 #include"Item.h"
 #include"Entite.h"
-class Consommable : public Item 
+#include"IUsable.h"
+#include"Effets.h"
+class Consommable : public Item, public IUsable
 {
-private:
-	//effets
 public:
 
 	std::string toString();
 
-	Consommable();
-	Consommable(std::string nom,std::string description);
-	virtual void utilisation(Entite& cible) = 0;
+	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,Entite* possesseur);
+	void utiliser(Entite& cible);
 };

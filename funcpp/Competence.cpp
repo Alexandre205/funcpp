@@ -8,12 +8,13 @@ std::string Competence::toString() {
 
 Competence::Competence() {};
 Competence::Competence(const Competence& competence) :
-	Competence(competence.nom, competence.description, competence.effet,competence.formuleDeDegat, competence.coutPm,competence.multiCible){}
-Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat, int coutPm, bool multiCible) :
-	nom{ nom }, description{ description }, effet{ effet }, formuleDeDegat{ formuleDeDegat }, coutPm {
-	coutPm
-}, multiCible{ multiCible }, possesseur{ NULL }
-{};
+	Competence(competence.nom, competence.description, competence.effet,competence.formule, competence.coutPm){}
+Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDegat, int coutPm) :
+	nom{ nom }, description{ description }, coutPm {coutPm}{
+	IUsable::effet = effet;
+	IUsable::formule = formuleDegat;
+	IUsable::possesseur = possesseur;
+};
 
 void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 	Utilitaire::testHandler(nouvPossesseur != NULL,"Possesseur de competence null",false);
@@ -21,7 +22,7 @@ void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 }
 
 void Competence::utiliser(Entite& cible) {
-	int n = Utilitaire::applicationFormuleDeDegat(formuleDeDegat, *possesseur, cible);
+	int n = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, cible);
 	effet(cible, n);
 }
 void Competence::utiliser(std::vector<Entite*> cibles) {

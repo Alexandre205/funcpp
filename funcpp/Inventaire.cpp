@@ -42,7 +42,7 @@ void Inventaire::supprimerConsommable(int indiceConso) {
 void Inventaire::utiliserConsommable(int indiceConso,Entite& cible) {
 	Utilitaire::testHandler(indiceConso < nbConsommable, "indice d'utilisation hors portee", false);
 	Affichage::afficher("--- utilise un(e) " + inventaire[indiceConso]->getNom());
-	inventaire[indiceConso]->utilisation(cible);
+	inventaire[indiceConso]->utiliser(cible);
 	supprimerConsommable(indiceConso);
 }
 
