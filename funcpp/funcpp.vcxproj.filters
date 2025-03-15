@@ -45,7 +45,7 @@
     <ClCompile Include="Monstre.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Salle.cpp">
+    <ClCompile Include="Fight.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Inventaire.cpp">
@@ -92,7 +92,7 @@
     <ClInclude Include="Monstre.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Salle.h">
+    <ClInclude Include="Fight.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Inventaire.h">

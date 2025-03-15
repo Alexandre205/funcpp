@@ -25,6 +25,5 @@ public:
 	// toujours appelé quand competence attaché à Entite
 	void ajouterPossesseur(Entite *nouvPossesseur);
 
-	void utiliser(Entite& cible);
 	void utiliser(std::vector<Entite*> cibles);
 };

@@ -13,16 +13,20 @@ std::string Entite::toString() {
 	return output;
 }
 
-Entite::Entite() :estInitialise{ false } {};
+Entite::Entite(){};
 Entite::Entite(const Entite& entite):
 	Entite(entite.nom,entite.pv,entite.pvMax,entite.pm,entite.pmMax,entite.attaque,entite.defence,entite.vitesse){ }
 Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaque, int defence, int vitesse):
-	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque }, defence{ defence }, vitesse{ vitesse }, nbCompetence{0}, estInitialise{ true } 
+	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque }, defence{ defence }, vitesse{ vitesse }, nbCompetence{0} 
 {
 	// quelque modification de robustesse a prevoir
 }
 Entite::Entite(std::string nom, int pv, int pm,int attaque, int defence, int vitesse):
 	Entite(nom, pv, pv, pm, pm,attaque,defence,vitesse){}
+
+int Entite::comparerVitesse(Entite* e1, Entite* e2) {
+	return  e1->getVitesse()<e2->getVitesse();
+}
 
 void Entite::modifierStat(int& stat, int modifSubi, int statMax) {
 	Affichage::afficher(std::to_string(abs(modifSubi)));
@@ -85,16 +89,7 @@ void Entite::apprendreCompetence(Competence *newComp) {
 	}
 }
 
-void Entite::utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cibles) {
-	Utilitaire::testHandler(indiceDeCompetence < nbCompetence && indiceDeCompetence >= 0, "indice de la competence hors portée", false);
-	competences[indiceDeCompetence].utiliser(cibles);
-}
-void Entite::utiliserCompetence(int indiceDeCompetence, Entite& cible) {
-	Utilitaire::testHandler(indiceDeCompetence < nbCompetence && indiceDeCompetence >= 0, "indice de la competence hors portée", false);
-	competences[indiceDeCompetence].utiliser(cible);
-}
 std::string Entite::getNom() { return nom; }
-bool Entite::estInitialis() { return estInitialise; }
 bool Entite::estVivant() {return pv > 0;}
 
 int Entite::getPv() {
@@ -121,7 +116,7 @@ int Entite::getVitesse() {
 int Entite::getNbCompetence() {
 	return nbCompetence;
 }
-Competence Entite::getCompetence(int indice) {
+Competence* Entite::getCompetence(int indice) {
 	Utilitaire::testHandler(indice < nbCompetence && indice >= 0, "indice de la competence hors portée", false);
-	return competences[indice];
+	return &competences[indice];
 }

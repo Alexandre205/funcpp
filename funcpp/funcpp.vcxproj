@@ -33,7 +33,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Monstre.cpp" />
     <ClCompile Include="Perso.cpp" />
-    <ClCompile Include="Salle.cpp" />
+    <ClCompile Include="Fight.cpp" />
     <ClCompile Include="Utilitaire.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -51,7 +51,7 @@
     <ClInclude Include="IUsable.h" />
     <ClInclude Include="Monstre.h" />
     <ClInclude Include="Perso.h" />
-    <ClInclude Include="Salle.h" />
+    <ClInclude Include="Fight.h" />
     <ClInclude Include="Utilitaire.h" />
   </ItemGroup>
   <ItemGroup>

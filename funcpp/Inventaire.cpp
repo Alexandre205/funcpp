@@ -39,12 +39,6 @@ void Inventaire::supprimerConsommable(int indiceConso) {
 	}
 	nbConsommable--;
 }
-void Inventaire::utiliserConsommable(int indiceConso,Entite& cible) {
-	Utilitaire::testHandler(indiceConso < nbConsommable, "indice d'utilisation hors portee", false);
-	Affichage::afficher("--- utilise un(e) " + inventaire[indiceConso]->getNom());
-	inventaire[indiceConso]->utiliser(cible);
-	supprimerConsommable(indiceConso);
-}
 
 void Inventaire::ajouterEquipement(Casque casque) {
 	this->casque = casque;

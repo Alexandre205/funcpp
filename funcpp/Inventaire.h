@@ -29,7 +29,6 @@ public:
 	// pour le moment juste 1 inventaire limiter a 5
 	void ajouterConsommable(Consommable& nouvConso);
 	void supprimerConsommable(int indiceConso);
-	void utiliserConsommable(int indiceConso,Entite& cible);
 
 	void ajouterEquipement(Casque casque);
 	void ajouterEquipement(Arme arme);

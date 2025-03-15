@@ -21,20 +21,11 @@ void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 	possesseur = nouvPossesseur;
 }
 
-void Competence::utiliser(Entite& cible) {
-	int n = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, cible);
-	effet(cible, n);
-}
 void Competence::utiliser(std::vector<Entite*> cibles) {
-	if (possesseur->getPm() >= coutPm) {
-		Affichage::afficher(possesseur->getNom() + " utilise " + nom+", -");
-		possesseur->altererPm(-coutPm);
-		for (Entite* cible : cibles) {
-			utiliser(*cible);
-		}
-	}
-	else {
-		Affichage::afficher("Pas assez de PM pour lancer " + nom + "\n");
-		//retourner à la selection de competence
+	Affichage::afficher(possesseur->getNom() + " utilise " + nom + ", -");
+	possesseur->altererPm(-coutPm);
+	for (Entite* cible : cibles) {
+		int valeur = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, *cible);
+		effet(*cible, valeur);
 	}
 }

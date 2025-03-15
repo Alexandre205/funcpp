@@ -7,7 +7,7 @@
 #include"Inventaire.h"
 #include"Monstre.h"
 #include"Perso.h"
-#include"Salle.h"
+#include"Fight.h"
 namespace Affichage
 {
 	void afficher(std::string st);
@@ -18,5 +18,5 @@ namespace Affichage
 	void afficher(Inventaire& in);
 	//void afficher(Monstre& mo);
 	void afficher(Perso& pe);
-	void afficher(Salle& sa);
+	void afficher(Fight& sa);
 };

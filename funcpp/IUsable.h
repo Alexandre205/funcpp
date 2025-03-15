@@ -12,6 +12,5 @@ protected:
 	std::function<void(Entite&, int)> effet;
 	Entite* possesseur;
 public:
-	virtual void utiliser(Entite& cible) = 0;
-	//virtual void utiliser(std::vector<Entite*> cibles) = 0;
+	virtual void utiliser(std::vector<Entite*> cibles) = 0;
 };
