@@ -12,6 +12,8 @@ void Effets::soinPvEtPm(Entite& cible, int puissance) {
 	soinPv(cible, puissance);
 	soinPm(cible, puissance);
 }
+
+//obsolete
 void Effets::resucitePlusSoin(Entite& cible, int puissance) {
 	if (!cible.estVivant()) {
 		Affichage::afficher(cible.getNom() + " recupere ");

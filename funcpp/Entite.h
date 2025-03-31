@@ -32,7 +32,7 @@ public:
 	Entite(std::string nom,int pv,int pvMax,int pm,int pmMax,int attaque,int defence,int vitesse);
 	Entite(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
 
-	static int comparerVitesse(Entite* e1, Entite* e2);
+	static bool comparerVitesse(Entite* e1, Entite* e2);
 	
 	void altererPv(int modifSubi);
 	void altererPm(int modifSubi);

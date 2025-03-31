@@ -24,8 +24,8 @@ Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaqu
 Entite::Entite(std::string nom, int pv, int pm,int attaque, int defence, int vitesse):
 	Entite(nom, pv, pv, pm, pm,attaque,defence,vitesse){}
 
-int Entite::comparerVitesse(Entite* e1, Entite* e2) {
-	return  e1->getVitesse()<e2->getVitesse();
+bool Entite::comparerVitesse(Entite* e1, Entite* e2) {
+	return  e1->getVitesse()>e2->getVitesse();
 }
 
 void Entite::modifierStat(int& stat, int modifSubi, int statMax) {
