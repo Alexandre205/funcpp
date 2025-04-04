@@ -3,7 +3,7 @@
 #include "Utilitaire.h"
 
 std::string Competence::toString() {
-	return "- " + nom + " (" + description + ") " + std::to_string(coutPm) + " pm.";
+	return "- " + nom + " " + std::to_string(coutPm) + " pm.";
 }
 
 Competence::Competence() {};
@@ -15,6 +15,10 @@ Competence::Competence(std::string nom, std::string description, std::function<v
 	IUsable::formule = formuleDegat;
 	IUsable::possesseur = possesseur;
 };
+
+int Competence::getCoutPm() {
+	return coutPm;
+}
 
 void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 	Utilitaire::testHandler(nouvPossesseur != NULL,"Possesseur de competence null",false);

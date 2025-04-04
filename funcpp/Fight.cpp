@@ -60,10 +60,7 @@ void Fight::lancerCombat() {
 		for (Entite* entite : ordreDAction) {
 			//la struct ActionPerforme sera renvoyé par une fonction d'obtension
 			//ActionPerforme ap = obtenirAction //peut-etre lier à l'entite avec du poly
-			ActionPerforme choixActuel;
-			choixActuel.action = entite->getCompetence(0); //test
-			choixActuel.cibles = std::vector<Entite*>{ ennemis.at(0) };//test
-			choixActuel.lanceur = entite;
+			ActionPerforme choixActuel = entite->getAction(*this->joueur,ennemis);
 			// si la competence est prioritaire alors on .push_front() // mais pas que
 			actionPerforme.push_back(choixActuel);
 		}
@@ -78,7 +75,7 @@ void Fight::lancerCombat() {
 					i++;
 				}
 				if (i == actionActuel.cibles.size()) {
-					Affichage::afficher("Aucune cible valable pour faire l'action de "+actionActuel.lanceur->getNom()+"\n");
+					Affichage::afficher("La cible selectionee n'est pas valable pour faire l'action de "+actionActuel.lanceur->getNom()+"\n");
 				}
 				else {
 					actionActuel.action->utiliser(actionActuel.cibles);

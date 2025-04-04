@@ -22,6 +22,8 @@ public:
 	Competence(const Competence& competence);
 	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat, int coutPm);
 	
+
+	int getCoutPm();
 	// toujours appelé quand competence attaché à Entite
 	void ajouterPossesseur(Entite *nouvPossesseur);
 

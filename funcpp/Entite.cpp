@@ -120,3 +120,11 @@ Competence* Entite::getCompetence(int indice) {
 	Utilitaire::testHandler(indice < nbCompetence && indice >= 0, "indice de la competence hors portée", false);
 	return &competences[indice];
 }
+std::string Entite::getListCompetence() {
+	std::string liste="";
+	for (int i = 0; i < nbCompetence; i++) {
+		liste.append(std::to_string(i + 1) + this->getCompetence(i)->toString() + "\n");
+	}
+
+	return liste;
+}

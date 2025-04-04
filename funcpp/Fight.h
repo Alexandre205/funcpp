@@ -6,9 +6,9 @@
 #include"Perso.h"
 
 struct ActionPerforme {
+	Entite* lanceur;
 	std::vector<Entite*> cibles;
 	IUsable* action;
-	Entite* lanceur;
 };
 class Fight 
 {

@@ -1,4 +1,6 @@
 #include "Monstre.h"
+#include "Fight.h"
+#include"Utilitaire.h"
 
 Monstre::Monstre(){};
 Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse) 
@@ -7,10 +9,21 @@ Monstre::Monstre(const Monstre& monstre) :
 	Entite(monstre){}
 
 
-// a modifier
+// obsolete
 void Monstre::attaqueDeBase(Entite& cible) {
 	cible.altererPv(this->getAttaque());
 }
 int Monstre::goldLache() {
 	return 25; // sera en lien avec le level et stat du monstre // on verra en vrai
+}
+ActionPerforme Monstre::getAction(Perso& joueur, std::vector<Monstre*> monstres) {
+	ActionPerforme action{ this };
+	Competence* cp{ this->getCompetence(Utilitaire::getRandomInteger(this->nbCompetence-1)) };
+	if (cp->getCoutPm() > this->getPm()) {
+		// en 0 se trouve l'attaque de base
+		cp = this->getCompetence(0);
+	}
+	action.action = cp;
+	action.cibles = std::vector<Entite*>{ &joueur };
+	return action;
 }

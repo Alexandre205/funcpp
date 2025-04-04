@@ -1,8 +1,10 @@
 #pragma once
 #include<string>
 #include<array>
-#include<initializer_list>
 #include"Competence.h"
+class Perso;
+class Monstre;
+struct ActionPerforme;
 class Entite
 {
 public:
@@ -44,7 +46,7 @@ public:
 
 	void apprendreCompetence(Competence *newComp);
 
-	//dead
+	//obsolete
 	virtual void attaqueDeBase(Entite& cible) = 0;
 
 	//getteur
@@ -60,4 +62,6 @@ public:
 	virtual int getVitesse();
 	int getNbCompetence();
 	Competence* getCompetence(int indice);
+	virtual ActionPerforme getAction(Perso& joueur,std::vector<Monstre*> monstres) = 0;
+	std::string getListCompetence();
 };

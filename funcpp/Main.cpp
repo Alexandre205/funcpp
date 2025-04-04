@@ -6,7 +6,9 @@
 #include"Effets.h"
 #include"Consommable.h"
 #include"Competence.h"
+#include"Utilitaire.h"
 #include"AffichageConsole.h"
+#include"InputConsole.h"
 
 
 int main(int argc, char* argv[]) {
@@ -17,7 +19,9 @@ int main(int argc, char* argv[]) {
 	Competence c1 = { "attaque","al",Effets::infligerDegat,"15",0 };
 	Competence c2 = { "attaque","sl",Effets::infligerDegat,"15",0 };
 	Competence c3 = { "attaque","sl",Effets::infligerDegat,"15",0 };
+	Competence c4 = { "super attaque","al",Effets::infligerDegat,"100",10 };
 	p1.apprendreCompetence(&c1);
+	p1.apprendreCompetence(&c4);
 	m1.apprendreCompetence(&c2);
 	m2.apprendreCompetence(&c3);
 	std::vector<Monstre*> gm1 = { &m1,&m2 };
