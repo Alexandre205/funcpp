@@ -165,6 +165,21 @@ int Utilitaire::applicationFormuleDeDegat(std::string formuleThéorique, Entite& 
     return calculeNotationPolonaiseInverse(queueDeCalcule);
 }
 
+int Utilitaire::getRandomInteger(int lowestValue,int highestValue) {
+    if (!Utilitaire::randomGeneratorActivate) {
+        Utilitaire::randomGeneratorActivate = true;
+        std::random_device rd;
+        Utilitaire::numberGenerator.seed(rd());
+    }
+    std::uniform_int_distribution<int> distribution{ lowestValue,highestValue };
+    return distribution(numberGenerator);
+}
+int Utilitaire::getRandomInteger(int highestValue) {
+    return getRandomInteger(0,highestValue);
+}
+int Utilitaire::getRandomInteger() {
+    return getRandomInteger(0, 1000000);
+}
 
 static std::string dateAujourdhui() {
     std::time_t current_time = std::time(nullptr);

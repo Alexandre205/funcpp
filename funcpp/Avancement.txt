@@ -2,25 +2,15 @@ Optimisation:
 	Revoir l'algorthime de shunting yard pour accélérer le processus de calcule des formules
 	Par exemple, utiliser directement une queue plutot que de convertir apres
 
+Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
+Faire des delete et des destructor: pour l'opti
 Gerer les exceptions avec std::exception
 
-Mettre les effets dans un namespace au lieux d'une classe static
-
-Decider si je fait une classe mere Equipement pour les items equipable
 Decider où je mets la variable classe
+
 
 
 Faire la gestion des loot des monstres avec la structure loot
 
-
-faire le systeme de combat en tour par tour -> ouais juste ça
-|
-|_Dans l'ordre un combat
-|-> Le joueur choisis une competence
-|-> le/les monstres choisis une competence
-|-> On check qui joue en premier (vitesse et priorité)
-|-> On applique les actions dans l'ordre (avec vérification de faisabilité -> peut-on taper un mort ?)
-|-> On repete jusqu'a mort de tout les monstres ou du joueur
-
-Rework la classe consommable pour que les objets ressemblent plus a des competences
+Modifier Competence pour inclure la prio + différents ciblages

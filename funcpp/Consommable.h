@@ -10,5 +10,5 @@ public:
 	std::string toString();
 
 	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,Entite* possesseur);
-	void utiliser(Entite& cible);
+	void utiliser(std::vector<Entite*> cibles);
 };

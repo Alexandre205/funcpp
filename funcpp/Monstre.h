@@ -20,4 +20,7 @@ public:
 
     void attaqueDeBase(Entite& cible);
     int goldLache();
+
+    // faire un bon truc comme algorithme une fois le systeme de combat amélioré
+    ActionPerforme getAction(Perso& joueur, std::vector<Monstre*> monstres);
 };

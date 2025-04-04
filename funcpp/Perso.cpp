@@ -1,4 +1,6 @@
 #include "Perso.h"
+#include "Fight.h"
+#include "InputConsole.h"
 
 std::string Perso::toString() {
 	std::string retour =  Entite::toString() + "(" + std::to_string(nbGold) + " gold)\n";
@@ -43,6 +45,9 @@ int Perso::getDefence() {
 int Perso::getVitesse() {
 	int test = vitesse + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
+}
+ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre*> monstres) {
+	return Obtention::getActionPerforme(*this, monstres);
 }
 
 // plus complexe car gestion pv

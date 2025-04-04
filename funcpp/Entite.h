@@ -1,8 +1,10 @@
 #pragma once
 #include<string>
 #include<array>
-#include<initializer_list>
 #include"Competence.h"
+class Perso;
+class Monstre;
+struct ActionPerforme;
 class Entite
 {
 public:
@@ -16,7 +18,6 @@ protected:
 	int nbCompetence;
 	std::array<Competence,NB_COMP_MAX> competences;
 private:
-	bool estInitialise; // ne pas enlever
 	std::string nom;
 
 	//int level, int exp
@@ -33,6 +34,7 @@ public:
 	Entite(std::string nom,int pv,int pvMax,int pm,int pmMax,int attaque,int defence,int vitesse);
 	Entite(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
 
+	static bool comparerVitesse(Entite* e1, Entite* e2);
 	
 	void altererPv(int modifSubi);
 	void altererPm(int modifSubi);
@@ -43,15 +45,12 @@ public:
 	void altererVitesse(int modifSubi);
 
 	void apprendreCompetence(Competence *newComp);
-	void utiliserCompetence(int indiceDeCompetence, Entite& cible);
-	void utiliserCompetence(int indiceDeCompetence, std::vector<Entite*> cibles);
 
-	//dead
+	//obsolete
 	virtual void attaqueDeBase(Entite& cible) = 0;
 
 	//getteur
 	bool estVivant();
-	bool estInitialis();
 	std::string getNom();
 
 	virtual int getPv();
@@ -62,5 +61,7 @@ public:
 	virtual int getDefence();
 	virtual int getVitesse();
 	int getNbCompetence();
-	Competence getCompetence(int indice);
+	Competence* getCompetence(int indice);
+	virtual ActionPerforme getAction(Perso& joueur,std::vector<Monstre*> monstres) = 0;
+	std::string getListCompetence();
 };

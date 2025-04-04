@@ -13,7 +13,9 @@ Consommable::Consommable(std::string nom,std::string description, std::function<
 	IUsable::possesseur = possesseur;
 }
 
-void Consommable::utiliser(Entite& cible) {
-	int valeur = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, cible);
-	effet(cible, valeur);
+void Consommable::utiliser(std::vector<Entite*> cibles) {
+	for (Entite* cible : cibles) {
+		int valeur = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, *cible);
+		effet(*cible, valeur);
+	}
 }

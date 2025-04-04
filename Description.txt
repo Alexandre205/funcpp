@@ -1,0 +1,8 @@
+Un plateau sur lequel le personnage principale se déplace case par case.
+Une case peut avoir plusieurs effets.
+	1. Combat
+	2. Tresor
+	3. Vide
+	4. Mur
+	5. Escalier
+	6. Marchand

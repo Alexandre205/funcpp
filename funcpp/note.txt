@@ -42,6 +42,8 @@ Dans la maniere dont le Effet fonctionnent ont ne peut cibler qu'une seul  entit
 |-> chercher un equivalent de params de c#
 |=> std::initializer_list<> :> non c'est que pour de truc constant
 |=> vector<Entite*> car on peut passer les argument {arg1,arg2}
+:> je peux pas surchager vector<Entite*> et Entite& car ambiguité de surchage
+|=> il ne reste plus que utiliser(std::vector<Entite*> cibles);
 
 Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfois au dessus de leurs max
 |=> faire passer l'équipement des équipements par la classe Perso uniquement pour pouvoir controller les stats
@@ -50,6 +52,7 @@ Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfoi
 
 Faire une "Interface" combatable pour Certaines Entite ?
 |-> Permet de faire faire la difference entre PNJ, Monstre et Perso
+|-> Une sous-classe peut-etre
 
 Comment bien faire les competences ?
 -> faire une classe pricipale competence avec des classe filles specifique
@@ -63,3 +66,25 @@ L'Affichage a ete mis dans un namespace a part pour faciliter les peut-etre futu
 Faire une interface IUsable pour tout ce qui aura besoin d'une formule de degat et d'effets pour etre utiliser
 $-> obliger de mettre un destructor vide dans l'interface pour que la destruction se passe correctement
 |-> Ni les Consommable ni l'Inventaire à acces au info sur le porteur
+|=> Avec l'implemtation de IUsable j'ai été forcé de rajouter un posseur pour les consommables
+
+Comment gérer fight.isFinished()
+|-> renvoie un simple booléen pour determiner si le combat est finis
+|-> renvoie une classe finDeCombat avec de info sur la fin du combat
+|-> gérer l'entiereté du coombat avec une structure sur se qui se passe dans le combat
+
+Comment gérer les morts pendant un combat 
+|-> Les laisser comme cadavre : permetrait de les faire raise
+|-> Les faire disparaitre : laisse de l'espace pour pouvoir y mettre des nouveaux monstres pendant le combat
+|=> On part sur pas de raise
+
+La gestion des Monstres dans les Fight est bizzare
+|-> quand tu passe par copie des objets les pointeur sont nullifier pour eviter les erreurs
+|=> faut les passer par des pointeur
+
+Où mettre l'obtention des competences par l'utilisateur
+|->séparer en 2 > on obtiens la competence > en fonction de la competence on choisit les/la cibles(s)
+	comme ça on peut faire de la séléction variant en fonction de la competence
+|-> faire une enum dans Compentence pour gérer le ciblage :>mono,all,self,multi
+
+Le déroulement du combat devra etre revu pour intégrer les differents ciblage ainsi que la priorité des competences

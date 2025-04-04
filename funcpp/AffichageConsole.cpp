@@ -23,6 +23,6 @@ void Affichage::afficher(Inventaire& in) {
 void Affichage::afficher(Perso& pe) {
 	std::cout << pe.toString()+"\n";
 }
-void Affichage::afficher(Salle& sa) {
-	std::cout << sa.toSring();
+void Affichage::afficher(Fight& fi) {
+	std::cout << fi.toSring();
 }

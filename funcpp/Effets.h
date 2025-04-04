@@ -1,12 +1,10 @@
 #pragma once
 #include"Entite.h"
-class Effets
+namespace Effets
 {
-
-public:
-	static void soinPv(Entite& cible,int puissance);
-	static void soinPm(Entite& cible,int puissance);
-	static void soinPvEtPm(Entite& cible, int puissance);
-	static void resucitePlusSoin(Entite& cible, int puissance);
-	static void infligerDegat(Entite& cible, int puissance);
+	void soinPv(Entite& cible,int puissance);
+	void soinPm(Entite& cible,int puissance);
+	void soinPvEtPm(Entite& cible, int puissance);
+	void resucitePlusSoin(Entite& cible, int puissance);
+	void infligerDegat(Entite& cible, int puissance);
 };
