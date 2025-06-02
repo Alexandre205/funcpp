@@ -11,6 +11,7 @@
 namespace Affichage
 {
 	void afficher(std::string st);
+	void afficher(std::vector<Entite*>& ens);
 	void afficher(Entite& en);
 	void afficher(Item& it);
 	void afficher(Competence& co);

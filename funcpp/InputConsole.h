@@ -6,4 +6,5 @@
 #include"Fight.h"
 namespace Obtention {
 	ActionPerforme getActionPerforme(Entite& joueur, std::vector<Monstre*>& ennemis);
+	int getCibleIndice(std::vector<Entite*>& cibles);
 }

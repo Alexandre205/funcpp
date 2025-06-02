@@ -88,3 +88,9 @@ Où mettre l'obtention des competences par l'utilisateur
 |-> faire une enum dans Compentence pour gérer le ciblage :>mono,all,self,multi
 
 Le déroulement du combat devra etre revu pour intégrer les differents ciblage ainsi que la priorité des competences
+|=> priorité sera une variable int pour désigner à quel point elle prioritaire <:
+	va falloir changer d'approche dans la facon de gerer l'obtention des competences <:
+	les action ne seront plus obtenue dans l'ordre mais seront trié <: 
+	en bloc logique sur la prio puis en fonction de la vitesse
+|-> le ciblage integrera un design pattern strategy en utilisant une interface ICiblage <:
+	qui sera implementé par les IUsable pour gérer le ciblage()

@@ -15,16 +15,22 @@ ActionPerforme Obtention::getActionPerforme(Entite& joueur, std::vector<Monstre*
 	Affichage::afficher(liste);
 	action.action = joueur.getCompetence(getValidInt(1,joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste)-1);
 	
-	// gestion uniquement mono // améliorer plus tard
-	liste.clear();
-	int i = 0;
-	for (i; i < ennemis.size(); i++) {
-		liste.append(std::to_string(i+1) + " " + ennemis[i]->getNom() + "\n");
-	}
-	Affichage::afficher(liste);
-	int indiceEnnemis = getValidInt(1, (int)ennemis.size(), "Mauvais choix d\'ennemis\n" + liste)-1;
+	std::vector<Entite*> allie = { &joueur }; //permet de rajouter des Entite alliées au besoin
+	action.cibles = action.action->getCibles(ennemis, allie);
+	
+	//liste.clear();
+	//int i = 0;
+	//for (i; i < ennemis.size(); i++) {
+	//	liste.append(std::to_string(i+1) + " " + ennemis[i]->getNom() + "\n");
+	//}
+	//Affichage::afficher(liste);
+	//int indiceEnnemis = getValidInt(1, (int)ennemis.size(), "Mauvais choix d\'ennemis\n" + liste)-1;
 
-	action.cibles = std::vector<Entite*>{ ennemis[indiceEnnemis] };
+	//action.cibles = std::vector<Entite*>{ ennemis[indiceEnnemis] };
 
 	return action;
+}
+int Obtention::getCibleIndice(std::vector<Entite*>& cibles) {
+	Affichage::afficher(cibles);
+	return getValidInt(1,(int)cibles.size(),"Cible impossible")-1;
 }
