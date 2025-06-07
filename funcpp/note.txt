@@ -94,3 +94,6 @@ Le déroulement du combat devra etre revu pour intégrer les differents ciblage ai
 	en bloc logique sur la prio puis en fonction de la vitesse
 |-> le ciblage integrera un design pattern strategy en utilisant une interface ICiblage <:
 	qui sera implementé par les IUsable pour gérer le ciblage()
+|-> L'utilisation de ICiblage c'est pour la sélection des cibles <:
+	l'utilisation se fait via le COmpetence.utilisation <:
+	cependant garder de coté l'utilisation dans ICiblage pour faire des compentences plus complexes

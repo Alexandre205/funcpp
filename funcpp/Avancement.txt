@@ -25,8 +25,6 @@ bruler implement state{
 }
 
 Faire la gestion des loot des monstres avec la structure loot
-
+Il est possible d'utiliser un comp sans en avoir les pm
 Rajouter ICiblage self
-Modifier Competence pour inclure la prio + différents ciblages
-Avec le nouveau systeme de selection des cible on a peut-etre plus besoin de gérer l'utilisation par le ICiblage
-|-> comme toutes les méthodes de séléction de cible renvoie un vector il serait mieux de faire utilisation dans Competence avec une signature unique
+Modifier Competence pour inclure la prio + modifier consommable

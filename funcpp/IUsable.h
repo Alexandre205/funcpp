@@ -17,4 +17,5 @@ protected:
 public:
 	virtual void utiliser(std::vector<Entite*> cibles) = 0;
 	virtual std::vector<Entite*> getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) = 0;
+	virtual int getPriority() = 0;
 };

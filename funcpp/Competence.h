@@ -12,19 +12,22 @@ class Competence : public IUsable
 private:
 	std::string nom;
 	std::string description;
-	int coutPm;
-
-	
+	int coutPm;	
 public:
 
 	std::string toString();
 
 	Competence();
 	Competence(const Competence& competence);
-	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat,ICiblage* ciblage, int coutPm);
+
+	//constructeur de base
+	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat,ICiblage* ciblage, int coutPm,int priorite);
 	
+	//constructeur priorité 0
+	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, ICiblage* ciblage, int coutPm);
 
 	int getCoutPm();
+	int getPriority();
 	// toujours appelé quand competence attaché à Entite
 	void ajouterPossesseur(Entite *nouvPossesseur);
 

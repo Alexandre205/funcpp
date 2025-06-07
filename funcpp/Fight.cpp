@@ -1,4 +1,5 @@
 #include<algorithm>
+#include<list>
 
 #include"Fight.h"
 #include"Utilitaire.h"
@@ -33,7 +34,7 @@ std::string Fight::listeMonstrePresent() {
 	return liste;
 }
 
-//implementation à changer pour retourner la raison de l'arret
+//implementation à changer pour retourner la raison de l'arret //et faire le booléen correctment
 bool Fight::isFinished() {
 	if (!joueur->estVivant()) {
 		return true;
@@ -41,6 +42,7 @@ bool Fight::isFinished() {
 	return ennemis.size() == 0;
 }
 void Fight::majOrdreDAction(std::deque<Entite*>& ordreDAction) {
+	//Peut-etre faire un buble sort pour car c'est un array peu désordonné
 	if (!std::is_sorted(ordreDAction.begin(), ordreDAction.end(), Entite::comparerVitesse)) {
 		std::sort(ordreDAction.begin(), ordreDAction.end(), Entite::comparerVitesse);
 	}
@@ -54,15 +56,21 @@ void Fight::lancerCombat() {
 	}
 
 	majOrdreDAction(ordreDAction);
-	std::deque<ActionPerforme> actionPerforme;
+
+	//peut-etre en faire une liste chainée pour les perfs
+	std::list<ActionPerforme> actionPerforme;
 	while (!isFinished()) {
 		// 1.choix des action
 		for (Entite* entite : ordreDAction) {
-			//la struct ActionPerforme sera renvoyé par une fonction d'obtension
-			//ActionPerforme ap = obtenirAction //peut-etre lier à l'entite avec du poly
 			ActionPerforme choixActuel = entite->getAction(*this->joueur,ennemis);
-			// si la competence est prioritaire alors on .push_front() // mais pas que
-			actionPerforme.push_back(choixActuel);
+			int priorite = choixActuel.action->getPriority();
+
+			//actionPerforme doit etre trie sur la priorité puis par rapport à l'ordre de leur ajout
+			std::list<ActionPerforme>::iterator it = actionPerforme.begin();
+			while (it != actionPerforme.end() && priorite <= it->action->getPriority()) {
+				it++;
+			}
+			actionPerforme.insert(it, choixActuel);
 		}
 		// 2.effectuer les actions dans l'ordre
 		for (ActionPerforme actionActuel : actionPerforme) {
@@ -70,6 +78,7 @@ void Fight::lancerCombat() {
 				Affichage::afficher(actionActuel.lanceur->getNom() + " est mort. Impossible de lancer l'attaque\n");
 			}
 			else {
+				//si il y a un bug en rapport avec le droit d'utilisation d'une competence creuse ici
 				int i = 0;
 				while (i < actionActuel.cibles.size() && !actionActuel.cibles[i]->estVivant()) {
 					i++;
