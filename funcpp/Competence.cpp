@@ -8,16 +8,27 @@ std::string Competence::toString() {
 
 Competence::Competence() {};
 Competence::Competence(const Competence& competence) :
-	Competence(competence.nom, competence.description, competence.effet,competence.formule, competence.coutPm){}
-Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDegat, int coutPm) :
+	Competence(competence.nom, competence.description, competence.effet,competence.formule,competence.ciblage, competence.coutPm,competence.priorite){}
+Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDegat,ICiblage* ciblage, int coutPm,int priorite) :
 	nom{ nom }, description{ description }, coutPm {coutPm}{
 	IUsable::effet = effet;
 	IUsable::formule = formuleDegat;
 	IUsable::possesseur = possesseur;
+	IUsable::ciblage = ciblage;
+	IUsable::priorite = priorite;
+};
+Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, ICiblage* ciblage, int coutPm) :
+	Competence(nom, description, effet, formuleDeDegat, ciblage, coutPm, 0) {
 };
 
 int Competence::getCoutPm() {
 	return coutPm;
+}
+int Competence::getPriority() {
+	return priorite;
+}
+std::string Competence::getNom() {
+	return  nom;
 }
 
 void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
@@ -29,7 +40,11 @@ void Competence::utiliser(std::vector<Entite*> cibles) {
 	Affichage::afficher(possesseur->getNom() + " utilise " + nom + ", -");
 	possesseur->altererPm(-coutPm);
 	for (Entite* cible : cibles) {
-		int valeur = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, *cible);
-		effet(*cible, valeur);
+		int valeurAjoute = Utilitaire::applicationFormuleDeDegat(this->formule,*possesseur,*cible);
+		this->effet(*cible, valeurAjoute);
 	}
+	//ciblage->appliquerEffet(effet, cibles, *possesseur, formule);
+}
+std::vector<Entite*> Competence::getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) {
+	return ciblage->selectionnerCible(ennemis,allie);
 }

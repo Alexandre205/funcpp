@@ -28,6 +28,7 @@
     <ClCompile Include="Consommable.cpp" />
     <ClCompile Include="Effets.cpp" />
     <ClCompile Include="Entite.cpp" />
+    <ClCompile Include="ICiblage.cpp" />
     <ClCompile Include="InputConsole.cpp" />
     <ClCompile Include="Inventaire.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="Consommable.h" />
     <ClInclude Include="Effets.h" />
     <ClInclude Include="Entite.h" />
+    <ClInclude Include="ICiblage.h" />
     <ClInclude Include="InputConsole.h" />
     <ClInclude Include="Inventaire.h" />
     <ClInclude Include="Item.h" />

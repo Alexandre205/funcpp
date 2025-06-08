@@ -13,13 +13,15 @@
 
 int main(int argc, char* argv[]) {
 	//nettoyerLog();
-	Perso p1{ "Alex",100,75,50,50,50 };
-	Monstre m1{ "Slime",25,10,5,5,5 };
+	Perso p1{ "Alex",100,10,50,50,50 };
+	Monstre m1{ "Slime",101,10,5,5,5 };
 	Monstre m2{ "Slime1",25,10,5,5,5 };
-	Competence c1 = { "attaque","al",Effets::infligerDegat,"15",0 };
-	Competence c2 = { "attaque","sl",Effets::infligerDegat,"15",0 };
-	Competence c3 = { "attaque","sl",Effets::infligerDegat,"15",0 };
-	Competence c4 = { "super attaque","al",Effets::infligerDegat,"100",10 };
+	MonoCible mono;
+	MultiCible multi;
+	Competence c1 = { "attaque","al",Effets::infligerDegat,"15",&mono,0 };
+	Competence c2 = { "attaque","sl1",Effets::infligerDegat,"15",&mono,0 };
+	Competence c3 = { "attaque","sl3",Effets::infligerDegat,"15",&mono,0 };
+	Competence c4 = { "super attaque","al",Effets::infligerDegat,"100",&multi,10 };
 	p1.apprendreCompetence(&c1);
 	p1.apprendreCompetence(&c4);
 	m1.apprendreCompetence(&c2);

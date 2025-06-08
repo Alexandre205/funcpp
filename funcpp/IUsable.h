@@ -3,14 +3,19 @@
 #include<functional>
 #include<vector>
 
-class Entite;
+#include"ICiblage.h"
+
+class Monstre;
 //interface
 class IUsable {
 protected:
-	//surement une enum pour les specification de l'utilisation, ex:multicible,prio,...
 	std::string formule;
 	std::function<void(Entite&, int)> effet;
 	Entite* possesseur;
+	ICiblage* ciblage;
+	int priorite;
 public:
 	virtual void utiliser(std::vector<Entite*> cibles) = 0;
+	virtual std::vector<Entite*> getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) = 0;
+	virtual int getPriority() = 0;
 };
