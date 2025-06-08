@@ -13,13 +13,6 @@ void Effets::soinPvEtPm(Entite& cible, int puissance) {
 	soinPm(cible, puissance);
 }
 
-//obsolete
-void Effets::resucitePlusSoin(Entite& cible, int puissance) {
-	if (!cible.estVivant()) {
-		Affichage::afficher(cible.getNom() + " recupere ");
-		cible.altererPv(puissance);
-	}
-}
 void Effets::infligerDegat(Entite& cible, int puissance) {
 	Affichage::afficher(cible.getNom() + " perd ");
 	if (puissance < 1) puissance = 1;

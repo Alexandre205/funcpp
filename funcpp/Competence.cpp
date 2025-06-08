@@ -27,6 +27,9 @@ int Competence::getCoutPm() {
 int Competence::getPriority() {
 	return priorite;
 }
+std::string Competence::getNom() {
+	return  nom;
+}
 
 void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 	Utilitaire::testHandler(nouvPossesseur != NULL,"Possesseur de competence null",false);

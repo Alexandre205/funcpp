@@ -28,3 +28,8 @@ std::vector<Entite*> MultiCible::selectionnerCible(std::vector<Monstre*>& ennemi
 	}
 	return cibles;
 }
+
+// à changer si on rajoute des alliers
+std::vector<Entite*> SelfCible::selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) {
+	return { allie[0] };
+}

@@ -23,3 +23,8 @@ public:
 	//void appliquerEffet(std::function<void(Entite&, int)>effet, std::vector<Entite*>& cibles, Entite& lanceur, std::string formuleDegat);
 	std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
 };
+
+class SelfCible : public ICiblage {
+public:
+	std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
+};

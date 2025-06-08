@@ -10,7 +10,11 @@ private:
     Inventaire inventaire;
 public:
     std::string toString();
+
+    //constructeur sans gold
     Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
+
+    //constructeur de base
     Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse,int nbGold);
 
     //obsolete

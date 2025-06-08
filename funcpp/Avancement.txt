@@ -5,9 +5,9 @@ Optimisation:
 Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
 Faire des delete et des destructor: pour l'opti
-Gerer les exceptions avec std::exception
 
 Decider où je mets la variable classe
+Faire la gestion des loot des monstres avec la structure loot
 
 Utiliser le pattern State pour les effets de statut infligé au Entite
 |>Le entite aurons un tableau de state qui sera parcouru
@@ -24,7 +24,4 @@ bruler implement state{
 	}
 }
 
-Faire la gestion des loot des monstres avec la structure loot
-Il est possible d'utiliser un comp sans en avoir les pm
-Rajouter ICiblage self
-Modifier Competence pour inclure la prio + modifier consommable
+Creer le fichier des monstres 

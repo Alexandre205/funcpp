@@ -13,8 +13,12 @@ ActionPerforme Obtention::getActionPerforme(Entite& joueur, std::vector<Monstre*
 	ActionPerforme action{ &joueur };
 	std::string liste = joueur.getListCompetence();
 	Affichage::afficher(liste);
-	action.action = joueur.getCompetence(getValidInt(1,joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste)-1);
-	
+	Competence* comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
+	while (comp->getCoutPm()>joueur.getPm()) {
+		Affichage::afficher("Impossible de lancer " + comp->getNom() + ", pas assez de pm\n"+liste);
+		comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
+	}
+	action.action = comp;
 	std::vector<Entite*> allie = { &joueur }; //permet de rajouter des Entite alliées au besoin
 	action.cibles = action.action->getCibles(ennemis, allie);
 	

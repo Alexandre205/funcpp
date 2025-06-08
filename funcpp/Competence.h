@@ -28,6 +28,7 @@ public:
 
 	int getCoutPm();
 	int getPriority();
+	std::string getNom();
 	// toujours appelé quand competence attaché à Entite
 	void ajouterPossesseur(Entite *nouvPossesseur);
 
