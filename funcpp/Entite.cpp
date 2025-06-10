@@ -14,8 +14,8 @@ std::string Entite::toString() {
 }
 
 Entite::Entite(){};
-Entite::Entite(const Entite& entite):
-	Entite(entite.nom,entite.pv,entite.pvMax,entite.pm,entite.pmMax,entite.attaque,entite.defence,entite.vitesse){ }
+//Entite::Entite(const Entite& entite):
+//	Entite(entite.nom,entite.pv,entite.pvMax,entite.pm,entite.pmMax,entite.attaque,entite.defence,entite.vitesse){ }
 Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaque, int defence, int vitesse):
 	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque }, defence{ defence }, vitesse{ vitesse }, nbCompetence{0} 
 {

@@ -42,7 +42,7 @@ bool Fight::isFinished() {
 	return ennemis.size() == 0;
 }
 void Fight::majOrdreDAction(std::deque<Entite*>& ordreDAction) {
-	//Peut-etre faire un buble sort pour car c'est un array peu désordonné
+	//Peut-etre faire un buble sort pour car c'est une list peu désordonné
 	if (!std::is_sorted(ordreDAction.begin(), ordreDAction.end(), Entite::comparerVitesse)) {
 		std::sort(ordreDAction.begin(), ordreDAction.end(), Entite::comparerVitesse);
 	}
@@ -57,7 +57,6 @@ void Fight::lancerCombat() {
 
 	majOrdreDAction(ordreDAction);
 
-	//peut-etre en faire une liste chainée pour les perfs
 	std::list<ActionPerforme> actionPerforme;
 	while (!isFinished()) {
 		// 1.choix des action

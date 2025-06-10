@@ -178,7 +178,18 @@ int Utilitaire::getRandomInteger(int highestValue) {
     return getRandomInteger(0,highestValue);
 }
 int Utilitaire::getRandomInteger() {
-    return getRandomInteger(0, 1000000);
+    return getRandomInteger(1000000);
+}
+
+void Utilitaire::polishMot(std::string& mot) {
+    if (!mot.empty()) {
+        for (int i{ 0 }; i < mot.size(); i++) {
+            if (mot[i] == '_') {
+                mot[i] = ' ';
+            }
+        }
+        mot[0] = std::toupper(mot[0]);
+    }
 }
 
 static std::string dateAujourdhui() {
@@ -191,12 +202,12 @@ static std::string dateAujourdhui() {
 }
 
 void Utilitaire::nettoyerLog() {
-    std::ofstream fichier{ NOM_FICHIER, std::ofstream::out | std::ofstream::trunc };
+    std::ofstream fichier{ NOM_FICHIER_LOG, std::ofstream::trunc };
     fichier.close();
 }
 void Utilitaire::testHandler(bool test, const char* message, bool afficheSucces) {
     std::ofstream fichier;
-    fichier.open(NOM_FICHIER, std::ios::app);
+    fichier.open(NOM_FICHIER_LOG, std::ios::app);
     if (fichier) {
         if (test) {
             if (afficheSucces) {
@@ -215,7 +226,7 @@ void Utilitaire::testHandler(bool test, const char* message, bool afficheSucces)
     }
 }
 void Utilitaire::writeInLog(const char* message) {
-    std::ofstream fichier{ NOM_FICHIER,std::ios::app };
+    std::ofstream fichier{ NOM_FICHIER_LOG,std::ios::app };
     fichier << dateAujourdhui() + " , " + message + "\n";
 
 }
