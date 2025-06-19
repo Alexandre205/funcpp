@@ -49,7 +49,7 @@ void Fight::majOrdreDAction(std::deque<Entite*>& ordreDAction) {
 }
 void Fight::lancerCombat() {
 	// afficher ennemis
-	std::deque<Entite*> ordreDAction;
+	std::deque<Entite*> ordreDAction;//pourquoi c'est un deque ??
 	ordreDAction.push_back(joueur);
 	for (Monstre *p : ennemis) {
 		ordreDAction.push_back(p);

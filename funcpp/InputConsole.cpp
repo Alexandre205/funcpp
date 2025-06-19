@@ -1,5 +1,6 @@
 #include"InputConsole.h"
 #include"AffichageConsole.h"
+#include"Utilitaire.h"
 int getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	int nb = -1;
 	std::cin >> nb;
@@ -37,4 +38,32 @@ ActionPerforme Obtention::getActionPerforme(Entite& joueur, std::vector<Monstre*
 int Obtention::getCibleIndice(std::vector<Entite*>& cibles) {
 	Affichage::afficher(cibles);
 	return getValidInt(1,(int)cibles.size(),"Cible impossible")-1;
+}
+Direction Obtention::getDirection(Salle* salle) {
+	std::array<Direction, 4> directionPossible;
+	std::string s{"Ou voulez - aller ?\n"};
+	int numConnexion = 1;
+	if (salle->hasNorthConnexion()) {
+		s.append(std::to_string(numConnexion) + ".Nord\n");
+		directionPossible[numConnexion - 1] = Direction::NORTH;
+		numConnexion++;
+	}
+	if (salle->hasSouthConnexion()) {
+		s.append(std::to_string(numConnexion) + ".Sud\n");
+		directionPossible[numConnexion - 1] = Direction::SOUTH;
+		numConnexion++;
+	}
+	if (salle->hasWestConnexion()) {
+		s.append(std::to_string(numConnexion) + ".Ouest\n");
+		directionPossible[numConnexion - 1] = Direction::WEST;
+		numConnexion++;
+	}
+	if (salle->hasEastConnexion()) {
+		s.append(std::to_string(numConnexion) + ".Est\n");
+		directionPossible[numConnexion - 1] = Direction::EAST;
+		numConnexion++;
+	}
+	Utilitaire::testHandler(numConnexion > 1, "Pas de connxion dans la salle", false);
+	Affichage::afficher(s);
+	return directionPossible[getValidInt(1, numConnexion-1, "Impossible d'aller par là\n")-1];
 }

@@ -44,7 +44,7 @@ void Affichage::displayDonjon(Donjon& dj) {
 	for (int i{ 0 }; i < dj.getColSize(); i++) {
 		for (int j{ 0 }; j < dj.getLineSize(); j++) {
 			Salle* r = dj.getRoom(i, j);
-			if (r->hasNotrhConnexion()) {
+			if (r->hasNorthConnexion()) {
 				s.append("/   \\");
 			}
 			else {

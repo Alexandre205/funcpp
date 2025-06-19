@@ -26,5 +26,10 @@ bruler implement state{
 
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
+Faire la création de donjon procédurale
 
-Réutiliser l'affichage de 
+Anglaitiser le code, pas les textes juste le code
+
+Modifier Donjon::initFloor pour faire en sorte que les murs extérieurs soit bloqué
+Enlever le dernier parametre de Utilitaire::testHandler();
+|-> Plus emmerdant qu'autre chose

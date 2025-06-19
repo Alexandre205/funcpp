@@ -1,20 +1,37 @@
 #pragma once
 #include"Salle.h"
+enum Direction {
+	NORTH,SOUTH,WEST,EAST
+};
+
 class Donjon
 {
 private:
+	Perso* player;
 	//int floorNumber;
 	int colSize; //y
 	int lineSize; //x
 
+	//Current position of the CurrentRoom
+	int currentY;
+	int currentX;
+	
 	//matrice representing the actual floor
 	//An array of array of pointers to a room
 	Salle*** floor; 
 public:
 	std::string toString();
-	Donjon(int lineSize, int colSize);
+	Donjon(Perso* player,int lineSize, int colSize,int currentY,int currentX);
 	void initFloor();
+
+
+	void move();
+
 	Salle* getRoom(int i, int j);
+	void setCurrentX(int currentX);
+	void setCurrentY(int currentY);
+	int getCurrentX();
+	int getCurrentY();
 	int getColSize();
 	int getLineSize();
 };
