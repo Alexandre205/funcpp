@@ -74,7 +74,7 @@ void Fight::lancerCombat() {
 		// 2.effectuer les actions dans l'ordre
 		for (ActionPerforme actionActuel : actionPerforme) {
 			if (!actionActuel.lanceur->estVivant()) {
-				Affichage::afficher(actionActuel.lanceur->getNom() + " est mort. Impossible de lancer l'attaque\n");
+				Affichage::afficher(actionActuel.lanceur->getNom() + " est mort. Impossible de lancer son attaque\n");
 			}
 			else {
 				//si il y a un bug en rapport avec le droit d'utilisation d'une competence creuse ici

@@ -46,7 +46,6 @@ void Competence::utiliser(std::vector<Entite*> cibles) {
 		int valeurAjoute = Utilitaire::applicationFormuleDeDegat(this->formule,*possesseur,*cible);
 		this->effet(*cible, valeurAjoute);
 	}
-	//ciblage->appliquerEffet(effet, cibles, *possesseur, formule);
 }
 std::vector<Entite*> Competence::getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) {
 	return ciblage->selectionnerCible(ennemis,allie);

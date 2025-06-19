@@ -24,8 +24,7 @@ std::vector<Monstre*> FileManagement::getMonstersFromFile() {
 			file >> nomComp >> descriptionComp >> iEffet >> formuleComp >> iCiblage >> coutPm >> priorite;
 			Utilitaire::polishMot(nomComp);
 			Utilitaire::polishMot(descriptionComp);
-			Competence* comp = new Competence{ nomComp,descriptionComp,iEffet,formuleComp,iCiblage,coutPm,priorite };
-			monstre->apprendreCompetence(comp);
+			monstre->apprendreCompetence(new Competence{ nomComp,descriptionComp,iEffet,formuleComp,iCiblage,coutPm,priorite });
 		}
 		monstres.push_back(monstre);
 	}

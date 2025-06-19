@@ -14,6 +14,7 @@ private:
     };
     std::vector<struct Loot> objetsLootable;
 public:
+    std::string toString();
     Monstre();
     Monstre(const Monstre& monstre);
     Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
