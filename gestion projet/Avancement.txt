@@ -23,5 +23,3 @@ bruler implement state{
 		nbTour restant--
 	}
 }
-
-Creer le fichier des monstres 

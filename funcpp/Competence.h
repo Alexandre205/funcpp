@@ -12,7 +12,11 @@ class Competence : public IUsable
 private:
 	std::string nom;
 	std::string description;
-	int coutPm;	
+	int coutPm;
+
+	// possiblement mettre ça dans Effet.h et ICiblage.h
+	static std::function<void(Entite&, int)> intToEffet(int iEffet);
+	static ICiblage* intToICiblage(int iICiblage);
 public:
 
 	std::string toString();
@@ -25,6 +29,10 @@ public:
 	
 	//constructeur priorité 0
 	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, ICiblage* ciblage, int coutPm);
+
+	//pour lire les compentece depuis un fichier
+	//utilisation d'indices
+	Competence(std::string nom, std::string description, int iEffet, std::string formule, int iICiblage, int coutPm, int priorite);
 
 	int getCoutPm();
 	int getPriority();

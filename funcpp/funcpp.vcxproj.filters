@@ -81,6 +81,15 @@
     <ClCompile Include="AffichageConsole.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="ICiblage.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InputConsole.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManagement.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entite.h">
@@ -131,16 +140,34 @@
     <ClInclude Include="IUsable.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="ICiblage.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="InputConsole.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManagement.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="note.txt">
+    <Text Include="..\ressources\Monstres.txt">
+      <Filter>Fichiers de ressources\Ressources</Filter>
+    </Text>
+    <Text Include="..\gestion projet\Avancement.txt">
       <Filter>Fichiers de ressources\Gestion de projet</Filter>
     </Text>
-    <Text Include="log.txt">
+    <Text Include="..\gestion projet\Description.txt">
       <Filter>Fichiers de ressources\Gestion de projet</Filter>
     </Text>
-    <Text Include="Avancement.txt">
+    <Text Include="..\gestion projet\note.txt">
       <Filter>Fichiers de ressources\Gestion de projet</Filter>
+    </Text>
+    <Text Include="..\ressources\log.txt">
+      <Filter>Fichiers de ressources\Ressources</Filter>
+    </Text>
+    <Text Include="..\ressources\How to use file.txt">
+      <Filter>Fichiers de ressources\Ressources</Filter>
     </Text>
   </ItemGroup>
 </Project>

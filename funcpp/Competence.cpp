@@ -20,6 +20,9 @@ Competence::Competence(std::string nom, std::string description, std::function<v
 Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, ICiblage* ciblage, int coutPm) :
 	Competence(nom, description, effet, formuleDeDegat, ciblage, coutPm, 0) {
 };
+Competence::Competence(std::string nom, std::string description, int iEffet, std::string formuleDeDegat, int iICiblage, int coutPm, int priorite) :
+	Competence(nom, description, intToEffet(iEffet), formuleDeDegat, intToICiblage(iICiblage), coutPm, priorite) {
+};
 
 int Competence::getCoutPm() {
 	return coutPm;
@@ -47,4 +50,22 @@ void Competence::utiliser(std::vector<Entite*> cibles) {
 }
 std::vector<Entite*> Competence::getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) {
 	return ciblage->selectionnerCible(ennemis,allie);
+}
+
+std::function<void(Entite&, int)> Competence::intToEffet(int i) {
+	switch (i) {
+		case 1: return Effets::infligerDegat;
+		case 2: return Effets::soinPv;
+		case 3: return Effets::soinPm;
+		case 4: return Effets::soinPvEtPm;
+		default: return NULL;
+	}
+}
+ICiblage* Competence::intToICiblage(int i) {
+	switch (i) {
+		case 1:return new MonoCible;
+		case 2: return new MultiCible;
+		case 3:return new SelfCible;
+		default:return NULL;
+	}
 }

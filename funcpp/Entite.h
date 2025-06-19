@@ -30,7 +30,7 @@ public:
 	std::string toString();
 
 	Entite();
-	Entite(const Entite& entite);
+	//Entite(const Entite& entite);
 	Entite(std::string nom,int pv,int pvMax,int pm,int pmMax,int attaque,int defence,int vitesse);
 	Entite(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
 
