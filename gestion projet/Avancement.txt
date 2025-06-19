@@ -4,7 +4,7 @@ Optimisation:
 
 Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
-Faire des delete et des destructor: pour l'opti
+Faire des delete et des destructor
 
 Decider où je mets la variable classe
 Faire la gestion des loot des monstres avec la structure loot
@@ -23,3 +23,8 @@ bruler implement state{
 		nbTour restant--
 	}
 }
+
+Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
+|-> Création procédurale
+
+Réutiliser l'affichage de 

@@ -6,7 +6,7 @@ y a un probleme avec les stats
 
 Est-ce que je dois faire une classe mere pour tout les équipement voir tous les objet
 |-> pourrait etre pas mal pour le loot
-|=> une classe item sera ajouté
+|=> une classe item a été ajouté
 
 Choisir quel structure de donnée utiliser pour l'inventaire
 |-> array ou vector pour acces O(1) mais difficulté de suppression
@@ -53,6 +53,7 @@ Probleme entre les stat et l'équipement des équipement, les Pv et Pm sont parfoi
 Faire une "Interface" combatable pour Certaines Entite ?
 |-> Permet de faire faire la difference entre PNJ, Monstre et Perso
 |-> Une sous-classe peut-etre
+|-=>Je vais remonter Entite dans la hiérarchie et remplacer la classe Entite actuel par Entite combattable
 
 Comment bien faire les competences ?
 -> faire une classe pricipale competence avec des classe filles specifique
@@ -66,12 +67,12 @@ L'Affichage a ete mis dans un namespace a part pour faciliter les peut-etre futu
 Faire une interface IUsable pour tout ce qui aura besoin d'une formule de degat et d'effets pour etre utiliser
 $-> obliger de mettre un destructor vide dans l'interface pour que la destruction se passe correctement
 |-> Ni les Consommable ni l'Inventaire à acces au info sur le porteur
-|=> Avec l'implemtation de IUsable j'ai été forcé de rajouter un posseur pour les consommables
+|=> Avec l'implemtation de IUsable j'ai été forcé de rajouter un possesseur pour les consommables
 
 Comment gérer fight.isFinished()
 |-> renvoie un simple booléen pour determiner si le combat est finis
 |-> renvoie une classe finDeCombat avec de info sur la fin du combat
-|-> gérer l'entiereté du coombat avec une structure sur se qui se passe dans le combat
+|-> gérer l'entiereté du combat avec une structure sur se qui se passe dans le combat
 
 Comment gérer les morts pendant un combat 
 |-> Les laisser comme cadavre : permetrait de les faire raise
@@ -85,15 +86,26 @@ La gestion des Monstres dans les Fight est bizzare
 Où mettre l'obtention des competences par l'utilisateur
 |->séparer en 2 > on obtiens la competence > en fonction de la competence on choisit les/la cibles(s)
 	comme ça on peut faire de la séléction variant en fonction de la competence
-|-> faire une enum dans Compentence pour gérer le ciblage :>mono,all,self,multi
+|=> faire une enum dans Competence pour gérer le ciblage :>mono,all,self,multi
 
 Le déroulement du combat devra etre revu pour intégrer les differents ciblage ainsi que la priorité des competences
 |=> priorité sera une variable int pour désigner à quel point elle prioritaire <:
 	va falloir changer d'approche dans la facon de gerer l'obtention des competences <:
 	les action ne seront plus obtenue dans l'ordre mais seront trié <: 
 	en bloc logique sur la prio puis en fonction de la vitesse
-|-> le ciblage integrera un design pattern strategy en utilisant une interface ICiblage <:
+|=> le ciblage integrera un design pattern strategy en utilisant une interface ICiblage <:
 	qui sera implementé par les IUsable pour gérer le ciblage()
-|-> L'utilisation de ICiblage c'est pour la sélection des cibles <:
+|=> L'utilisation de ICiblage c'est pour la sélection des cibles <:
 	l'utilisation se fait via le COmpetence.utilisation <:
 	cependant garder de coté l'utilisation dans ICiblage pour faire des compentences plus complexes
+
+Où initialiser le tableau d'ennemis dans les Fight
+|->je pense qu'on va au moins partir sur des Salles et on verra si on mettrais pas les salles dans un donjon
+
+Pour les type de salle on va partir sur un state pattern
+|->typeid(*<Class>) permet de comparer des type de classe même avec des interfaces donc pas besoin d'enum
+|-> c'est pas vraiment un state car les état nom pas besoin de changer en cours d'execution
+
+Pour afficher un beau donjon on vas reprendre l'affichage de donjon.c
+|=> CHanger les couleurs se fera dans le string avec des caractere d'echappement de l'ANSI
++-> voir : https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124

@@ -92,7 +92,10 @@ static std::stack<std::string> shuntingYard(std::string formuleMathematique) {
                         }
                         else {
                             if (!isspace(*it)) {
-                                Utilitaire::writeInLog("Caractere invalide rencontre " + *it);
+                                //si je passe pas par une étape comme ça le message est corrompus
+                                std::string errorMessage = "Caractere invalide rencontre ";
+                                errorMessage.push_back(*it);
+                                Utilitaire::writeInLog(errorMessage.c_str());
                                 exit(EXIT_FAILURE);
                             }
                         }
@@ -228,5 +231,14 @@ void Utilitaire::testHandler(bool test, const char* message, bool afficheSucces)
 void Utilitaire::writeInLog(const char* message) {
     std::ofstream fichier{ NOM_FICHIER_LOG,std::ios::app };
     fichier << dateAujourdhui() + " , " + message + "\n";
-
+}
+void Utilitaire::unexpectedExit(std::string message) {
+    std::ofstream fichier;
+    fichier.open(NOM_FICHIER_LOG, std::ios::app);
+    if (fichier) {
+        fichier << dateAujourdhui() + " , " + message + "\n";
+        exit(EXIT_FAILURE);
+    }
+    std::cout << "Fichier log non ouvert " + message;
+    exit(EXIT_FAILURE);
 }

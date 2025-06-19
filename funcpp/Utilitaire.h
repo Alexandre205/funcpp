@@ -18,8 +18,15 @@ namespace Utilitaire
 	int getRandomInteger(int lowestValue,int higestValue);
 	int getRandomInteger(int higestValue);
 	int getRandomInteger();
+
+	//Replace '_' by ' ' and up the first caractere
 	void polishMot(std::string& mot);
+
+	//If test is false exit the app
 	void testHandler(bool test, const char* message, bool afficheSucces);
+
+	//Exit the app
+	void unexpectedExit(std::string message);
 	void writeInLog(const char* message);
 	void nettoyerLog();
 };

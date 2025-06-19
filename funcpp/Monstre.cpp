@@ -2,6 +2,10 @@
 #include "Fight.h"
 #include"Utilitaire.h"
 
+std::string Monstre::toString() {
+	return getNom() + " (" + std::to_string(pv) + "/" + std::to_string(getPvMax()) + "pv)";
+}
+
 Monstre::Monstre(){};
 Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse) 
 	:Entite{ nom,pv,pm,attaque,defence,vitesse } {}
