@@ -1,3 +1,12 @@
 structure d'un monstre dans le fichier
 	nom pv pm attaque defense vitesse nombre_de_competence
 	nom_competence description_comp indice_d'effet formule_de_degat indice_de_ciblage cout_en_pm valeur_de_priorite
+the token existing for the formule are
+	u = user
+	c = target
+	.ap = physical attack
+	.dp = physical defence
+	.vi = speed
+exemple
+	u.ap = user physicale attack
+	c.vi = target speed

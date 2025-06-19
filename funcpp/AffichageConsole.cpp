@@ -33,3 +33,53 @@ void Affichage::afficher(Perso& pe) {
 void Affichage::afficher(Fight& fi) {
 	std::cout << fi.toSring();
 }
+void Affichage::afficher(Salle& sa) {
+	std::cout << sa.toString();
+}
+void Affichage::afficher(Donjon& dj) {
+	std::cout << dj.toString();
+}
+void Affichage::displayDonjon(Donjon& dj) {
+	std::string s;
+	for (int i{ 0 }; i < dj.getColSize(); i++) {
+		for (int j{ 0 }; j < dj.getLineSize(); j++) {
+			Salle* r = dj.getRoom(i, j);
+			if (r->hasNotrhConnexion()) {
+				s.append("/   \\");
+			}
+			else {
+				s.append("/---\\");
+			}
+			
+		}
+		s.append("\n");
+		for (int j{ 0 }; j < dj.getLineSize(); j++) {
+			Salle* r = dj.getRoom(i, j);
+			if (r->hasWestConnexion()) { 
+				s.append("  "); 
+			}
+			else {
+				s.append("| ");
+			}
+			s.append(r->getContent());
+			if (r->hasEastConnexion()) { 
+				s.append("  "); 
+			}
+			else {
+				s.append(" |");
+			}
+		}
+		s.append("\n");
+		for (int j{ 0 }; j < dj.getLineSize(); j++) {
+			Salle* r = dj.getRoom(i, j);
+			if (r->hasSouthConnexion()) {
+				s.append("\\   /");
+			}
+			else {
+				s.append("\\---/");
+			}
+		}
+		s.append("\n");
+	}
+	std::cout << s;
+}

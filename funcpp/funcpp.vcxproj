@@ -23,9 +23,12 @@
     <ClCompile Include="Arme.cpp" />
     <ClCompile Include="Armure.cpp" />
     <ClCompile Include="Botte.cpp" />
+    <ClCompile Include="IStateSalle.cpp" />
+    <ClCompile Include="Salle.cpp" />
     <ClCompile Include="Casque.cpp" />
     <ClCompile Include="Competence.cpp" />
     <ClCompile Include="Consommable.cpp" />
+    <ClCompile Include="Donjon.cpp" />
     <ClCompile Include="Effets.cpp" />
     <ClCompile Include="Entite.cpp" />
     <ClCompile Include="FileManagement.cpp" />
@@ -44,9 +47,12 @@
     <ClInclude Include="Arme.h" />
     <ClInclude Include="Armure.h" />
     <ClInclude Include="Botte.h" />
+    <ClInclude Include="IStateSalle.h" />
+    <ClInclude Include="Salle.h" />
     <ClInclude Include="Casque.h" />
     <ClInclude Include="Competence.h" />
     <ClInclude Include="Consommable.h" />
+    <ClInclude Include="Donjon.h" />
     <ClInclude Include="Effets.h" />
     <ClInclude Include="Entite.h" />
     <ClInclude Include="FileManagement.h" />
