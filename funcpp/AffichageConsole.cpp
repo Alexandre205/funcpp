@@ -43,15 +43,41 @@ void Affichage::displayDonjon(Donjon& dj) {
 	std::string s;
 	for (int i{ 0 }; i < dj.getColSize(); i++) {
 		for (int j{ 0 }; j < dj.getLineSize(); j++) {
-			s.append("/---\\");
+			Salle* r = dj.getRoom(i, j);
+			if (r->hasNotrhConnexion()) {
+				s.append("/   \\");
+			}
+			else {
+				s.append("/---\\");
+			}
+			
 		}
 		s.append("\n");
 		for (int j{ 0 }; j < dj.getLineSize(); j++) {
-			s.append("|   |");
+			Salle* r = dj.getRoom(i, j);
+			if (r->hasWestConnexion()) { 
+				s.append("  "); 
+			}
+			else {
+				s.append("| ");
+			}
+			s.append(r->getContent());
+			if (r->hasEastConnexion()) { 
+				s.append("  "); 
+			}
+			else {
+				s.append(" |");
+			}
 		}
 		s.append("\n");
 		for (int j{ 0 }; j < dj.getLineSize(); j++) {
-			s.append("\\---/");
+			Salle* r = dj.getRoom(i, j);
+			if (r->hasSouthConnexion()) {
+				s.append("\\   /");
+			}
+			else {
+				s.append("\\---/");
+			}
 		}
 		s.append("\n");
 	}

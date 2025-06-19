@@ -17,6 +17,7 @@ std::string Salle::toString() {
 }
 Salle::Salle(){}
 Salle::Salle(IStateSalle* stateSalle) {
+	connexion = CONNEXION_EAST + CONNEXION_WEST;
 	this->stateSalle = stateSalle;
 }
 IStateSalle* Salle::getState() {
@@ -40,3 +41,8 @@ std::string Salle::getContent() {
 	Utilitaire::unexpectedExit("Le type de salle n'est pas traduisible en string");
 	return "";
 }
+
+bool Salle::hasNotrhConnexion() { return connexion & CONNEXION_NORTH; }
+bool Salle::hasSouthConnexion() { return connexion & CONNEXION_SOUTH; }
+bool Salle::hasWestConnexion() { return connexion & CONNEXION_WEST; }
+bool Salle::hasEastConnexion() { return connexion & CONNEXION_EAST; }

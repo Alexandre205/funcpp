@@ -40,6 +40,10 @@ void Donjon::initFloor() {
 		}
 	}
 }
+Salle* Donjon::getRoom(int i, int j) {
+	Utilitaire::testHandler(i>=0 && i<colSize && j>=0 && j<lineSize,"Indice hors porté du donjon",false);
+	return floor[i][j];
+}
 int Donjon::getColSize() {
 	return colSize;
 }

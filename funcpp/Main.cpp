@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 	Salle s{ new Wall()};
 	//s.passage(p1);
 	Donjon d{3,5};
-	Affichage::afficher(d);
+	Affichage::displayDonjon(d);
 	Affichage::afficher("\n\nFIN");
 	return EXIT_SUCCESS;
 }

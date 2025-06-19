@@ -13,8 +13,8 @@ private:
 public:
 	std::string toString();
 	Donjon(int lineSize, int colSize);
+	void initFloor();
+	Salle* getRoom(int i, int j);
 	int getColSize();
 	int getLineSize();
-	void initFloor();
-	
 };
