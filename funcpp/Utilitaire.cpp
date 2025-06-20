@@ -208,16 +208,11 @@ void Utilitaire::nettoyerLog() {
     std::ofstream fichier{ NOM_FICHIER_LOG, std::ofstream::trunc };
     fichier.close();
 }
-void Utilitaire::testHandler(bool test, const char* message, bool afficheSucces) {
+void Utilitaire::testHandler(bool test, const char* message) {
     std::ofstream fichier;
     fichier.open(NOM_FICHIER_LOG, std::ios::app);
     if (fichier) {
-        if (test) {
-            if (afficheSucces) {
-                fichier << dateAujourdhui() + ", " + message + " : SUCCES\n";
-            }
-        }
-        else {
+        if (!test) {
             fichier << dateAujourdhui() + ", " + message + " : FAILURE\n";
             exit(EXIT_FAILURE);
         }

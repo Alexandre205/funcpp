@@ -31,5 +31,4 @@ Faire la création de donjon procédurale
 Anglaitiser le code, pas les textes juste le code
 
 Modifier Donjon::initFloor pour faire en sorte que les murs extérieurs soit bloqué
-Enlever le dernier parametre de Utilitaire::testHandler();
-|-> Plus emmerdant qu'autre chose
+

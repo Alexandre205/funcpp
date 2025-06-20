@@ -34,13 +34,13 @@ Donjon::Donjon(Perso* player,int colSize,int lineSize,int currentY,int currentX)
 
 void Donjon::initFloor() {
 	floor = new Salle**[colSize];
-	Utilitaire::testHandler(floor != NULL, "Plus d'espace mémoire", false);
+	Utilitaire::testHandler(floor != NULL, "Plus d'espace mémoire");
 	for (int i{ 0 }; i < colSize; i++) {
 		floor[i] = new Salle*[lineSize];
-		Utilitaire::testHandler(floor[i] != NULL, "Plus d'espace mémoire", false);
+		Utilitaire::testHandler(floor[i] != NULL, "Plus d'espace mémoire");
 		for (int j{ 0 }; j < lineSize; j++) {
 			floor[i][j] = new Salle{new FightRoom,Connexion::CONNEXION_ALL};
-			Utilitaire::testHandler(floor[i][j] != NULL, "Plus d'espace mémoire", false);
+			Utilitaire::testHandler(floor[i][j] != NULL, "Plus d'espace mémoire");
 		}
 	}
 	floor[currentY][currentX]->setIStateSalle(new CurrentRoom);
@@ -61,11 +61,11 @@ void Donjon::move() {
 }
 
 void Donjon::setCurrentX(int currentX) {
-	Utilitaire::testHandler(currentX >= 0 && currentX < lineSize, "Indice hors porté du donjon", false);
+	Utilitaire::testHandler(currentX >= 0 && currentX < lineSize, "Indice hors porté du donjon");
 	this->currentX = currentX;
 }
 void Donjon::setCurrentY(int currentY) {
-	Utilitaire::testHandler(currentY>=0 && currentY<colSize, "Indice hors porté du donjon", false);
+	Utilitaire::testHandler(currentY>=0 && currentY<colSize, "Indice hors porté du donjon");
 	this->currentY = currentY;
 }
 int Donjon::getCurrentX() { 
@@ -75,7 +75,7 @@ int Donjon::getCurrentY() {
 	return currentY; 
 }
 Salle* Donjon::getRoom(int i, int j) {
-	Utilitaire::testHandler(i>=0 && i<colSize && j>=0 && j<lineSize,"Indice hors porté du donjon",false);
+	Utilitaire::testHandler(i>=0 && i<colSize && j>=0 && j<lineSize,"Indice hors porté du donjon");
 	return floor[i][j];
 }
 int Donjon::getColSize() {

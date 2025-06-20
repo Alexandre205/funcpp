@@ -63,7 +63,7 @@ Direction Obtention::getDirection(Salle* salle) {
 		directionPossible[numConnexion - 1] = Direction::EAST;
 		numConnexion++;
 	}
-	Utilitaire::testHandler(numConnexion > 1, "Pas de connxion dans la salle", false);
+	Utilitaire::testHandler(numConnexion > 1, "Pas de connxion dans la salle");
 	Affichage::afficher(s);
-	return directionPossible[getValidInt(1, numConnexion-1, "Impossible d'aller par là\n")-1];
+	return directionPossible[getValidInt(1, numConnexion-1, "Impossible d'aller par la\n")-1];
 }

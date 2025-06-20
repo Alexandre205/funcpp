@@ -23,7 +23,7 @@ namespace Utilitaire
 	void polishMot(std::string& mot);
 
 	//If test is false exit the app
-	void testHandler(bool test, const char* message, bool afficheSucces);
+	void testHandler(bool test, const char* message);
 
 	//Exit the app
 	void unexpectedExit(std::string message);

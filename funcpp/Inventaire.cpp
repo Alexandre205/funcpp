@@ -33,7 +33,7 @@ void Inventaire::ajouterConsommable(Consommable& nouvConso) {
 	}
 }
 void Inventaire::supprimerConsommable(int indiceConso) {
-	Utilitaire::testHandler(indiceConso < nbConsommable, "indice de suppression hors portee", false);
+	Utilitaire::testHandler(indiceConso < nbConsommable, "indice de suppression hors portee");
 	for (int i = indiceConso; i < nbConsommable - 1; i++) {
 		inventaire[i] = inventaire[i + 1];
 	}

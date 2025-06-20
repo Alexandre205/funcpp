@@ -31,7 +31,7 @@ void Salle::passage(Perso& joueur) {
 }
 
 void Salle::setConnexion(int connexion) {
-	Utilitaire::testHandler(connexion >= 0 && connexion < 16, "La valeur entrée en parametre est invalide pour une connexion", false);
+	Utilitaire::testHandler(connexion >= 0 && connexion < 16, "La valeur entrée en parametre est invalide pour une connexion");
 	this->connexion = connexion;
 }
 void Salle::setIStateSalle(IStateSalle* stateSalle) {
