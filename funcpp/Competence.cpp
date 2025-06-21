@@ -35,7 +35,7 @@ std::string Competence::getNom() {
 }
 
 void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
-	Utilitaire::testHandler(nouvPossesseur != NULL,"Possesseur de competence null",false);
+	Utilitaire::testHandler(nouvPossesseur != NULL,"Possesseur de competence null");
 	possesseur = nouvPossesseur;
 }
 

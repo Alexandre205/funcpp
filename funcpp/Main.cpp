@@ -17,10 +17,13 @@ int main(int argc, char* argv[]) {
 	p1.apprendreCompetence(new Competence{ "attaque", "al", Effets::infligerDegat, "15", new MonoCible(), 0 });
 	p1.apprendreCompetence(new Competence{ "super attaque","al",Effets::infligerDegat,"100",new MultiCible(),10 });
 
-	Salle s{ new Wall()};
-	//s.passage(p1);
-	Donjon d{3,5};
+	Donjon d{&p1,3,5,1,1};
 	Affichage::displayDonjon(d);
+	while (true) {
+		d.move();
+		std::cout << "\033[2J\033[1;1H"; //clear console
+		Affichage::displayDonjon(d);
+	}
 	Affichage::afficher("\n\nFIN");
 	return EXIT_SUCCESS;
 }

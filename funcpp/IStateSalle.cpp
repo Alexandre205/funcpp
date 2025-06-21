@@ -3,11 +3,12 @@
 #include"FileManagement.h"
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
+
 void Wall::passage(Perso& joueur) {
 	Utilitaire::unexpectedExit("Mur traversé, pas normal");
 }
 void EmptyRoom::passage(Perso& joueur) {
-	Affichage::afficher("Vous entrez dans une salle vide\n");
+	Affichage::afficher("Vous entrez dans une salle vide et rien ne se passe\n");
 }
 void FightRoom::passage(Perso& joueur) {
 	//à remplacer par une selection un peu mieux des monstres genre pas d'acces au fichier + monstres aléatoire
@@ -19,7 +20,9 @@ void FightRoom::passage(Perso& joueur) {
 	listeMonstre.append("Que faite vous ?\n");
 	Affichage::afficher(listeMonstre);
 
-	
 	Fight f{ &joueur, ennemis };
 	f.lancerCombat();
+}
+void CurrentRoom::passage(Perso& joueur) {
+	Affichage::afficher("Vous ne bougez pas et rien ne se passe\n");
 }

@@ -52,7 +52,7 @@ void Entite::altererPvMax(int modifSubi) {
 		pv = getPvMax();
 	}
 	Affichage::afficher("pv max\n");
-	Utilitaire::testHandler(pvMax != STAT_MAX, "check limite pvMax",false);
+	Utilitaire::testHandler(pvMax != STAT_MAX, "check limite pvMax");
 }
 void Entite::altererPmMax(int modifSubi) {
 	modifierStat(pmMax, modifSubi, STAT_MAX);
@@ -60,22 +60,22 @@ void Entite::altererPmMax(int modifSubi) {
 		pm = getPmMax();
 	}
 	Affichage::afficher("pm max\n");
-	Utilitaire::testHandler(pmMax != STAT_MAX, "check limite pmMax",false);
+	Utilitaire::testHandler(pmMax != STAT_MAX, "check limite pmMax");
 }
 void Entite::altererAttaque(int modifSubi) {
 	modifierStat(attaque, modifSubi, STAT_MAX);
 	Affichage::afficher("atk\n");
-	Utilitaire::testHandler(attaque != STAT_MAX, "check limite attaque",false);
+	Utilitaire::testHandler(attaque != STAT_MAX, "check limite attaque");
 }
 void Entite::altererDefence(int modifSubi) {
 	modifierStat(defence, modifSubi, STAT_MAX);
 	Affichage::afficher("def\n");
-	Utilitaire::testHandler(defence != STAT_MAX, "check limite defence",false);
+	Utilitaire::testHandler(defence != STAT_MAX, "check limite defence");
 }
 void Entite::altererVitesse(int modifSubi) {
 	modifierStat(vitesse, modifSubi, STAT_MAX);
 	Affichage::afficher("vit\n");
-	Utilitaire::testHandler(vitesse != STAT_MAX, "check limite vitesse",false);
+	Utilitaire::testHandler(vitesse != STAT_MAX, "check limite vitesse");
 }
 
 void Entite::apprendreCompetence(Competence *newComp) {
@@ -117,7 +117,7 @@ int Entite::getNbCompetence() {
 	return nbCompetence;
 }
 Competence* Entite::getCompetence(int indice) {
-	Utilitaire::testHandler(indice < nbCompetence && indice >= 0, "indice de la competence hors portée", false);
+	Utilitaire::testHandler(indice < nbCompetence && indice >= 0, "indice de la competence hors portée");
 	return &competences[indice];
 }
 std::string Entite::getListCompetence() {

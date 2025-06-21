@@ -9,22 +9,39 @@ std::string Salle::toString() {
 	if (!s.compare("Wall")) {
 		return "Wall\n";
 	}
-	if (!s.compare("Fight")) {
+	if (!s.compare("FightRoom")) {
 		return "Fight\n";
+	}
+	if (!s.compare("CurrentRoom")) {
+		return "Current\n";
 	}
 	Utilitaire::unexpectedExit("Le type de salle n'est pas traduisible en string");
 	return "";
 }
 Salle::Salle(){}
-Salle::Salle(IStateSalle* stateSalle) {
-	connexion = CONNEXION_EAST + CONNEXION_WEST;
-	this->stateSalle = stateSalle;
+Salle::Salle(IStateSalle* stateSalle,int connexion) {
+	setConnexion(connexion);
+	setIStateSalle(stateSalle);
 }
 IStateSalle* Salle::getState() {
 	return stateSalle;
 }
 void Salle::passage(Perso& joueur) {
 	stateSalle->passage(joueur);
+}
+void Salle::addConnexion(Connexion connexion) {
+	this->connexion = this->connexion | connexion;
+}
+void Salle::removeConnexion(Connexion connexion) {
+	this->connexion = this->connexion ^ connexion;
+}
+void Salle::setConnexion(int connexion) {
+	Utilitaire::testHandler(connexion >= 0 && connexion < 16, "La valeur entrée en parametre est invalide pour une connexion");
+	this->connexion = connexion;
+}
+void Salle::setIStateSalle(IStateSalle* stateSalle) {
+	//delete
+	this->stateSalle = stateSalle;
 }
 std::string Salle::getContent() {
 	std::string s{ typeid(*stateSalle).name() };
@@ -38,11 +55,13 @@ std::string Salle::getContent() {
 	if (!s.compare("FightRoom")) {
 		return "\033[0;31mF\033[0;37m";
 	}
+	if (!s.compare("CurrentRoom")) {
+		return "\033[0;34mC\033[0;37m";
+	}
 	Utilitaire::unexpectedExit("Le type de salle n'est pas traduisible en string");
 	return "";
 }
-
-bool Salle::hasNotrhConnexion() { return connexion & CONNEXION_NORTH; }
+bool Salle::hasNorthConnexion() { return connexion & CONNEXION_NORTH; }
 bool Salle::hasSouthConnexion() { return connexion & CONNEXION_SOUTH; }
 bool Salle::hasWestConnexion() { return connexion & CONNEXION_WEST; }
 bool Salle::hasEastConnexion() { return connexion & CONNEXION_EAST; }

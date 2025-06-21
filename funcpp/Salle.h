@@ -21,11 +21,15 @@ private:
 public:
 	std::string toString();
 	Salle();
-	Salle(IStateSalle* stateSalle);
+	Salle(IStateSalle* stateSalle,int connexion);
 	void passage(Perso& joueur);
+	void addConnexion(Connexion connexion);
+	void removeConnexion(Connexion connexion);
+	void setConnexion(int connexion);
+	void setIStateSalle(IStateSalle* stateSalle);
 	IStateSalle* getState();
 	std::string getContent();
-	bool hasNotrhConnexion();
+	bool hasNorthConnexion();
 	bool hasSouthConnexion();
 	bool hasWestConnexion();
 	bool hasEastConnexion();
