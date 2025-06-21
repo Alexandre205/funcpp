@@ -39,9 +39,17 @@ void Donjon::initFloor() {
 		floor[i] = new Salle*[lineSize];
 		Utilitaire::testHandler(floor[i] != NULL, "Plus d'espace mémoire");
 		for (int j{ 0 }; j < lineSize; j++) {
-			floor[i][j] = new Salle{new FightRoom,Connexion::CONNEXION_ALL};
+			floor[i][j] = new Salle{new EmptyRoom,Connexion::CONNEXION_ALL};
 			Utilitaire::testHandler(floor[i][j] != NULL, "Plus d'espace mémoire");
 		}
+	}
+	for (int i{ 0 }; i < lineSize; i++) {
+		floor[0][i]->removeConnexion(Connexion::CONNEXION_NORTH);
+		floor[colSize - 1][i]->removeConnexion(Connexion::CONNEXION_SOUTH);
+	}
+	for (int i{ 0 }; i < colSize; i++) {
+		floor[i][0]->removeConnexion(Connexion::CONNEXION_WEST);
+		floor[i][lineSize-1]->removeConnexion(Connexion::CONNEXION_EAST);
 	}
 	floor[currentY][currentX]->setIStateSalle(new CurrentRoom);
 }

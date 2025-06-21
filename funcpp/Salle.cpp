@@ -29,12 +29,18 @@ IStateSalle* Salle::getState() {
 void Salle::passage(Perso& joueur) {
 	stateSalle->passage(joueur);
 }
-
+void Salle::addConnexion(Connexion connexion) {
+	this->connexion = this->connexion | connexion;
+}
+void Salle::removeConnexion(Connexion connexion) {
+	this->connexion = this->connexion ^ connexion;
+}
 void Salle::setConnexion(int connexion) {
 	Utilitaire::testHandler(connexion >= 0 && connexion < 16, "La valeur entrée en parametre est invalide pour une connexion");
 	this->connexion = connexion;
 }
 void Salle::setIStateSalle(IStateSalle* stateSalle) {
+	//delete
 	this->stateSalle = stateSalle;
 }
 std::string Salle::getContent() {

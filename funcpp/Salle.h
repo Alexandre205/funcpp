@@ -23,6 +23,8 @@ public:
 	Salle();
 	Salle(IStateSalle* stateSalle,int connexion);
 	void passage(Perso& joueur);
+	void addConnexion(Connexion connexion);
+	void removeConnexion(Connexion connexion);
 	void setConnexion(int connexion);
 	void setIStateSalle(IStateSalle* stateSalle);
 	IStateSalle* getState();

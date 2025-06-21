@@ -21,9 +21,9 @@ int main(int argc, char* argv[]) {
 	Affichage::displayDonjon(d);
 	while (true) {
 		d.move();
+		std::cout << "\033[2J\033[1;1H"; //clear console
 		Affichage::displayDonjon(d);
 	}
-	
 	Affichage::afficher("\n\nFIN");
 	return EXIT_SUCCESS;
 }
