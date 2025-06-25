@@ -28,7 +28,7 @@ public:
 	void setConnexion(int connexion);
 	void setIStateSalle(IStateSalle* stateSalle);
 	IStateSalle* getState();
-	std::string getContent();
+	std::string getContentString();
 	bool hasNorthConnexion();
 	bool hasSouthConnexion();
 	bool hasWestConnexion();

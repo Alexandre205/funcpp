@@ -5,6 +5,7 @@
 #include<stack>
 #include<fstream>
 #include<ctime>
+#include<cstdlib>
 
 static std::queue<std::string> changerStackEnQueue(std::stack<std::string> stack) {
     std::queue<std::string> queue;
@@ -172,16 +173,35 @@ int Utilitaire::getRandomInteger(int lowestValue,int highestValue) {
     if (!Utilitaire::randomGeneratorActivate) {
         Utilitaire::randomGeneratorActivate = true;
         std::random_device rd;
-        Utilitaire::numberGenerator.seed(rd());
+        Utilitaire::randomNumberGenerator.seed(rd());
     }
     std::uniform_int_distribution<int> distribution{ lowestValue,highestValue };
-    return distribution(numberGenerator);
+    return distribution(randomNumberGenerator);
 }
 int Utilitaire::getRandomInteger(int highestValue) {
     return getRandomInteger(0,highestValue);
 }
 int Utilitaire::getRandomInteger() {
     return getRandomInteger(1000000);
+}
+
+void Utilitaire::initSeed(int seed) {
+    std::string s = "Seed utilisée = " + std::to_string(seed);
+    writeInLog(s.data());
+    seedNumberGenerator.seed(seed);
+}
+void Utilitaire::initSeed() {
+    initSeed(getRandomInteger());
+}
+int Utilitaire::getGeneratedInteger(int lowestValue, int highestValue) {
+    std::uniform_int_distribution<int> dist(lowestValue, highestValue);
+    return dist(seedNumberGenerator);
+}
+int Utilitaire::getGeneratedInteger(int highestValue) {
+    return getGeneratedInteger(0, highestValue);
+}
+int Utilitaire::getGeneratedInteger() {
+    return getGeneratedInteger(0, 10000);
 }
 
 void Utilitaire::polishMot(std::string& mot) {

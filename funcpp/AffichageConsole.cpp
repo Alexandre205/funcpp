@@ -61,7 +61,7 @@ void Affichage::displayDonjon(Donjon& dj) {
 			else {
 				s.append("| ");
 			}
-			s.append(r->getContent());
+			s.append(r->getContentString());
 			if (r->hasEastConnexion()) { 
 				s.append("  "); 
 			}

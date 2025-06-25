@@ -29,3 +29,8 @@ class CurrentRoom : public IStateSalle {
 public:
 	void passage(Perso& joueur);
 };
+
+class StairsRoom : public IStateSalle {
+public:
+	void passage(Perso& joueur);
+};

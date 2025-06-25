@@ -12,7 +12,7 @@ std::string Donjon::toString() {
 	for (int i{ 0 }; i < colSize; i++) {
 		s.append("| ");
 		for (int j{ 0 }; j < lineSize; j++) {
-			s.append(floor[i][j]->getContent() + " | ");
+			s.append(floor[i][j]->getContentString() + " | ");
 		}
 		s.append("\n");
 		for (int j{ 0 }; j < lineSize; j++) {
@@ -23,12 +23,10 @@ std::string Donjon::toString() {
 	return s;
 }
 
-Donjon::Donjon(Perso* player,int colSize,int lineSize,int currentY,int currentX) {
+Donjon::Donjon(Perso* player,int colSize,int lineSize) {
 	this->player = player;
 	this->colSize = colSize;
 	this->lineSize = lineSize;
-	setCurrentX(currentX);
-	setCurrentY(currentY);
 	initFloor();
 }
 
@@ -39,19 +37,10 @@ void Donjon::initFloor() {
 		floor[i] = new Salle*[lineSize];
 		Utilitaire::testHandler(floor[i] != NULL, "Plus d'espace mémoire");
 		for (int j{ 0 }; j < lineSize; j++) {
-			floor[i][j] = new Salle{new EmptyRoom,Connexion::CONNEXION_ALL};
+			floor[i][j] = new Salle{new EmptyRoom,Connexion::CONNEXION_NONE};
 			Utilitaire::testHandler(floor[i][j] != NULL, "Plus d'espace mémoire");
 		}
 	}
-	for (int i{ 0 }; i < lineSize; i++) {
-		floor[0][i]->removeConnexion(Connexion::CONNEXION_NORTH);
-		floor[colSize - 1][i]->removeConnexion(Connexion::CONNEXION_SOUTH);
-	}
-	for (int i{ 0 }; i < colSize; i++) {
-		floor[i][0]->removeConnexion(Connexion::CONNEXION_WEST);
-		floor[i][lineSize-1]->removeConnexion(Connexion::CONNEXION_EAST);
-	}
-	floor[currentY][currentX]->setIStateSalle(new CurrentRoom);
 }
 
 void Donjon::move() {
@@ -76,15 +65,32 @@ void Donjon::setCurrentY(int currentY) {
 	Utilitaire::testHandler(currentY>=0 && currentY<colSize, "Indice hors porté du donjon");
 	this->currentY = currentY;
 }
+void Donjon::setExitX(int exitX) {
+	Utilitaire::testHandler(exitX >= 0 && exitX < lineSize, "Indice hors porté du donjon");
+	this->exitX = exitX;
+}
+void Donjon::setExitY(int exitY) {
+	Utilitaire::testHandler(exitY >= 0 && exitY < colSize, "Indice hors porté du donjon");
+	this->exitY = exitY;
+}
 int Donjon::getCurrentX() { 
 	return currentX; 
 }
 int Donjon::getCurrentY() { 
 	return currentY; 
 }
+int Donjon::getExitX() {
+	return exitX;
+}
+int Donjon::getExitY() {
+	return exitY;
+}
 Salle* Donjon::getRoom(int i, int j) {
 	Utilitaire::testHandler(i>=0 && i<colSize && j>=0 && j<lineSize,"Indice hors porté du donjon");
 	return floor[i][j];
+}
+bool Donjon::isValidRoom(int i, int j) {
+	return i >= 0 && i < colSize && j >= 0 && j < lineSize;
 }
 int Donjon::getColSize() {
 	return colSize;

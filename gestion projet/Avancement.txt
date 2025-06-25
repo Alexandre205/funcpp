@@ -1,6 +1,7 @@
 Optimisation:
 	Revoir l'algorthime de shunting yard pour accélérer le processus de calcule des formules
 	Par exemple, utiliser directement une queue plutot que de convertir apres
+	Voir si on peut pas changer le switch dans Salle::getContent() || Salle::toString()
 	Utiliser std::vector<>::reserve() pour diminuer (si possible) le nombre d'allocation du programme
 	|->1.Créer vector 2. vector.reserve(la taille en mémoire à réserver)
 
@@ -33,7 +34,18 @@ bruler implement state{
 
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
+
+Debuger les salle avec chemin dans le vide
+Mettre a jour le générateur de nombre avec seed
 Faire la création de donjon procédurale
 |-> Class DonjonGenerator
-|-> constructeur :  avec seed l'autre sans
+|-> constructeur :  avec seed l'autre sans + avec parametre et sans parametre
 |-> Variable d'instance : Parametres constants de la génération
+|-> On va faire une récursive backtracking
+	0.Definir une taille pour le donjon V
+	1.Choisir une case départ et une d'arrivé V
+	2.Creer un chemin en n case entre les 2 (n est situer entre 2 valeur) V
+	3.revenir en arriere en ouvrant des salles sur le coté
+
+Il faut un moyen de différencer le states des salle car toString et getContent ne servent pas à ca
+

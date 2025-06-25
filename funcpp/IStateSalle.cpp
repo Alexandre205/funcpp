@@ -26,3 +26,6 @@ void FightRoom::passage(Perso& joueur) {
 void CurrentRoom::passage(Perso& joueur) {
 	Affichage::afficher("Vous ne bougez pas et rien ne se passe\n");
 }
+void StairsRoom::passage(Perso& joueur) {
+	Affichage::afficher("Bravo " + joueur.getNom() + ", vous etes sorti.\n");
+}

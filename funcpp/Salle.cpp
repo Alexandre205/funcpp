@@ -15,6 +15,9 @@ std::string Salle::toString() {
 	if (!s.compare("CurrentRoom")) {
 		return "Current\n";
 	}
+	if (!s.compare("StairsRoom")) {
+		return "Stairs\n";
+	}
 	Utilitaire::unexpectedExit("Le type de salle n'est pas traduisible en string");
 	return "";
 }
@@ -40,10 +43,10 @@ void Salle::setConnexion(int connexion) {
 	this->connexion = connexion;
 }
 void Salle::setIStateSalle(IStateSalle* stateSalle) {
-	//delete
+	//delete previous state if existe
 	this->stateSalle = stateSalle;
 }
-std::string Salle::getContent() {
+std::string Salle::getContentString() {
 	std::string s{ typeid(*stateSalle).name() };
 	s.erase(0, 6); // remove the string "class " from the type name
 	if (!s.compare("EmptyRoom")) {
@@ -57,6 +60,9 @@ std::string Salle::getContent() {
 	}
 	if (!s.compare("CurrentRoom")) {
 		return "\033[0;34mC\033[0;37m";
+	}
+	if (!s.compare("StairsRoom")) {
+		return "\033[0;32mS\033[0;37m";
 	}
 	Utilitaire::unexpectedExit("Le type de salle n'est pas traduisible en string");
 	return "";
