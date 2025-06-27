@@ -11,7 +11,7 @@ void EmptyRoom::passage(Perso& joueur) {
 	Affichage::afficher("Vous entrez dans une salle vide et rien ne se passe\n");
 }
 void FightRoom::passage(Perso& joueur) {
-	//à remplacer par une selection un peu mieux des monstres genre pas d'acces au fichier + monstres aléatoire
+	//à remplacer par une selection un peu mieux des monstres genre pas d'acces direct au fichier + monstres aléatoire
 	std::vector<Monstre*> ennemis = FileManagement::getMonstersFromFile();
 	std::string listeMonstre{"Vous entrez dans une salle avec des monstres \n"};
 	for (Monstre* ennemi : ennemis) {

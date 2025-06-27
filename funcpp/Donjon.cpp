@@ -37,7 +37,7 @@ void Donjon::initFloor() {
 		floor[i] = new Salle*[lineSize];
 		Utilitaire::testHandler(floor[i] != NULL, "Plus d'espace mémoire");
 		for (int j{ 0 }; j < lineSize; j++) {
-			floor[i][j] = new Salle{new EmptyRoom,Connexion::CONNEXION_NONE};
+			floor[i][j] = new Salle{new Wall,Connexion::CONNEXION_NONE};
 			Utilitaire::testHandler(floor[i][j] != NULL, "Plus d'espace mémoire");
 		}
 	}

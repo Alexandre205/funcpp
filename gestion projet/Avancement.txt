@@ -4,6 +4,7 @@ Optimisation:
 	Voir si on peut pas changer le switch dans Salle::getContent() || Salle::toString()
 	Utiliser std::vector<>::reserve() pour diminuer (si possible) le nombre d'allocation du programme
 	|->1.Créer vector 2. vector.reserve(la taille en mémoire à réserver)
+	Utilise unordered_map pour les positions visitées dans l'algo de gen donjon
 
 	Accelérer l'initialisation du donjon surtout au niveau des mur extérieur
 		Essayer de faire le tout en une seule boucle
@@ -41,11 +42,14 @@ Faire la création de donjon procédurale
 |-> Class DonjonGenerator
 |-> constructeur :  avec seed l'autre sans + avec parametre et sans parametre
 |-> Variable d'instance : Parametres constants de la génération
-|-> On va faire une récursive backtracking
+|-> On va faire une récursive backtracking V
 	0.Definir une taille pour le donjon V
 	1.Choisir une case départ et une d'arrivé V
 	2.Creer un chemin en n case entre les 2 (n est situer entre 2 valeur) V
-	3.revenir en arriere en ouvrant des salles sur le coté
+	3.revenir en arriere en ouvrant des salles sur le coté et en completant les connexions V
 
 Il faut un moyen de différencer le states des salle car toString et getContent ne servent pas à ca
 
+
+BUG : certaine sortie sont toujours hors donjon : EN TEST
+BUG : parfois des mur ouvert sur la map : EN TEST

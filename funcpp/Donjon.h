@@ -25,7 +25,7 @@ private:
 	Salle*** floor; 
 public:
 	std::string toString();
-	Donjon(Perso* player,int lineSize, int colSize);
+	Donjon(Perso* player, int colSize,int lineSize);
 	//Donjon(Perso* player, int lineSize, int colSize);
 	void initFloor();
 

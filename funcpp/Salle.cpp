@@ -53,7 +53,7 @@ std::string Salle::getContentString() {
 		return " ";
 	}
 	if (!s.compare("Wall")) {
-		return " ";
+		return "W";
 	}
 	if (!s.compare("FightRoom")) {
 		return "\033[0;31mF\033[0;37m";

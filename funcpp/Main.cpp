@@ -13,7 +13,7 @@
 #include"DungeonGenerator.h"
 
 int main(int argc, char* argv[]) {
-	Utilitaire::initSeed(2005);
+	Utilitaire::initSeed();
 	Perso p1{ "Alex",100,10,50,50,50 };
 	p1.apprendreCompetence(new Competence{ "attaque", "al", Effets::infligerDegat, "15", new MonoCible(), 0 });
 	p1.apprendreCompetence(new Competence{ "super attaque","al",Effets::infligerDegat,"100",new MultiCible(),10 });
