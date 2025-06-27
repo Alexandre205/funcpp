@@ -4,7 +4,7 @@
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
 
-void Wall::passage(Perso& joueur) {
+void WallRoom::passage(Perso& joueur) {
 	Utilitaire::unexpectedExit("Mur traversé, pas normal");
 }
 void EmptyRoom::passage(Perso& joueur) {

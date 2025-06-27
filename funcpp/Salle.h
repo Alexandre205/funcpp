@@ -1,10 +1,14 @@
 #pragma once
 #include "IStateSalle.h"
-//enum SalleType {
-//	Wall,
-//	Empty,
-//	Fight
-//};
+#include<map>
+
+enum SalleType {
+	Wall,
+	Empty,
+	Battle,
+	Current,
+	Stairs
+};
 enum Connexion {
 	CONNEXION_NORTH = 1, // 0001
 	CONNEXION_EAST = 2, // 0010
@@ -13,20 +17,26 @@ enum Connexion {
 	CONNEXION_NONE = 0,  // 0000
 	CONNEXION_ALL = 15 // 1111
 };
+struct RoomInfo {
+	std::string toString;
+	std::string stringContent;
+	IStateSalle* stateSalle;
+};
 class Salle
 {
 private:
+	static std::map<SalleType, RoomInfo> infoRoom;
+	SalleType roomStateType;
 	int connexion;
-	IStateSalle* stateSalle;
 public:
 	std::string toString();
 	Salle();
-	Salle(IStateSalle* stateSalle,int connexion);
+	Salle(SalleType stateSalle,int connexion);
 	void passage(Perso& joueur);
 	void addConnexion(Connexion connexion);
 	void removeConnexion(Connexion connexion);
 	void setConnexion(int connexion);
-	void setIStateSalle(IStateSalle* stateSalle);
+	void setIStateSalle(SalleType stateSalle);
 	IStateSalle* getState();
 	std::string getContentString();
 	bool hasNorthConnexion();

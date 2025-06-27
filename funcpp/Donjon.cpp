@@ -37,7 +37,7 @@ void Donjon::initFloor() {
 		floor[i] = new Salle*[lineSize];
 		Utilitaire::testHandler(floor[i] != NULL, "Plus d'espace mémoire");
 		for (int j{ 0 }; j < lineSize; j++) {
-			floor[i][j] = new Salle{new Wall,Connexion::CONNEXION_NONE};
+			floor[i][j] = new Salle{ SalleType::Wall,Connexion::CONNEXION_NONE};
 			Utilitaire::testHandler(floor[i][j] != NULL, "Plus d'espace mémoire");
 		}
 	}
@@ -45,7 +45,7 @@ void Donjon::initFloor() {
 
 void Donjon::move() {
 	Direction direction = Obtention::getDirection(floor[currentY][currentX]);//choose a direction
-	floor[currentY][currentX]->setIStateSalle(new EmptyRoom);//Change the last room state to EmptyRoom
+	floor[currentY][currentX]->setIStateSalle(SalleType::Empty);//Change the last room state to EmptyRoom
 	switch (direction) {
 		case NORTH:currentY--; break;
 		case SOUTH:currentY++; break;
@@ -54,7 +54,7 @@ void Donjon::move() {
 		default:Utilitaire::unexpectedExit("Probleme avec les directions");
 	}
 	floor[currentY][currentX]->passage(*player);//move to the new room//Salle->passage();
-	floor[currentY][currentX]->setIStateSalle(new CurrentRoom);//change the state of the room to CurrentRoom
+	floor[currentY][currentX]->setIStateSalle(SalleType::Current);//change the state of the room to CurrentRoom
 }
 
 void Donjon::setCurrentX(int currentX) {

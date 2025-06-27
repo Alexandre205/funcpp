@@ -7,7 +7,7 @@ public:
 };
 
 //This room is unaccessible unless error
-class Wall : public IStateSalle{
+class WallRoom : public IStateSalle{
 public:
 	void passage(Perso& joueur);
 };

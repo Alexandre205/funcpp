@@ -34,7 +34,7 @@ void completeConnexion(Position lastPos, Position currentPos, Donjon& dungeon) {
 void DungeonGenerator::creerSousCouloir(Position pos, Donjon& donjon, int connectionRate) {
 	//ici passe toutes les salles des sous couloirs
 	if (donjon.getRoom(pos.i, pos.j)->toString() == "Wall\n") {
-		donjon.getRoom(pos.i, pos.j)->setIStateSalle(new EmptyRoom);
+		donjon.getRoom(pos.i, pos.j)->setIStateSalle(SalleType::Empty);
 	}
 	if (donjon.getRoom(pos.i, pos.j)->toString() != "Stairs\n" && connectionRate > Utilitaire::getGeneratedInteger(1,100)) {
 		std::vector<Position> voisinsPossibles;
@@ -80,7 +80,7 @@ Donjon* DungeonGenerator::generateDonjon(Perso* player) {
 	int entranceX = Utilitaire::getGeneratedInteger(0, lineSize - 1);
 	donjon->setCurrentX(entranceX);
 	donjon->setCurrentY(entranceY);
-	donjon->getRoom(entranceY, entranceX)->setIStateSalle(new CurrentRoom);
+	donjon->getRoom(entranceY, entranceX)->setIStateSalle(SalleType::Current);
 	
 	//placer l'exit
 	std::vector<Position> possibleExit;
@@ -89,7 +89,7 @@ Donjon* DungeonGenerator::generateDonjon(Perso* player) {
 		for (int j{ 0 }; j < lineSize; j++) {
 			int distance = std::abs(i - entranceY) + std::abs(j - entranceX);
 			if(distance>distanceMinToExit && distance<distanceMaxToExit){
-				//donjon->getRoom(i, j)->setIStateSalle(new FightRoom); //indic toutes les sorties possibles
+				//donjon->getRoom(i, j)->setIStateSalle(SalleType::Battle); //indic toutes les sorties possibles
 				Position pos{ i,j };
 				possibleExit.push_back(pos);
 			}
@@ -98,7 +98,7 @@ Donjon* DungeonGenerator::generateDonjon(Perso* player) {
 	Position posExit = possibleExit[Utilitaire::getGeneratedInteger(0, (int)possibleExit.size() - 1)];
 	donjon->setExitX(posExit.j);
 	donjon->setExitY(posExit.i);
-	donjon->getRoom(posExit.i, posExit.j)->setIStateSalle(new StairsRoom);
+	donjon->getRoom(posExit.i, posExit.j)->setIStateSalle(SalleType::Stairs);
 	possibleExit.clear();
 	possibleExit.shrink_to_fit();
 
