@@ -32,7 +32,11 @@ void completeConnexion(Position lastPos, Position currentPos, Donjon& dungeon) {
 	}
 }
 void DungeonGenerator::creerSousCouloir(Position pos, Donjon& donjon, int connectionRate) {
-	if (connectionRate > Utilitaire::getGeneratedInteger(1,100)) {
+	//ici passe toutes les salles des sous couloirs
+	if (donjon.getRoom(pos.i, pos.j)->toString() == "Wall\n") {
+		donjon.getRoom(pos.i, pos.j)->setIStateSalle(new EmptyRoom);
+	}
+	if (donjon.getRoom(pos.i, pos.j)->toString() != "Stairs\n" && connectionRate > Utilitaire::getGeneratedInteger(1,100)) {
 		std::vector<Position> voisinsPossibles;
 		std::vector<Connexion> connexionPossibles;
 		if (pos.i > 0 && nbVisitRoom[{pos.i - 1, pos.j}] == 0) {
@@ -57,11 +61,11 @@ void DungeonGenerator::creerSousCouloir(Position pos, Donjon& donjon, int connec
 			donjon.getRoom(newPos.i, newPos.j)->addConnexion(connexionPossibles[i]);
 			nbVisitRoom[newPos]++;
 			creerSousCouloir(newPos, donjon, connectionRate - connectionRateVariation);
-			if (donjon.getRoom(newPos.i, newPos.j)->toString() == "Wall\n") {
-				donjon.getRoom(newPos.i, newPos.j)->setIStateSalle(new FightRoom);
-			}
 			completeConnexion(pos, newPos, donjon);
 		}
+		
+	}else {
+		//ici ne passera que la derniere salle du sous couloir
 	}
 }
 
@@ -130,7 +134,7 @@ Donjon* DungeonGenerator::generateDonjon(Perso* player) {
 		posPrecedent = posActuel;
 		roomParcour.pop();
 	}
-
+	
 	nbVisitRoom.clear();
 	return donjon;
 }
