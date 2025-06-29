@@ -23,6 +23,7 @@
     <ClCompile Include="Arme.cpp" />
     <ClCompile Include="Armure.cpp" />
     <ClCompile Include="Botte.cpp" />
+    <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="IStateSalle.cpp" />
     <ClCompile Include="Salle.cpp" />
     <ClCompile Include="Casque.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="Arme.h" />
     <ClInclude Include="Armure.h" />
     <ClInclude Include="Botte.h" />
+    <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="IStateSalle.h" />
     <ClInclude Include="Salle.h" />
     <ClInclude Include="Casque.h" />

@@ -1,8 +1,10 @@
 Optimisation:
 	Revoir l'algorthime de shunting yard pour accélérer le processus de calcule des formules
 	Par exemple, utiliser directement une queue plutot que de convertir apres
+	Voir si on peut pas changer le switch dans Salle::getContent() || Salle::toString()
 	Utiliser std::vector<>::reserve() pour diminuer (si possible) le nombre d'allocation du programme
 	|->1.Créer vector 2. vector.reserve(la taille en mémoire à réserver)
+	Utilise unordered_map pour les positions visitées dans l'algo de gen donjon
 
 	Accelérer l'initialisation du donjon surtout au niveau des mur extérieur
 		Essayer de faire le tout en une seule boucle
@@ -33,7 +35,3 @@ bruler implement state{
 
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
-Faire la création de donjon procédurale
-|-> Class DonjonGenerator
-|-> constructeur :  avec seed l'autre sans
-|-> Variable d'instance : Parametres constants de la génération

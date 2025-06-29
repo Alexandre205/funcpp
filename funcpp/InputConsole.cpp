@@ -1,11 +1,15 @@
 #include"InputConsole.h"
+#include <iostream>
+#include <limits>
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
 int getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	int nb = -1;
 	std::cin >> nb;
-	while (nb<lowerValue || nb>upperValue) {
+	while (std::cin.fail() || nb<lowerValue || nb>upperValue) {
 		Affichage::afficher(textInvalid);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cin >> nb;
 	}
 	return nb;
@@ -41,7 +45,7 @@ int Obtention::getCibleIndice(std::vector<Entite*>& cibles) {
 }
 Direction Obtention::getDirection(Salle* salle) {
 	std::array<Direction, 4> directionPossible;
-	std::string s{"Ou voulez - aller ?\n"};
+	std::string s{"Ou voulez aller ?\n"};
 	int numConnexion = 1;
 	if (salle->hasNorthConnexion()) {
 		s.append(std::to_string(numConnexion) + ".Nord\n");
