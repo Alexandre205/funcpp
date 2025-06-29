@@ -20,10 +20,12 @@ int main(int argc, char* argv[]) {
 	while (true) {
 		Donjon* d = DungeonGenerator::generateDonjon(&p1);
 		Affichage::displayDonjon(*d);
-		/*while (true) {
+		while (true) {
+			
 			d->move();
 			Affichage::displayDonjon(*d);
-		}*/
+
+		}
 		std::cin.ignore();
 		std::cout << "\033[2J\033[1;1H"; //clear console
 	}

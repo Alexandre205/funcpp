@@ -204,6 +204,9 @@ int Utilitaire::getGeneratedInteger() {
     return getGeneratedInteger(0, 10000);
 }
 
+bool Utilitaire::rngRateChecker(int rate){
+    return getGeneratedInteger(100) < rate;
+}
 void Utilitaire::polishMot(std::string& mot) {
     if (!mot.empty()) {
         for (int i{ 0 }; i < mot.size(); i++) {

@@ -1,11 +1,15 @@
 #include"InputConsole.h"
+#include <iostream>
+#include <limits>
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
 int getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	int nb = -1;
 	std::cin >> nb;
-	while (nb<lowerValue || nb>upperValue) {
+	while (std::cin.fail() || nb<lowerValue || nb>upperValue) {
 		Affichage::afficher(textInvalid);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cin >> nb;
 	}
 	return nb;

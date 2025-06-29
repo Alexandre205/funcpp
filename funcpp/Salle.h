@@ -7,7 +7,9 @@ enum SalleType {
 	Empty,
 	Battle,
 	Current,
-	Stairs
+	Stairs,
+	Chest,
+	Merchant
 };
 enum Connexion {
 	CONNEXION_NORTH = 1, // 0001
@@ -43,4 +45,5 @@ public:
 	bool hasSouthConnexion();
 	bool hasWestConnexion();
 	bool hasEastConnexion();
+	bool isState(SalleType stateRoom);
 };

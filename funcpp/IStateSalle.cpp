@@ -29,3 +29,11 @@ void CurrentRoom::passage(Perso& joueur) {
 void StairsRoom::passage(Perso& joueur) {
 	Affichage::afficher("Bravo " + joueur.getNom() + ", vous etes sorti.\n");
 }
+void ChestRoom::passage(Perso& joueur) {
+	//code d'ouverture de coffre;
+	Affichage::afficher("Il y a un coffre\n");
+}
+void MerchantRoom::passage(Perso& joueur) {
+	//code du marchand
+	Affichage::afficher("Il y a un marchand\n");
+}

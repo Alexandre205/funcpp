@@ -26,6 +26,8 @@ namespace Utilitaire
 	int getGeneratedInteger(int lowestValue, int highterValue);
 	int getGeneratedInteger(int highterValue);
 	int getGeneratedInteger();
+	
+	bool rngRateChecker(int rate);
 
 	//Replace '_' by ' ' and up the first caractere
 	void polishMot(std::string& mot);
