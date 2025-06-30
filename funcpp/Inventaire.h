@@ -39,4 +39,8 @@ public:
 	Arme getArme();
 	Armure getArmure();
 	Botte getBotte();
+
+	Consommable* getConsumable(int i);
+	int getNbConsommable();
+	std::string getConsumableList();
 };

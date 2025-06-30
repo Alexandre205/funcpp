@@ -14,9 +14,7 @@ private:
 	std::string description;
 	int coutPm;
 
-	// possiblement mettre ça dans Effet.h et ICiblage.h
-	static std::function<void(Entite&, int)> intToEffet(int iEffet);
-	static ICiblage* intToICiblage(int iICiblage);
+
 public:
 
 	std::string toString();

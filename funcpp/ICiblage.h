@@ -8,6 +8,7 @@ class Monstre;
 
 class ICiblage {
 public:
+	static ICiblage* intToICiblage(int i);
 	//virtual void appliquerEffet(std::function<void(Entite&, int)>effet, std::vector<Entite*>& cibles,Entite& lanceur,std::string formuleDegat) = 0;
 	virtual std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) = 0;
 };

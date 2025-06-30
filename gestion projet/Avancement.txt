@@ -5,6 +5,8 @@ Optimisation:
 	Utiliser std::vector<>::reserve() pour diminuer (si possible) le nombre d'allocation du programme
 	|->1.Créer vector 2. vector.reserve(la taille en mémoire à réserver)
 	Utilise unordered_map pour les positions visitées dans l'algo de gen donjon
+	voir si je peux pas mettre des truc en const
+	optimiser la création de string complexe avec des builder
 
 	Accelérer l'initialisation du donjon surtout au niveau des mur extérieur
 		Essayer de faire le tout en une seule boucle
@@ -35,3 +37,7 @@ bruler implement state{
 
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
+
+Faire en sorte que Self cible soigne le possesseur de la compétence pas juste le joueur
+
+Faire des fichier + gestion fichier pour les équipements et les consommables

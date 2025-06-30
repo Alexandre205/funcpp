@@ -14,18 +14,44 @@ int getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	}
 	return nb;
 }
-ActionPerforme Obtention::getActionPerforme(Entite& joueur, std::vector<Monstre*>& ennemis) {
+ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Monstre*>& ennemis) {
 	ActionPerforme action{ &joueur };
 	std::string liste = joueur.getListCompetence();
-	Affichage::afficher(liste);
-	Competence* comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
-	while (comp->getCoutPm()>joueur.getPm()) {
-		Affichage::afficher("Impossible de lancer " + comp->getNom() + ", pas assez de pm\n"+liste);
-		comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
+	int plusOneIfItems = 0;
+	if (joueur.getInventaire()->getNbConsommable() > 0) {
+		plusOneIfItems = 1;
+		liste.append(std::to_string(joueur.getNbCompetence() + 1) + "- Utiliser un objet.\n");
 	}
-	action.action = comp;
-	std::vector<Entite*> allie = { &joueur }; //permet de rajouter des Entite alliées au besoin
-	action.cibles = action.action->getCibles(ennemis, allie);
+	Affichage::afficher(liste);
+
+	int choix = getValidInt(1, joueur.getNbCompetence() + plusOneIfItems, "Mauvais choix de competence\n" + liste) - 1;
+	if (choix < joueur.getNbCompetence()) {
+		//utiliser la competence choisie
+		Competence* comp = joueur.getCompetence(choix);
+
+		while (comp->getCoutPm()>joueur.getPm()) {
+			Affichage::afficher("Impossible de lancer " + comp->getNom() + ", pas assez de pm\n"+liste);
+			comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
+		}
+
+		action.action = comp;
+		std::vector<Entite*> allie = { &joueur }; //permet de rajouter des Entite alliées au besoin
+		action.cibles = action.action->getCibles(ennemis, allie);
+	}
+	else {
+		//utiliser un objets
+		liste.clear();
+		liste.append(joueur.getInventaire()->getConsumableList());
+		Affichage::afficher(liste);
+		
+		int choixObjet = getValidInt(1, joueur.getInventaire()->getNbConsommable() + plusOneIfItems, "Mauvais choix d'objet\n" + liste) - 1;
+		action.action = joueur.getInventaire()->getConsumable(choixObjet);
+		joueur.getInventaire()->supprimerConsommable(choixObjet);
+		std::vector<Entite*> allie = { &joueur };
+		action.cibles = action.action->getCibles(ennemis, allie);
+	}
+	
+	
 	
 	//liste.clear();
 	//int i = 0;

@@ -69,3 +69,8 @@ void Perso::changerEquipement(Armure nouvArmure) {
 void Perso::changerEquipement(Botte nouvBotte) {
 	getInventaire()->ajouterEquipement(nouvBotte);
 }
+
+void Perso::addConsumable(Consommable& nouvConso) {
+	nouvConso.ajouterPossesseur(this);
+	inventaire.ajouterConsommable(nouvConso);
+}

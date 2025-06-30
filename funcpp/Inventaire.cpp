@@ -39,7 +39,7 @@ void Inventaire::supprimerConsommable(int indiceConso) {
 	}
 	nbConsommable--;
 }
-
+//utiliserConsommable
 void Inventaire::ajouterEquipement(Casque casque) {
 	this->casque = casque;
 }
@@ -64,4 +64,19 @@ Armure Inventaire::getArmure() {
 }
 Botte Inventaire::getBotte() {
 	return botte;
+}
+
+Consommable* Inventaire::getConsumable(int i) {
+	Utilitaire::testHandler(i < nbConsommable && i >= 0, "indice de la competence hors portée");
+	return inventaire[i];
+}
+int Inventaire::getNbConsommable() {
+	return nbConsommable;
+}
+std::string Inventaire::getConsumableList() {
+	std::string s = "";
+	for (int i = 0; i < nbConsommable; i++) {
+		s += std::to_string(i+1)+"- " + inventaire[i]->getNom()+"\n";
+	}
+	return s;
 }
