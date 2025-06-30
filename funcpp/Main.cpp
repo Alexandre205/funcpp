@@ -21,10 +21,10 @@ int main(int argc, char* argv[]) {
 	Consommable c2{"bombe","blesse les ennemis de la moitiée de leur attaque",Effets::infligerDegat,"c.ap",new MultiCible,100};
 	p1.addConsumable(c1);
 	p1.addConsumable(c2);
-	p1.altererPv(-15);
-
-	FightRoom f;
-	f.passage(p1);
+	
+	std::vector<Consommable*> c = FileManagement::getConsumablesFromFile();
+	c;
+	int i = 1;
 	//while (true) {
 	//	Donjon* d = DungeonGenerator::generateDonjon(&p1);
 	//	Affichage::displayDonjon(*d);

@@ -7,14 +7,13 @@
 std::vector<Monstre*> FileManagement::getMonstersFromFile() {
 	std::ifstream file{ NOM_FILE_MONSTRE };
 	std::vector<Monstre*> monstres;
-	if (!file) {
-		return monstres;
-	}
+	Utilitaire::testHandler(file.is_open(), "Ressource manquante Monstres.txt");
+	
 	while (!file.eof()) {
 		std::string nom;
 		int pv, pm, atk, def, vit, nbComp;
 
-		//récupere les informations toute en avance dans le fichier
+		//récupere toute les informations en avance dans le fichier
 		file >> nom >> pv >> pm >> atk >> def >> vit >> nbComp;
 		Utilitaire::polishMot(nom);
 		Monstre *monstre = new Monstre{ nom,pv,pm,atk,def,vit };
@@ -30,4 +29,19 @@ std::vector<Monstre*> FileManagement::getMonstersFromFile() {
 	}
 	file.close();
 	return monstres;
+}
+std::vector<Consommable*> FileManagement::getConsumablesFromFile() {
+	std::ifstream file{ NOM_FILE_CONSUMABLE };
+	std::vector<Consommable*> consumables;
+	Utilitaire::testHandler(file.is_open(), "Ressource manquante Consumable.txt");
+
+	while (!file.eof()) {
+		std::string nom, description, formule;
+		int iEffect, iCiblage, priority;
+		file >> nom >> description >> iEffect >> formule >> iCiblage >> priority;
+		Utilitaire::polishMot(nom);
+		Utilitaire::polishMot(description);
+		consumables.push_back(new Consommable(nom, description, iEffect, formule, iCiblage, priority));
+	}
+	return consumables;
 }

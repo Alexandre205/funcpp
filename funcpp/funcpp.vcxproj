@@ -75,6 +75,7 @@
     <Text Include="..\ressources\How to use file.txt" />
     <Text Include="..\ressources\log.txt" />
     <Text Include="..\ressources\Monstres.txt" />
+    <Text Include="Consumable.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
