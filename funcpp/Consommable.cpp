@@ -4,11 +4,11 @@
 
 
 std::string Consommable::toString() {
-	return Item::toString() + "\n";
+	return nom + " \"" + description + "\"\n";
 }
 
 Consommable::Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet, std::string formule,ICiblage* ciblage,int priorite) :
-	Item(nom,description){
+	nom{ nom }, description{ description } {
 	IUsable::effet = effet;
 	IUsable::formule = formule;
 	IUsable::priorite = priorite;
@@ -24,7 +24,7 @@ void Consommable::ajouterPossesseur(Entite* nouvPossesseur) {
 	possesseur = nouvPossesseur;
 }
 void Consommable::utiliser(std::vector<Entite*> cibles) {
-	Affichage::afficher(possesseur->getNom()+" utilise l'objet "+getNom()+"\n");
+	Affichage::afficher(possesseur->getNom()+" utilise l'objet "+nom+"\n");
 	for (Entite* cible : cibles) {
 		int valeur = Utilitaire::applicationFormuleDeDegat(formule, *possesseur, *cible);
 		effet(*cible, valeur);
@@ -35,4 +35,10 @@ std::vector<Entite*> Consommable::getCibles(std::vector<Monstre*>& ennemis, std:
 }
 int Consommable::getPriority() {
 	return priorite;
+}
+std::string Consommable::getNom() {
+	return nom;
+}
+std::string Consommable::getDescription() {
+	return  description;
 }

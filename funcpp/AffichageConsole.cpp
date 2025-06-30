@@ -15,9 +15,9 @@ void Affichage::afficher(std::vector<Entite*>& ens) {
 void Affichage::afficher(Entite& en) {
 	std::cout << en.toString()+"\n";
 }
-void Affichage::afficher(Item& it) {
-	std::cout << it.toString()+"\n";
-}
+//void Affichage::afficher(Item& it) {
+//	std::cout << it.toString()+"\n";
+//}
 void Affichage::afficher(Competence& co) {
 	std::cout << co.toString() + "\n";
 }

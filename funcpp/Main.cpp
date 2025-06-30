@@ -25,18 +25,18 @@ int main(int argc, char* argv[]) {
 	std::vector<Consommable*> c = FileManagement::getConsumablesFromFile();
 	c;
 	int i = 1;
-	//while (true) {
-	//	Donjon* d = DungeonGenerator::generateDonjon(&p1);
-	//	Affichage::displayDonjon(*d);
-	//	while (true) {
-	//		
-	//		d->move();
-	//		Affichage::displayDonjon(*d);
+	while (true) {
+		Donjon* d = DungeonGenerator::generateDonjon(&p1);
+		Affichage::displayDonjon(*d);
+		while (true) {
+			
+			d->move();
+			Affichage::displayDonjon(*d);
 
-	//	}
-	//	std::cin.ignore();
-	//	std::cout << "\033[2J\033[1;1H"; //clear console
-	//}
+		}
+		std::cin.ignore();
+		std::cout << "\033[2J\033[1;1H"; //clear console
+	}
 
 
 	Affichage::afficher("\n\nFIN");

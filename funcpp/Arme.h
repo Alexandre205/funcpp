@@ -1,7 +1,7 @@
 #pragma once
-#include<string>
-#include"Item.h"
-class Arme:public Item
+
+#include "Equipment.h"
+class Arme:public Equipment
 {
 private:
 	int attaqueBonus;

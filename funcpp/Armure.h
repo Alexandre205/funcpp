@@ -1,7 +1,7 @@
 #pragma once
-#include "Item.h"
+#include "Equipment.h"
 class Armure :
-    public Item
+    public Equipment
 {
 private:
     int defenceBonus;

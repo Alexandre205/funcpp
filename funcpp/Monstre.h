@@ -1,6 +1,6 @@
 #pragma once
 #include "Entite.h"
-#include"Item.h"
+#include"ILootable.h"
 #include<vector>
 class Monstre :
     public Entite
@@ -9,7 +9,7 @@ private:
     //Race
     struct Loot
     {
-        Item objet;
+        ILootable objet;
         int pourcentageDeDrop;
     };
     std::vector<struct Loot> objetsLootable;

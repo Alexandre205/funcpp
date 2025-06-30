@@ -1,7 +1,7 @@
 #pragma once
-#include "Item.h"
+#include "Equipment.h"
 class Casque :
-    public Item
+    public Equipment
 {
 private:
     int pvBonus;

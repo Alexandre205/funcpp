@@ -1,10 +1,14 @@
 #pragma once
-#include"Item.h"
+
 #include"Entite.h"
 #include"IUsable.h"
 #include"Effets.h"
-class Consommable : public Item, public IUsable
+#include"ILootable.h"
+class Consommable : public IUsable,public ILootable
 {
+private:
+	std::string nom;
+	std::string description;
 public:
 
 	std::string toString();
@@ -25,4 +29,6 @@ public:
 	void utiliser(std::vector<Entite*> cibles);
 	std::vector<Entite*> getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
 	int getPriority();
+	std::string getNom();
+	std::string getDescription();
 };

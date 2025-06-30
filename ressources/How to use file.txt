@@ -25,3 +25,5 @@ structure d'un monstre dans le fichier
 
 structure d'un consommable dans le fichier
 	nom description indice_d'effet formule indice_de_ciblage priorité
+
+structure d'un équipement dans le fichier
