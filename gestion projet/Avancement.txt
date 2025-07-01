@@ -41,4 +41,3 @@ Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'
 
 Faire en sorte que Self cible soigne le possesseur de la compétence pas juste le joueur
 
-Faire des fichier + gestion fichier pour les équipements et les consommables

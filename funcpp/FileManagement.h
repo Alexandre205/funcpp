@@ -3,6 +3,17 @@
 
 #include"Monstre.h"
 #include"Consommable.h"
+#include"Casque.h"
+#include"Arme.h"
+#include"Armure.h"
+#include"Botte.h"
+
+struct DataEquipment {
+	std::vector<Casque*> casques;
+	std::vector<Arme*> armes;
+	std::vector<Armure*> armures;
+	std::vector<Botte*> bottes;
+};
 
 namespace FileManagement {
 	namespace {
@@ -13,5 +24,5 @@ namespace FileManagement {
 	
 	std::vector<Monstre*> getMonstersFromFile();
 	std::vector<Consommable*> getConsumablesFromFile();
-	//std::vector<Equipement*> getEquipmentFromFile();
+	DataEquipment getEquipmentFromFile();
 }

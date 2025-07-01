@@ -22,21 +22,21 @@ int main(int argc, char* argv[]) {
 	p1.addConsumable(c1);
 	p1.addConsumable(c2);
 	
-	std::vector<Consommable*> c = FileManagement::getConsumablesFromFile();
+	auto c = FileManagement::getEquipmentFromFile();
 	c;
-	int i = 1;
-	while (true) {
-		Donjon* d = DungeonGenerator::generateDonjon(&p1);
-		Affichage::displayDonjon(*d);
-		while (true) {
-			
-			d->move();
-			Affichage::displayDonjon(*d);
+	int i = 2;
+	//while (true) {
+	//	Donjon* d = DungeonGenerator::generateDonjon(&p1);
+	//	Affichage::displayDonjon(*d);
+	//	while (true) {
+	//		
+	//		d->move();
+	//		Affichage::displayDonjon(*d);
 
-		}
-		std::cin.ignore();
-		std::cout << "\033[2J\033[1;1H"; //clear console
-	}
+	//	}
+	//	std::cin.ignore();
+	//	std::cout << "\033[2J\033[1;1H"; //clear console
+	//}
 
 
 	Affichage::afficher("\n\nFIN");

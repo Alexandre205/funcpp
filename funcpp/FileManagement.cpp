@@ -6,8 +6,9 @@
 
 std::vector<Monstre*> FileManagement::getMonstersFromFile() {
 	std::ifstream file{ NOM_FILE_MONSTRE };
-	std::vector<Monstre*> monstres;
 	Utilitaire::testHandler(file.is_open(), "Ressource manquante Monstres.txt");
+	std::vector<Monstre*> monstres;
+	
 	
 	while (!file.eof()) {
 		std::string nom;
@@ -44,4 +45,38 @@ std::vector<Consommable*> FileManagement::getConsumablesFromFile() {
 		consumables.push_back(new Consommable(nom, description, iEffect, formule, iCiblage, priority));
 	}
 	return consumables;
+}
+DataEquipment FileManagement::getEquipmentFromFile() {
+	std::ifstream file{ NOM_FILE_EQUIPEMENT };
+	Utilitaire::testHandler(file.is_open(), "Ressource manquante Equipment.txt");
+	DataEquipment data;
+	while (!file.eof()) {
+		std::string nom, description;
+		int indiceTypeEquipment;
+		file >> nom >> description >> indiceTypeEquipment;
+		switch (indiceTypeEquipment) {
+		case 1:
+			int pv,pm;
+			file >> pv >> pm;
+			data.casques.push_back(new Casque(nom,description,pv,pm));
+			break;
+		case 2:
+			int atk;
+			file >> atk;
+			data.armes.push_back(new Arme(nom, description, atk));
+			break;
+		case 3:
+			int def;
+			file >> def;
+			data.armures.push_back(new Armure(nom, description, def));
+			break;
+		case 4:
+			int vit;
+			file >> vit;
+			data.bottes.push_back(new Botte(nom,description,vit));
+			break;
+		default:Utilitaire::unexpectedExit("Probleme avec l'indice d'équipement de " + nom);
+		}
+	}
+	return data;
 }
