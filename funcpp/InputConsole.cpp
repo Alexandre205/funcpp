@@ -3,7 +3,7 @@
 #include <limits>
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
-int getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
+int Obtention::getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	int nb = -1;
 	std::cin >> nb;
 	while (std::cin.fail() || nb<lowerValue || nb>upperValue) {

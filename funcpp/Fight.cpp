@@ -96,4 +96,13 @@ void Fight::lancerCombat() {
 		majOrdreDAction(ordreDAction);
 		actionPerforme.clear();
 	}
+	Affichage::clear();
+	//Afficher un truc different en fonction de si on a gagner ou pas
+	if (joueur->estVivant()) {
+		Affichage::afficher("Vous avez gagner le combat\n");
+	}
+	else {
+		Affichage::afficher("Vous etes mort\n");
+	}
+	
 }

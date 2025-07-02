@@ -27,6 +27,7 @@
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="IStateSalle.cpp" />
     <ClCompile Include="IUsable.cpp" />
+    <ClCompile Include="Ressources.cpp" />
     <ClCompile Include="Salle.cpp" />
     <ClCompile Include="Casque.cpp" />
     <ClCompile Include="Competence.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="ILootable.h" />
     <ClInclude Include="IStateSalle.h" />
+    <ClInclude Include="Ressources.h" />
     <ClInclude Include="Salle.h" />
     <ClInclude Include="Casque.h" />
     <ClInclude Include="Competence.h" />
@@ -76,11 +78,14 @@
     <Text Include="..\gestion projet\Avancement.txt" />
     <Text Include="..\gestion projet\Description.txt" />
     <Text Include="..\gestion projet\note.txt" />
+    <Text Include="..\ressources\Consumable.txt" />
     <Text Include="..\ressources\Equipment.txt" />
     <Text Include="..\ressources\How to use file.txt" />
     <Text Include="..\ressources\log.txt" />
     <Text Include="..\ressources\Monstres.txt" />
-    <Text Include="Consumable.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="funcpp.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

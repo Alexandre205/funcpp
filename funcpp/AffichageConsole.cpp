@@ -83,3 +83,6 @@ void Affichage::displayDonjon(Donjon& dj) {
 	}
 	std::cout << s;
 }
+void Affichage::clear() {
+	std::cout << "\x1B[2J\x1B[H";
+}

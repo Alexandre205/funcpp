@@ -36,5 +36,5 @@ public:
     void changerEquipement(Armure nouvArmure);
     void changerEquipement(Botte nouvBotte);
 
-    void addConsumable(Consommable& nouvConso);
+    void addConsumable(Consommable* nouvConso);
 };

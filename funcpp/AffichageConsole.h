@@ -24,4 +24,5 @@ namespace Affichage
 	void afficher(Salle& sa);
 	void afficher(Donjon& dj);
 	void displayDonjon(Donjon& dj);
+	void clear();
 };

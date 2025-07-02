@@ -108,6 +108,9 @@
     <ClCompile Include="IUsable.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Ressources.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entite.h">
@@ -185,6 +188,9 @@
     <ClInclude Include="Equipment.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Ressources.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\ressources\Monstres.txt">
@@ -205,11 +211,16 @@
     <Text Include="..\ressources\How to use file.txt">
       <Filter>Fichiers de ressources\Ressources</Filter>
     </Text>
-    <Text Include="Consumable.txt">
-      <Filter>Fichiers de ressources\Ressources</Filter>
-    </Text>
     <Text Include="..\ressources\Equipment.txt">
       <Filter>Fichiers de ressources\Ressources</Filter>
     </Text>
+    <Text Include="..\ressources\Consumable.txt">
+      <Filter>Fichiers de ressources\Ressources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="funcpp.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -39,3 +39,8 @@ bruler implement state{
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
 
+ne pas toujours transformer les room passées en emptyRoom => peut-etre renvoyer un boolean pour savoir si oui ou non il faut garder le state
+faire le code du marchand + 
+le code du tresor
+|-> Générer les items à la generation et les garder
+|-> Quand on fait new ChestRoom() on générer un item avec la seed

@@ -31,6 +31,7 @@ public:
 
 
 	void move();
+	void explore();
 
 	Salle* getRoom(int i, int j);
 	bool isValidRoom(int i, int j);

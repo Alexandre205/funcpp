@@ -22,9 +22,9 @@ Inventaire::Inventaire() :nbConsommable{ 0 }, tailleInventaire(TAILLE_DE_BASE_IN
 }
 
 
-void Inventaire::ajouterConsommable(Consommable& nouvConso) {
+void Inventaire::ajouterConsommable(Consommable* nouvConso) {
 	if (nbConsommable < TAILLE_DE_BASE_INVENTAIRE) {
-		inventaire[nbConsommable] = &nouvConso;
+		inventaire[nbConsommable] = nouvConso;
 		nbConsommable++;
 	}
 	else {
