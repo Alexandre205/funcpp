@@ -47,7 +47,8 @@ int Perso::getVitesse() {
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
 ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre*> monstres) {
-	return Obtention::getActionPerforme(*this, monstres);
+	std::vector<Entite*> ennemis(monstres.begin(), monstres.end());
+	return Obtention::getActionPerforme(*this, ennemis);
 }
 
 // plus complexe car gestion pv

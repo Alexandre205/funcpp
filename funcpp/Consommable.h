@@ -14,10 +14,10 @@ public:
 	std::string toString();
 
 	//constructeur de base
-	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,ICiblage* ciblage,int priorite);
+	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,Ciblage ciblage,int priorite);
 	
 	//constructeur priorité 0
-	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,ICiblage* ciblage);
+	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,Ciblage ciblage);
 	
 	//pour lire les Consommable depuis un fichier
 	//utilisation d'indices
@@ -27,8 +27,9 @@ public:
 	void ajouterPossesseur(Entite* nouvPossesseur);
 
 	void utiliser(std::vector<Entite*> cibles);
-	std::vector<Entite*> getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
+	std::vector<Entite*> getCibles(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie);
 	int getPriority();
 	std::string getNom();
 	std::string getDescription();
+	Ciblage getCiblage();
 };

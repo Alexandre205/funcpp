@@ -7,14 +7,14 @@ std::string Consommable::toString() {
 	return nom + " \"" + description + "\"\n";
 }
 
-Consommable::Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet, std::string formule,ICiblage* ciblage,int priorite) :
+Consommable::Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet, std::string formule, Ciblage ciblage,int priorite) :
 	nom{ nom }, description{ description } {
 	IUsable::effet = effet;
 	IUsable::formule = formule;
 	IUsable::priorite = priorite;
 	IUsable::ciblage = ciblage;
 }
-Consommable::Consommable(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formule, ICiblage* ciblage) :
+Consommable::Consommable(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formule, Ciblage ciblage) :
 	Consommable{ nom,description,effet,formule,ciblage,0 } {};
 
 Consommable::Consommable(std::string nom, std::string description, int iEffect, std::string formule, int iCiblage, int priority) :
@@ -30,8 +30,8 @@ void Consommable::utiliser(std::vector<Entite*> cibles) {
 		effet(*cible, valeur);
 	}
 }
-std::vector<Entite*> Consommable::getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) {
-	return ciblage->selectionnerCible(ennemis, allie);
+std::vector<Entite*> Consommable::getCibles(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie) {
+	return infoCiblage[ciblage].ciblage->selectionnerCible(ennemis, allie);
 }
 int Consommable::getPriority() {
 	return priorite;
@@ -41,4 +41,7 @@ std::string Consommable::getNom() {
 }
 std::string Consommable::getDescription() {
 	return  description;
+}
+Ciblage Consommable::getCiblage() {
+	return ciblage;
 }

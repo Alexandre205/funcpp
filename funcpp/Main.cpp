@@ -15,16 +15,17 @@
 int main(int argc, char* argv[]) {
 	Utilitaire::initSeed();
 	Perso p1{ "Alex",100,10,50,50,50 };
-	p1.apprendreCompetence(new Competence{ "attaque", "al", Effets::infligerDegat, "15", new MonoCible(), 0 });
-	p1.apprendreCompetence(new Competence{ "super attaque","al",Effets::infligerDegat,"100",new MultiCible(),10 });
-	Consommable c1{"potion","soigne 10 pv",Effets::soinPv,"10",new SelfCible,100};
-	Consommable c2{"bombe","blesse les ennemis de la moitiée de leur attaque",Effets::infligerDegat,"c.ap",new MultiCible,100};
+	p1.apprendreCompetence(new Competence{ "attaque", "al", Effets::infligerDegat, "15", Ciblage::Mono, 0 });
+	p1.apprendreCompetence(new Competence{ "super attaque","al",Effets::infligerDegat,"100",Ciblage::Multi,10 });
+	p1.apprendreCompetence(new Competence{ "skip","al",Effets::infligerDegat,"0",Ciblage::Self,0,-1});
+	Consommable c1{"potion","soigne 10 pv",Effets::soinPv,"10",Ciblage::Mono,100};
+	Consommable c2{"bombe","blesse les ennemis de la moitiée de leur attaque",Effets::infligerDegat,"c.ap",Ciblage::Multi,100};
 	p1.addConsumable(c1);
 	p1.addConsumable(c2);
 	
-	auto c = FileManagement::getEquipmentFromFile();
-	c;
-	int i = 2;
+	FightRoom f;
+	f.passage(p1);
+	
 	//while (true) {
 	//	Donjon* d = DungeonGenerator::generateDonjon(&p1);
 	//	Affichage::displayDonjon(*d);

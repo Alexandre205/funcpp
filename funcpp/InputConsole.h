@@ -6,7 +6,7 @@
 #include"Fight.h"
 #include"Donjon.h"
 namespace Obtention {
-	ActionPerforme getActionPerforme(Perso& joueur, std::vector<Monstre*>& ennemis);
+	ActionPerforme getActionPerforme(Perso& joueur, std::vector<Entite*>& ennemis);
 	int getCibleIndice(std::vector<Entite*>& cibles);
 	Direction getDirection(Salle* salle);
 }

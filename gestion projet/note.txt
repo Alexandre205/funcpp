@@ -88,6 +88,7 @@ Où mettre l'obtention des competences par l'utilisateur
 |->séparer en 2 > on obtiens la competence > en fonction de la competence on choisit les/la cibles(s)
 	comme ça on peut faire de la séléction variant en fonction de la competence
 |=> faire une enum dans Competence pour gérer le ciblage :>mono,all,self,multi
+|=> J'ai mis un pansement dans monstre::getAction() pour le self ciblage
 
 Le déroulement du combat devra etre revu pour intégrer les differents ciblage ainsi que la priorité des competences
 |=> priorité sera une variable int pour désigner à quel point elle prioritaire <:

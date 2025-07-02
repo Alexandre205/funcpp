@@ -28,6 +28,6 @@ ActionPerforme Monstre::getAction(Perso& joueur, std::vector<Monstre*> monstres)
 		cp = this->getCompetence(0);
 	}
 	action.action = cp;
-	action.cibles = std::vector<Entite*>{ &joueur };
+	action.cibles = action.action->getCiblage() == Ciblage::Self ? std::vector<Entite*>{ this } : std::vector<Entite*>{ &joueur };
 	return action;
 }

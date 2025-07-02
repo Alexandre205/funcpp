@@ -26,6 +26,7 @@
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="IStateSalle.cpp" />
+    <ClCompile Include="IUsable.cpp" />
     <ClCompile Include="Salle.cpp" />
     <ClCompile Include="Casque.cpp" />
     <ClCompile Include="Competence.cpp" />

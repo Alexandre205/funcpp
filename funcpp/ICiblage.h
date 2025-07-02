@@ -4,28 +4,25 @@
 #include<string>
 
 class Entite;
-class Monstre;
-
+enum Ciblage;
 class ICiblage {
 public:
-	static ICiblage* intToICiblage(int i);
-	//virtual void appliquerEffet(std::function<void(Entite&, int)>effet, std::vector<Entite*>& cibles,Entite& lanceur,std::string formuleDegat) = 0;
-	virtual std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie) = 0;
+	static Ciblage intToICiblage(int i);
+	virtual std::vector<Entite*> selectionnerCible(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie) = 0;
 };
 
 class MonoCible : public ICiblage {
 public:
-	//void appliquerEffet(std::function<void(Entite&, int)>effet, std::vector<Entite*>& cibles, Entite& lanceur, std::string formuleDegat);
-	std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
+	std::vector<Entite*> selectionnerCible(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie);
 };
 
 class MultiCible : public ICiblage {
 public:
-	//void appliquerEffet(std::function<void(Entite&, int)>effet, std::vector<Entite*>& cibles, Entite& lanceur, std::string formuleDegat);
-	std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
+	std::vector<Entite*> selectionnerCible(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie);
 };
 
 class SelfCible : public ICiblage {
 public:
-	std::vector<Entite*> selectionnerCible(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
+	std::vector<Entite*> selectionnerCible(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie);
 };
+

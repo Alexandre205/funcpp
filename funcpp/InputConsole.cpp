@@ -14,7 +14,7 @@ int getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	}
 	return nb;
 }
-ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Monstre*>& ennemis) {
+ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Entite*>& ennemis) {
 	ActionPerforme action{ &joueur };
 	std::string liste = joueur.getListCompetence();
 	int plusOneIfItems = 0;

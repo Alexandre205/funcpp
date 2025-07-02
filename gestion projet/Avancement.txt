@@ -39,5 +39,3 @@ bruler implement state{
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
 
-Faire en sorte que Self cible soigne le possesseur de la compétence pas juste le joueur
-
