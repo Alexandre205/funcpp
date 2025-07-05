@@ -28,6 +28,7 @@ void Inventaire::ajouterConsommable(Consommable* nouvConso) {
 		nbConsommable++;
 	}
 	else {
+		Utilitaire::writeInLog("Plus de place dans l'inventaire");
 		// 1.checker extra inventaire
 		// 2.proposer de supprimer un objet
 	}

@@ -4,6 +4,7 @@
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
 #include"InputConsole.h"
+#include"Ressources.h"
 
 void WallRoom::passage(Perso& joueur) {
 	Utilitaire::unexpectedExit("Mur traversé, pas normal");
@@ -30,14 +31,18 @@ void CurrentRoom::passage(Perso& joueur) {
 void StairsRoom::passage(Perso& joueur) {
 	Affichage::afficher("Oh mon Dieu, la sortie\n");
 }
+
+ChestRoom::ChestRoom() {
+	tresor = Ressources::dataConsommable.at(Utilitaire::getGeneratedInteger(0, Ressources::dataConsommable.size()-1));
+}
 void ChestRoom::passage(Perso& joueur) {
 	//code d'ouverture de coffre;
 	Affichage::afficher("Il y a un coffre. Voulez-vous l'ouvrire\n1.Oui\n2.Non\n");
 	int i = Obtention::getValidInt(1, 2, "Nombre invalide");
 	if (i == 1) {
-		Consommable *c = new Consommable{ "potion","soigne 10 pv",Effets::soinPv,"10",Ciblage::Mono,100 };
-		Affichage::afficher("Vous trouvez une " + c->getNom() + ".\n");
-		joueur.addConsumable(c);
+		
+		Affichage::afficher("Vous trouvez une " + tresor->getNom() + ".\n");
+		joueur.addConsumable(tresor);
 	}
 	else {
 		Affichage::afficher("Vous laisser le coffre là");
