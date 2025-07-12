@@ -22,13 +22,13 @@ enum Connexion {
 struct RoomInfo {
 	std::string toString;
 	std::string stringContent;
-	IStateSalle* stateSalle;
 };
 class Salle
 {
 private:
 	static std::map<SalleType, RoomInfo> infoRoom;
 	SalleType roomStateType;
+	IStateSalle* stateRoom;
 	int connexion;
 public:
 	std::string toString();

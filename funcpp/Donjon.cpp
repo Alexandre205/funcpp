@@ -53,8 +53,25 @@ void Donjon::move() {
 		case EAST:currentX++; break;
 		default:Utilitaire::unexpectedExit("Probleme avec les directions");
 	}
+	Affichage::clear();
 	floor[currentY][currentX]->passage(*player);//move to the new room//Salle->passage();
+
+	//à changer pour gérer les different state
 	floor[currentY][currentX]->setIStateSalle(SalleType::Current);//change the state of the room to CurrentRoom
+}
+void Donjon::explore() {
+	Affichage::afficher("Vous penetrez dans le donjon.\n");
+	//Mettre a jour la boucle pour pouvoir perdre
+	while ((currentX != exitX || currentY != exitY) && player->estVivant() ) {
+		Affichage::displayDonjon(*this);
+		move();
+	}
+	if (player->estVivant()) {
+		Affichage::afficher("bravo vous avez survecu\n");
+	}
+	else {
+		Affichage::afficher("Vous avez ete bouffer par le donjon\n");
+	}
 }
 
 void Donjon::setCurrentX(int currentX) {

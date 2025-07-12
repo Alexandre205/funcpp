@@ -1,6 +1,3 @@
-structure d'un monstre dans le fichier
-	nom pv pm attaque defense vitesse nombre_de_competence
-	nom_competence description_comp indice_d'effet formule_de_degat indice_de_ciblage cout_en_pm valeur_de_priorite
 the token existing for the formule are
 	u = user
 	c = target
@@ -10,3 +7,29 @@ the token existing for the formule are
 exemple
 	u.ap = user physicale attack
 	c.vi = target speed
+
+indice for effect :
+	1 : infliger_dégat
+	2 : soin_pv
+	3 : soin_pm
+	4 : soin_pv_pm
+
+indice for ciblage :
+	1 : Monocible
+	2 : Multicible
+	3 : SelfCible
+
+structure d'un monstre dans le fichier
+	nom pv pm attaque defense vitesse nombre_de_competence
+	nom_competence description_comp indice_d'effet formule indice_de_ciblage cout_en_pm priorité
+
+structure d'un consommable dans le fichier
+	nom description indice_d'effet formule indice_de_ciblage priorité
+
+indice de type d'equipement:
+	1 : casque
+	2 : arme
+	3 : armure
+	4 : bottes
+structure d'un équipement dans le fichier
+	nom description indice_type_equipement [bonus1] [bonus2]

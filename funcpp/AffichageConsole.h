@@ -14,7 +14,7 @@ namespace Affichage
 	void afficher(std::string st);
 	void afficher(std::vector<Entite*>& ens);
 	void afficher(Entite& en);
-	void afficher(Item& it);
+	//void afficher(Item& it);
 	void afficher(Competence& co);
 	void afficher(Inventaire* in);
 	void afficher(Inventaire& in);
@@ -24,4 +24,5 @@ namespace Affichage
 	void afficher(Salle& sa);
 	void afficher(Donjon& dj);
 	void displayDonjon(Donjon& dj);
+	void clear();
 };

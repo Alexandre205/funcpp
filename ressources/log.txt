@@ -1,0 +1,24 @@
+12/07/25, 14:49:34 , Seed utilisée = 520261
+12/07/25, 14:50:39 , Seed utilisée = 166785
+12/07/25, 14:52:52 , Seed utilisée = 318167
+12/07/25, 14:53:05 , La sortie est completement vide ou est encore trops remplie
+12/07/25, 14:53:23 , Seed utilisée = 141412
+12/07/25, 14:53:30 , La sortie est completement vide ou est encore trops remplie
+12/07/25, 14:53:47 , Seed utilisée = 661031
+12/07/25, 14:53:52 , La sortie est completement vide ou est encore trops remplie
+12/07/25, 14:55:13 , Seed utilisée = 182305
+12/07/25, 14:55:36 , Seed utilisée = 528336
+12/07/25, 14:57:18 , Seed utilisée = 858551
+12/07/25, 14:57:57 , Seed utilisée = 726057
+12/07/25, 14:58:06 , La sortie est completement vide ou est encore trops remplie
+12/07/25, 14:59:35 , Seed utilisée = 534375
+12/07/25, 15:09:09 , Seed utilisée = 150509
+12/07/25, 15:12:26 , La sortie est completement vide ou est encore trops remplie
+12/07/25, 15:12:33 , Seed utilisée = 434667
+12/07/25, 15:15:27 , Seed utilisée = 96714
+12/07/25, 15:18:10 , Seed utilisée = 541002
+12/07/25, 15:18:43 , Seed utilisée = 901991
+12/07/25, 15:20:44 , Seed utilisée = 698062
+12/07/25, 15:21:16 , Seed utilisée = 806247
+12/07/25, 16:51:38 , Seed utilisée = 659598
+12/07/25, 17:02:00 , Seed utilisée = 353688

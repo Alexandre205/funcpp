@@ -6,7 +6,7 @@
 #include"IUsable.h"
 
 class Entite;
-class Monstre;
+
 class Competence : public IUsable
 {
 private:
@@ -14,21 +14,19 @@ private:
 	std::string description;
 	int coutPm;
 
-	// possiblement mettre ça dans Effet.h et ICiblage.h
-	static std::function<void(Entite&, int)> intToEffet(int iEffet);
-	static ICiblage* intToICiblage(int iICiblage);
+
 public:
 
 	std::string toString();
 
 	Competence();
-	Competence(const Competence& competence);
+	//Competence(const Competence& competence);
 
 	//constructeur de base
-	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat,ICiblage* ciblage, int coutPm,int priorite);
+	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat, Ciblage ciblage, int coutPm,int priorite);
 	
 	//constructeur priorité 0
-	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, ICiblage* ciblage, int coutPm);
+	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, Ciblage ciblage, int coutPm);
 
 	//pour lire les compentece depuis un fichier
 	//utilisation d'indices
@@ -41,5 +39,7 @@ public:
 	void ajouterPossesseur(Entite *nouvPossesseur);
 
 	void utiliser(std::vector<Entite*> cibles);
-	std::vector<Entite*> getCibles(std::vector<Monstre*>& ennemis, std::vector<Entite*>& allie);
+	std::vector<Entite*> getCibles(std::vector<Entite*>& ennemis, std::vector<Entite*>& allie);
+
+	Ciblage getCiblage();
 };

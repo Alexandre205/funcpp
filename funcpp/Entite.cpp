@@ -80,11 +80,12 @@ void Entite::altererVitesse(int modifSubi) {
 
 void Entite::apprendreCompetence(Competence *newComp) {
 	if (nbCompetence < NB_COMP_MAX) {
-		newComp->ajouterPossesseur(this);
 		competences[nbCompetence] = *newComp;
+		competences[nbCompetence].ajouterPossesseur(this);
 		nbCompetence++;
 	}
 	else {
+		//Proposer dans désapprendre une
 		Utilitaire::writeInLog("Deja trops de competence");
 	}
 }

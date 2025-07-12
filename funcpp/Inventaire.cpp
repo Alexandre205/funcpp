@@ -22,12 +22,13 @@ Inventaire::Inventaire() :nbConsommable{ 0 }, tailleInventaire(TAILLE_DE_BASE_IN
 }
 
 
-void Inventaire::ajouterConsommable(Consommable& nouvConso) {
+void Inventaire::ajouterConsommable(Consommable* nouvConso) {
 	if (nbConsommable < TAILLE_DE_BASE_INVENTAIRE) {
-		inventaire[nbConsommable] = &nouvConso;
+		inventaire[nbConsommable] = nouvConso;
 		nbConsommable++;
 	}
 	else {
+		Utilitaire::writeInLog("Plus de place dans l'inventaire");
 		// 1.checker extra inventaire
 		// 2.proposer de supprimer un objet
 	}
@@ -39,7 +40,7 @@ void Inventaire::supprimerConsommable(int indiceConso) {
 	}
 	nbConsommable--;
 }
-
+//utiliserConsommable
 void Inventaire::ajouterEquipement(Casque casque) {
 	this->casque = casque;
 }
@@ -64,4 +65,19 @@ Armure Inventaire::getArmure() {
 }
 Botte Inventaire::getBotte() {
 	return botte;
+}
+
+Consommable* Inventaire::getConsumable(int i) {
+	Utilitaire::testHandler(i < nbConsommable && i >= 0, "indice de la competence hors portée");
+	return inventaire[i];
+}
+int Inventaire::getNbConsommable() {
+	return nbConsommable;
+}
+std::string Inventaire::getConsumableList() {
+	std::string s = "";
+	for (int i = 0; i < nbConsommable; i++) {
+		s += std::to_string(i+1)+"- " + inventaire[i]->getNom()+"\n";
+	}
+	return s;
 }

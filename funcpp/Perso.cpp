@@ -46,8 +46,13 @@ int Perso::getVitesse() {
 	int test = vitesse + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
-ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre*> monstres) {
-	return Obtention::getActionPerforme(*this, monstres);
+ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre>& monstres) {
+	std::vector<Entite*> ennemis;
+	//ennemis.reserve();
+	for (int i{ 0 }; i < monstres.size(); i++) {
+		ennemis.push_back(&monstres[i]);
+	}
+	return Obtention::getActionPerforme(*this, ennemis);
 }
 
 // plus complexe car gestion pv
@@ -68,4 +73,9 @@ void Perso::changerEquipement(Armure nouvArmure) {
 }
 void Perso::changerEquipement(Botte nouvBotte) {
 	getInventaire()->ajouterEquipement(nouvBotte);
+}
+
+void Perso::addConsumable(Consommable* nouvConso) {
+	nouvConso->ajouterPossesseur(this);
+	inventaire.ajouterConsommable(nouvConso);
 }

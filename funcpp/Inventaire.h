@@ -27,7 +27,7 @@ public:
 
 	// il faudra faire quelque changement en presence d'un extra d'inventaire
 	// pour le moment juste 1 inventaire limiter a 5
-	void ajouterConsommable(Consommable& nouvConso);
+	void ajouterConsommable(Consommable* nouvConso);
 	void supprimerConsommable(int indiceConso);
 
 	void ajouterEquipement(Casque casque);
@@ -39,4 +39,8 @@ public:
 	Arme getArme();
 	Armure getArmure();
 	Botte getBotte();
+
+	Consommable* getConsumable(int i);
+	int getNbConsommable();
+	std::string getConsumableList();
 };

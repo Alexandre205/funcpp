@@ -20,7 +20,9 @@ public:
 
 //This room contain a fight against monster
 class FightRoom : public IStateSalle {
+	std::vector<Monstre> ennemis;
 public:
+	FightRoom();
 	void passage(Perso& joueur);
 };
 
@@ -38,12 +40,16 @@ public:
 
 //This room contain a chess to open
 class ChestRoom : public IStateSalle {
+private:
+	Consommable tresor;
 public:
+	ChestRoom();
 	void passage(Perso& joueur);
 };
 
 //This room has a merchant in it to buy him goods and items
 class MerchantRoom : public IStateSalle {
 public :
+	//MerchantRoom(Liste item);
 	void passage(Perso& joueur);
 };

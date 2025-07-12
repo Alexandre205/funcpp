@@ -1,18 +1,21 @@
 Optimisation:
 	Revoir l'algorthime de shunting yard pour accélérer le processus de calcule des formules
 	Par exemple, utiliser directement une queue plutot que de convertir apres
-	Voir si on peut pas changer le switch dans Salle::getContent() || Salle::toString()
 	Utiliser std::vector<>::reserve() pour diminuer (si possible) le nombre d'allocation du programme
 	|->1.Créer vector 2. vector.reserve(la taille en mémoire à réserver)
 	Utilise unordered_map pour les positions visitées dans l'algo de gen donjon
+	voir si je peux pas mettre des truc en const
+	optimiser la création de string complexe avec des builder
+	changer certain string par des char* où c'est utile
 
 	Accelérer l'initialisation du donjon surtout au niveau des mur extérieur
 		Essayer de faire le tout en une seule boucle
 
-Faire des fichier pour socker le texte à afficher en => Stocker les string dans une map
+Faire des fichier pour stocker le texte à afficher en => Stocker les string dans une map
 Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
 Faire des delete et des destructor
+|-> utiliser des pointeurs natif au c++
 Anglaitiser le code, pas les textes juste le code
 
 Decider où je mets la variable classe
@@ -33,5 +36,14 @@ bruler implement state{
 	}
 }
 
+Rajouter des token pour les pv,pvMax,pm et pmMax
+
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
+
+ne pas toujours transformer les room passées en emptyRoom => peut-etre renvoyer un boolean pour savoir si oui ou non il faut garder le state
+faire le code du marchand + 
+fight
+|-> probleme, on peut pas utiliser des pointeur vers les ressources sinon on detruit les monstre
+|=> Utiliser un constructeur de copie pour copier les monstres pointés
+|-> faire un deep copy constructor pour monstre voir si cela regle le probleme

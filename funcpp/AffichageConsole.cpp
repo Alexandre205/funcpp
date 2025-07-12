@@ -15,9 +15,9 @@ void Affichage::afficher(std::vector<Entite*>& ens) {
 void Affichage::afficher(Entite& en) {
 	std::cout << en.toString()+"\n";
 }
-void Affichage::afficher(Item& it) {
-	std::cout << it.toString()+"\n";
-}
+//void Affichage::afficher(Item& it) {
+//	std::cout << it.toString()+"\n";
+//}
 void Affichage::afficher(Competence& co) {
 	std::cout << co.toString() + "\n";
 }
@@ -82,4 +82,7 @@ void Affichage::displayDonjon(Donjon& dj) {
 		s.append("\n");
 	}
 	std::cout << s;
+}
+void Affichage::clear() {
+	std::cout << "\x1B[2J\x1B[H";
 }

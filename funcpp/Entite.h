@@ -12,13 +12,14 @@ public:
 	static const int STAT_MAX_EFFECTIVE = 999;
 	static const int STAT_MAX = 2500; // peut provoquer des bugs si atteint
 protected:
+	std::string nom;
 	int pv, pvMax;
 	int pm, pmMax;
 	int attaque, defence, vitesse;
 	int nbCompetence;
 	std::array<Competence,NB_COMP_MAX> competences;
 private:
-	std::string nom;
+	
 
 	//int level, int exp
 	//class
@@ -62,6 +63,6 @@ public:
 	virtual int getVitesse();
 	int getNbCompetence();
 	Competence* getCompetence(int indice);
-	virtual ActionPerforme getAction(Perso& joueur,std::vector<Monstre*> monstres) = 0;
+	virtual ActionPerforme getAction(Perso& joueur,std::vector<Monstre>& monstres) = 0;
 	std::string getListCompetence();
 };

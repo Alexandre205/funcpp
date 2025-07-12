@@ -13,6 +13,7 @@ Choisir quel structure de donnée utiliser pour l'inventaire
 |-> list ou forward_list pour l'ajout et suppression rapide mais recherche O(n)
 |-> array il sera difficile de changer la taille de l'inventaire en cours de partie
 |=> utiliser un array pour l'inventaire de base + les extension seront ajouter sous forme d'une list
+|=> enfaite on vas faire un vector casse pas les couilles
 
 Où mettre la Classe
 |-> une dans perso et une non obligatoire dans monstre
@@ -87,6 +88,7 @@ Où mettre l'obtention des competences par l'utilisateur
 |->séparer en 2 > on obtiens la competence > en fonction de la competence on choisit les/la cibles(s)
 	comme ça on peut faire de la séléction variant en fonction de la competence
 |=> faire une enum dans Competence pour gérer le ciblage :>mono,all,self,multi
+|=> J'ai mis un pansement dans monstre::getAction() pour le self ciblage
 
 Le déroulement du combat devra etre revu pour intégrer les differents ciblage ainsi que la priorité des competences
 |=> priorité sera une variable int pour désigner à quel point elle prioritaire <:

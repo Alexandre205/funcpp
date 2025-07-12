@@ -29,10 +29,12 @@ public:
     int getVitesse();
 
     //ici lanceur et joueur sont égaux
-    ActionPerforme getAction(Perso& joueur, std::vector<Monstre*> monstres);
+    ActionPerforme getAction(Perso& joueur, std::vector<Monstre>& monstres);
 
     void changerEquipement(Casque nouvCasque);
     void changerEquipement(Arme nouvArme);
     void changerEquipement(Armure nouvArmure);
     void changerEquipement(Botte nouvBotte);
+
+    void addConsumable(Consommable* nouvConso);
 };
