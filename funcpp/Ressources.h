@@ -5,6 +5,6 @@
 namespace Ressources {
 	void initRessources();
 	extern DataEquipment dataEquipment;
-	extern std::vector<Monstre*> dataMonsters;
-	extern std::vector<Consommable*> dataConsommable;
+	extern std::vector<Monstre> dataMonsters;
+	extern std::vector<Consommable> dataConsommable;
 }

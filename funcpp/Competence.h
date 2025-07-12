@@ -20,7 +20,7 @@ public:
 	std::string toString();
 
 	Competence();
-	Competence(const Competence& competence);
+	//Competence(const Competence& competence);
 
 	//constructeur de base
 	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet,std::string formuleDeDegat, Ciblage ciblage, int coutPm,int priorite);

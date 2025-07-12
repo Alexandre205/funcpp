@@ -14,7 +14,7 @@ std::function<void(Entite&, int)> Effets::intToEffet(int i) {
 
 void Effets::infligerDegat(Entite& cible, int puissance) {
 	Affichage::afficher(cible.getNom() + " perd ");
-	if (puissance < 1) puissance = 1;
+	if (puissance < 1) puissance = 1;//optimisation possible ternaire op
 	cible.altererPv(-puissance);
 }
 void Effets::soinPv(Entite& cible,int puissance) {

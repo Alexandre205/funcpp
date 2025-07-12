@@ -12,10 +12,9 @@ private:
         ILootable objet;
         int pourcentageDeDrop;
     };
-    std::vector<struct Loot> objetsLootable;
+    //std::vector<struct Loot> objetsLootable;
 public:
     std::string toString();
-    Monstre();
     Monstre(const Monstre& monstre);
     Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
 
@@ -23,5 +22,5 @@ public:
     int goldLache();
 
     // faire un bon truc comme algorithme une fois le systeme de combat amélioré
-    ActionPerforme getAction(Perso& joueur, std::vector<Monstre*> monstres);
+    ActionPerforme getAction(Perso& joueur, std::vector<Monstre>& monstres);
 };

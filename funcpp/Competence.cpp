@@ -6,12 +6,12 @@
 
 
 std::string Competence::toString() {
-	return "- " + nom + " " + std::to_string(coutPm) + " pm.";
+	return "- " + nom + " " + std::to_string(coutPm) + " pm. ";
 }
 
 Competence::Competence() {};
-Competence::Competence(const Competence& competence) :
-	Competence(competence.nom, competence.description, competence.effet,competence.formule,competence.ciblage, competence.coutPm,competence.priorite){}
+//Competence::Competence(const Competence& competence) :
+//	Competence(competence.nom, competence.description, competence.effet,competence.formule,competence.ciblage, competence.coutPm,competence.priorite){}
 Competence::Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDegat,Ciblage ciblage, int coutPm,int priorite) :
 	nom{ nom }, description{ description }, coutPm {coutPm}{
 	IUsable::effet = effet;
@@ -36,6 +36,7 @@ int Competence::getPriority() {
 std::string Competence::getNom() {
 	return  nom;
 }
+
 
 void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 	Utilitaire::testHandler(nouvPossesseur != NULL,"Possesseur de competence null");

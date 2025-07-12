@@ -27,20 +27,15 @@ int main(int argc, char* argv[]) {
 	
 	Donjon* d = DungeonGenerator::generateDonjon(&p1);
 	d->explore();
-	
-	//while (true) {
-	//	Donjon* d = DungeonGenerator::generateDonjon(&p1);
-	//	Affichage::displayDonjon(*d);
-	//	while (true) {
-	//		
-	//		d->move();
-	//		Affichage::displayDonjon(*d);
 
-	//	}
-	//	std::cin.ignore();
-	//	std::cout << "\033[2J\033[1;1H"; //clear console
-	//}
+	/*FightRoom f;
+	f.passage(p1);
 
+	Monstre m1{ "LoupS",10,10,10,10,10 };
+	m1.apprendreCompetence(new Competence("Coup de griffe", "lo", Effets::infligerDegat, "10", Ciblage::Mono, 0));
+
+	Monstre m2 = m1;*/
+	//std::cout<<m2.getCompetence(0)->toString();
 
 	Affichage::afficher("\n\nFIN");
 	return EXIT_SUCCESS;

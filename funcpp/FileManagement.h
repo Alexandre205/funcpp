@@ -9,10 +9,10 @@
 #include"Botte.h"
 
 struct DataEquipment {
-	std::vector<Casque*> casques;
-	std::vector<Arme*> armes;
-	std::vector<Armure*> armures;
-	std::vector<Botte*> bottes;
+	std::vector<Casque> casques;
+	std::vector<Arme> armes;
+	std::vector<Armure> armures;
+	std::vector<Botte> bottes;
 };
 
 namespace FileManagement {
@@ -22,7 +22,7 @@ namespace FileManagement {
 		const char* NOM_FILE_EQUIPEMENT = "../ressources/Equipment.txt";
 	}
 	
-	std::vector<Monstre*> getMonstersFromFile();
-	std::vector<Consommable*> getConsumablesFromFile();
+	std::vector<Monstre> getMonstersFromFile();
+	std::vector<Consommable> getConsumablesFromFile();
 	DataEquipment getEquipmentFromFile();
 }
