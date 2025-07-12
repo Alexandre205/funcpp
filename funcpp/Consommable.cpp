@@ -7,18 +7,19 @@ std::string Consommable::toString() {
 	return nom + " \"" + description + "\"\n";
 }
 
-Consommable::Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet, std::string formule, Ciblage ciblage,int priorite) :
+Consommable::Consommable(std::string nom,std::string description,int price, std::function<void(Entite&, int)> effet, std::string formule, Ciblage ciblage,int priorite) :
 	nom{ nom }, description{ description } {
+	ILootable::price = price;
 	IUsable::effet = effet;
 	IUsable::formule = formule;
 	IUsable::priorite = priorite;
 	IUsable::ciblage = ciblage;
 }
-Consommable::Consommable(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formule, Ciblage ciblage) :
-	Consommable{ nom,description,effet,formule,ciblage,0 } {};
+Consommable::Consommable(std::string nom, std::string description,int price, std::function<void(Entite&, int)> effet, std::string formule, Ciblage ciblage) :
+	Consommable{ nom,description,price,effet,formule,ciblage,0 } {};
 
-Consommable::Consommable(std::string nom, std::string description, int iEffect, std::string formule, int iCiblage, int priority) :
-	Consommable{ nom,description,Effets::intToEffet(iEffect),formule,ICiblage::intToICiblage(iCiblage),priority } {};
+Consommable::Consommable(std::string nom, std::string description,int price, int iEffect, std::string formule, int iCiblage, int priority) :
+	Consommable{ nom,description,price,Effets::intToEffet(iEffect),formule,ICiblage::intToICiblage(iCiblage),priority } {};
 void Consommable::ajouterPossesseur(Entite* nouvPossesseur) {
 	Utilitaire::testHandler(nouvPossesseur != NULL, "Possesseur de competence null");
 	possesseur = nouvPossesseur;
@@ -44,4 +45,7 @@ std::string Consommable::getDescription() {
 }
 Ciblage Consommable::getCiblage() {
 	return ciblage;
+}
+int Consommable::getPrice() {
+	return price;
 }

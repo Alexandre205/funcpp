@@ -46,6 +46,13 @@ int Perso::getVitesse() {
 	int test = vitesse + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
+int Perso::getNbGold() {
+	return nbGold;
+}
+void Perso::modifyNbGold(int modifier) {
+	nbGold += modifier; //faire attention ici les gold peuvent etre négatif
+}
+
 ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre>& monstres) {
 	std::vector<Entite*> ennemis;
 	//ennemis.reserve();

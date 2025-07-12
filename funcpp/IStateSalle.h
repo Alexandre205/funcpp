@@ -49,7 +49,9 @@ public:
 
 //This room has a merchant in it to buy him goods and items
 class MerchantRoom : public IStateSalle {
+private :
+	std::vector<Consommable> listeItem;
 public :
-	//MerchantRoom(Liste item);
+	MerchantRoom();
 	void passage(Perso& joueur);
 };

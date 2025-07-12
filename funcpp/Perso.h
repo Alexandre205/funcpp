@@ -28,6 +28,9 @@ public:
     int getDefence();
     int getVitesse();
 
+    int getNbGold();
+    void modifyNbGold(int modifier);
+
     //ici lanceur et joueur sont égaux
     ActionPerforme getAction(Perso& joueur, std::vector<Monstre>& monstres);
 

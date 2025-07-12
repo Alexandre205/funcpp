@@ -27,9 +27,7 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 			monstre.apprendreCompetence(new Competence{ nomComp,descriptionComp,iEffet,formuleComp,iCiblage,coutPm,priorite });
 		}
 		monstres.push_back(monstre);
-		//std::cout << monstres[0].getCompetence(0)->toString(); affiche le possesseur
 	}
-	//std::cout << monstres[0].getCompetence(0)->toString(); n'affiche pas le possesseur
 	file.close();
 	return monstres;
 }
@@ -40,11 +38,11 @@ std::vector<Consommable> FileManagement::getConsumablesFromFile() {
 
 	while (!file.eof()) {
 		std::string nom, description, formule;
-		int iEffect, iCiblage, priority;
-		file >> nom >> description >> iEffect >> formule >> iCiblage >> priority;
+		int price,iEffect, iCiblage, priority;
+		file >> nom >> description >> price >> iEffect >> formule >> iCiblage >> priority;
 		Utilitaire::polishMot(nom);
 		Utilitaire::polishMot(description);
-		consumables.push_back(Consommable(nom, description, iEffect, formule, iCiblage, priority));
+		consumables.push_back(Consommable(nom, description,price, iEffect, formule, iCiblage, priority));
 	}
 	return consumables;
 }
