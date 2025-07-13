@@ -7,11 +7,13 @@
 #include"Ressources.h"
 #include"Consommable.h"
 
-void WallRoom::passage(Perso& joueur) {
+bool WallRoom::passage(Perso& joueur) {
 	Utilitaire::unexpectedExit("Mur traversé, pas normal");
+	return true;
 }
-void EmptyRoom::passage(Perso& joueur) {
+bool EmptyRoom::passage(Perso& joueur) {
 	Affichage::afficher("Vous entrez dans une salle vide et rien ne se passe\n");
+	return false;
 }
 
 FightRoom::FightRoom() {
@@ -20,7 +22,7 @@ FightRoom::FightRoom() {
 		ennemis.push_back(ennemi);
 	}
 }
-void FightRoom::passage(Perso& joueur) {
+bool FightRoom::passage(Perso& joueur) {
 	
 	std::string listeMonstre{"Vous entrez dans une salle avec des monstres\n"};
 	for (Monstre ennemi : ennemis) {
@@ -31,38 +33,42 @@ void FightRoom::passage(Perso& joueur) {
 
 	Fight f{ &joueur, ennemis };
 	f.lancerCombat();
+	return false;
 }
-void CurrentRoom::passage(Perso& joueur) {
+bool CurrentRoom::passage(Perso& joueur) {
 	Affichage::afficher("Vous ne bougez pas et rien ne se passe\n");
+	return false;
 }
-void StairsRoom::passage(Perso& joueur) {
+bool StairsRoom::passage(Perso& joueur) {
 	Affichage::afficher("Oh mon Dieu, la sortie\n");
+	return true;
 }
 
 //faire en sorte que certain equipement puissent etre présent aussi
 ChestRoom::ChestRoom()
 	: tresor{ Ressources::dataConsommable.at(Utilitaire::getGeneratedInteger(0, (int)Ressources::dataConsommable.size() - 1))}
 {}
-void ChestRoom::passage(Perso& joueur) {
+bool ChestRoom::passage(Perso& joueur) {
 	//code d'ouverture de coffre;
 	std::vector<Consommable> d = Ressources::dataConsommable;
 
 	Affichage::afficher("Il y a un coffre. Voulez-vous l'ouvrire\n1.Oui\n2.Non\n");
 	int i = Obtention::getValidInt(1, 2, "Nombre invalide\n");
 	if (i == 1) {
-		
 		Affichage::afficher("Vous trouvez une " + tresor.getNom() + ".\n");
 		joueur.addConsumable(new Consommable(tresor));
+		return false;
 	}
 	else {
 		Affichage::afficher("Vous laisser le coffre la\n");
+		return true;
 	}
 }
 
 MerchantRoom::MerchantRoom() {
 	listeItem = Ressources::dataConsommable;
 }
-void MerchantRoom::passage(Perso& joueur) {
+bool MerchantRoom::passage(Perso& joueur) {
 	//code du marchand
 	std::string s{ "Il y a un marchand\n" };
 	int choice;
@@ -89,4 +95,5 @@ void MerchantRoom::passage(Perso& joueur) {
 			}
 		}
 	} while (choice != listeItemSize + 1);
+	return true;
 }

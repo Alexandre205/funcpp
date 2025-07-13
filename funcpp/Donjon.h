@@ -20,6 +20,11 @@ private:
 	int exitY;
 	int exitX;
 
+	//The state of the last visited room
+	//Empty by default
+	IStateSalle* lastRoom;
+	SalleType lastRoomState;
+
 	//matrice representing the actual floor
 	//An array of array of pointers to a room
 	Salle*** floor; 

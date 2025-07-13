@@ -26,10 +26,8 @@ int main(int argc, char* argv[]) {
 	//p1.addConsumable(new Consommable{"bombe","blesse les ennemis de la moitiée de leur attaque",0,Effets::infligerDegat,"c.ap",Ciblage::Multi,100});
 	
 	Donjon* d = DungeonGenerator::generateDonjon(&p1);
-	//d->explore();
-	MerchantRoom m;
-	m.passage(p1);
-	p1;
+	d->explore();
+	
 	Affichage::afficher("\n\nFIN");
 	return EXIT_SUCCESS;
 }

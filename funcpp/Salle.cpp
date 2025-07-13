@@ -24,8 +24,11 @@ Salle::Salle(SalleType stateSalle,int connexion) {
 IStateSalle* Salle::getState() {
 	return stateRoom;
 }
-void Salle::passage(Perso& joueur) {
-	stateRoom->passage(joueur);
+SalleType Salle::getSalleType() {
+	return roomStateType;
+}
+bool Salle::passage(Perso& joueur) {
+	return stateRoom->passage(joueur);//here
 }
 void Salle::addConnexion(Connexion connexion) {
 	this->connexion = this->connexion | connexion;
@@ -49,6 +52,11 @@ void Salle::setIStateSalle(SalleType stateSalle) {
 		case Merchant:stateRoom = new MerchantRoom(); break;
 		default:Utilitaire::unexpectedExit("Pas de stateRoom connu");
 	}
+}
+void Salle::setIStateSalle(IStateSalle* stateSalle,SalleType salleType) {
+	Utilitaire::testHandler(stateSalle != nullptr, "IStateSalle est null");
+	this->stateRoom = stateSalle;
+	this->roomStateType = salleType;
 }
 std::string Salle::getContentString() {
 	return infoRoom[roomStateType].stringContent;
