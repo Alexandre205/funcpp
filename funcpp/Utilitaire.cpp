@@ -29,9 +29,17 @@ static std::string remplacer(std::string formule,Entite& attaquant, Entite& defe
         {"u.ap", attaquant.getAttaque()},
         {"u.dp", attaquant.getDefence()},
         {"u.vi", attaquant.getVitesse()},
+        {"u.pv", attaquant.getPv()},
+        {"u.mv", attaquant.getPvMax()},
+        {"u.pm", attaquant.getPm()},
+        {"u.mm", attaquant.getPmMax()},
         {"c.ap", defenseur.getAttaque()},
         {"c.dp", defenseur.getDefence()},
-        {"c.vi", defenseur.getVitesse()}
+        {"c.vi", defenseur.getVitesse()},
+        {"c.pv", defenseur.getPv()},
+        {"c.mv", defenseur.getPvMax()},
+        {"c.pm", defenseur.getPm()},
+        {"c.mm", defenseur.getPmMax()}
     };
 
     size_t position;

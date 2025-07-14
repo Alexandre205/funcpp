@@ -4,6 +4,11 @@ the token existing for the formule are
 	.ap = physical attack
 	.dp = physical defence
 	.vi = speed
+	.pv = health
+	.pm = mana
+	.mv = max health
+	.mm = max mana
+
 exemple
 	u.ap = user physicale attack
 	c.vi = target speed

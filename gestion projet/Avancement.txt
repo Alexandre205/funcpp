@@ -45,10 +45,5 @@ bruler implement state{
 
 trouver un moyen de gagner des golds
 
-Rajouter des token pour les pv,pvMax,pm et pmMax
-
 Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale
-
-ne pas toujours transformer les room passées en emptyRoom
-|=> peut-etre renvoyer un boolean pour savoir si oui ou non il faut garder le state
