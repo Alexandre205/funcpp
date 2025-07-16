@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 	p1.apprendreCompetence(new Competence{ "attaque", "al", Effets::infligerDegat, "15", Ciblage::Mono, 0 });
 	p1.apprendreCompetence(new Competence{ "super attaque","al",Effets::infligerDegat,"100",Ciblage::Multi,10 });
 	p1.apprendreCompetence(new Competence{ "skip","al",Effets::infligerDegat,"0",Ciblage::Self,0,-1});
-	p1.apprendreCompetence(new Competence{ "Suicide","al",Effets::infligerDegat,"999",Ciblage::Self,0,100});
+	p1.apprendreCompetence(new Competence{ "Suicide","al",Effets::infligerDegat,"u.pv",Ciblage::Self,0,100});
 	//p1.addConsumable(new Consommable{"potion","soigne 10 pv",0,Effets::soinPv,"10",Ciblage::Self,100});
 	//p1.addConsumable(new Consommable{"bombe","blesse les ennemis de la moitiée de leur attaque",0,Effets::infligerDegat,"c.ap",Ciblage::Multi,100});
 	

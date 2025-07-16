@@ -7,13 +7,16 @@ Optimisation:
 	voir si je peux pas mettre des truc en const
 	optimiser la création de string complexe avec des builder
 	changer certain string par des char* où c'est utile
-
-	Accelérer l'initialisation du donjon surtout au niveau des mur extérieur
+	Faire des delete et des destructor
+		|-> utiliser des pointeurs natif au c++
+	Accelérer l'initialisation du donjon surtout au niveau des murs extérieurs
 		Essayer de faire le tout en une seule boucle
 
 Amélioration syntaxique
 	Revoir les noms des variables de Salle (surtout pour SalleType et IStateSalle)
 	|-> apres avoir pris un coffre je ne pouvais pas utiliser des objets alors que j'en  avais
+	
+	Passer le programme en UTF-16
 
 Bug hunting
 	Bug ou je ne pouvais pas utiliser un objets alors que j'en avais
@@ -21,8 +24,6 @@ Bug hunting
 Faire des fichier pour stocker le texte à afficher en => Stocker les string dans une map
 Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
-Faire des delete et des destructor
-|-> utiliser des pointeurs natif au c++
 Anglaitiser le code, pas les textes juste le code
 
 Decider où je mets la variable classe
@@ -43,7 +44,7 @@ bruler implement state{
 	}
 }
 
-trouver un moyen de gagner des golds
+Creation de perso 
 
-Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
+Modifier ISalleStalle.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
 |-> Création procédurale

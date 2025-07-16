@@ -1,5 +1,5 @@
-loup 15 10 15 10 25 1
+loup 15 10 15 10 25 5 1
 coup_de_griffe inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
-gobelin 10 15 10 11 12 2
+gobelin 10 15 10 11 12 15 2
 coup inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 soin soigne_le_lanceur 2 u.ap/2 3 5 0

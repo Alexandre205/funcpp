@@ -7,9 +7,10 @@ std::string Monstre::toString() {
 }
 
 
-Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse) 
-	:Entite{ nom,pv,pm,attaque,defence,vitesse } {}
-Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom, monstre.pv, monstre.pm, monstre.attaque, monstre.defence, monstre.vitesse) {
+Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse,int goldRecompense)
+	:Entite{ nom,pv,pm,attaque,defence,vitesse }, goldRecompense{goldRecompense} {
+}
+Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom, monstre.pv, monstre.pm, monstre.attaque, monstre.defence, monstre.vitesse,monstre.goldRecompense) {
 	for (int i{ 0 }; i < monstre.nbCompetence;i++) {
 		this->apprendreCompetence(new Competence(monstre.competences[i]));
 	}
@@ -21,7 +22,7 @@ void Monstre::attaqueDeBase(Entite& cible) {
 	cible.altererPv(this->getAttaque());
 }
 int Monstre::goldLache() {
-	return 25; // sera en lien avec le level et stat du monstre // on verra en vrai
+	return goldRecompense;
 }
 ActionPerforme Monstre::getAction(Perso& joueur, std::vector<Monstre>& monstres) {
 	ActionPerforme action{ this };
