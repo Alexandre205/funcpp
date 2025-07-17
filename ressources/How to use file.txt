@@ -2,7 +2,9 @@ the token existing for the formule are
 	u = user
 	c = target
 	.ap = physical attack
+	.am = magical attack
 	.dp = physical defence
+	.dm = magical defence
 	.vi = speed
 	.pv = health
 	.pm = mana
