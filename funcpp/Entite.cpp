@@ -16,13 +16,14 @@ std::string Entite::toString() {
 Entite::Entite(){};
 //Entite::Entite(const Entite& entite):
 //	Entite(entite.nom,entite.pv,entite.pvMax,entite.pm,entite.pmMax,entite.attaque,entite.defence,entite.vitesse){ }
-Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaque, int defence, int vitesse):
-	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque }, defence{ defence }, vitesse{ vitesse }, nbCompetence{0} 
+Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse) :
+	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque },attaqueMagique{ attaqueMagique },
+	defence{ defence }, defenceMagique{ defenceMagique }, vitesse{vitesse}, nbCompetence{ 0 }
 {
 	// quelque modification de robustesse a prevoir
 }
-Entite::Entite(std::string nom, int pv, int pm,int attaque, int defence, int vitesse):
-	Entite(nom, pv, pv, pm, pm,attaque,defence,vitesse){}
+Entite::Entite(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse):
+	Entite(nom, pv, pv, pm, pm,attaque,attaqueMagique,defence,defenceMagique,vitesse){}
 
 bool Entite::comparerVitesse(Entite* e1, Entite* e2) {
 	return  e1->getVitesse()>e2->getVitesse();
@@ -67,10 +68,20 @@ void Entite::altererAttaque(int modifSubi) {
 	Affichage::afficher("atk\n");
 	Utilitaire::testHandler(attaque != STAT_MAX, "check limite attaque");
 }
+void Entite::altererAttaqueMagique(int modifSubi) {
+	modifierStat(attaqueMagique, modifSubi, STAT_MAX);
+	Affichage::afficher("atk_m\n");
+	Utilitaire::testHandler(attaqueMagique != STAT_MAX, "check limite atk_m");
+}
 void Entite::altererDefence(int modifSubi) {
 	modifierStat(defence, modifSubi, STAT_MAX);
 	Affichage::afficher("def\n");
 	Utilitaire::testHandler(defence != STAT_MAX, "check limite defence");
+}
+void Entite::altererDefenceMagique(int modifSubi) {
+	modifierStat(defenceMagique, modifSubi, STAT_MAX);
+	Affichage::afficher("def_m\n");
+	Utilitaire::testHandler(defenceMagique != STAT_MAX, "check limite def_m");
 }
 void Entite::altererVitesse(int modifSubi) {
 	modifierStat(vitesse, modifSubi, STAT_MAX);
@@ -108,8 +119,14 @@ int Entite::getPmMax() {
 int Entite::getAttaque() {
 	return attaque<= STAT_MAX_EFFECTIVE ? attaque:STAT_MAX_EFFECTIVE;
 }
+int Entite::getAttaqueMagique() {
+	return attaqueMagique <= STAT_MAX_EFFECTIVE ? attaqueMagique : STAT_MAX_EFFECTIVE;
+}
 int Entite::getDefence() {
 	return defence <= STAT_MAX_EFFECTIVE ? defence : STAT_MAX_EFFECTIVE;
+}
+int Entite::getDefenceMagique() {
+	return defenceMagique <= STAT_MAX_EFFECTIVE ? defenceMagique : STAT_MAX_EFFECTIVE;
 }
 int Entite::getVitesse() {
 	return vitesse <= STAT_MAX_EFFECTIVE ? vitesse : STAT_MAX_EFFECTIVE;

@@ -14,14 +14,16 @@ public:
 	std::string toString();
 
 	//constructeur de base
-	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,Ciblage ciblage,int priorite);
+	Consommable(std::string nom,std::string description,int price, std::function<void(Entite&, int)> effet,std::string formule,Ciblage ciblage,int priorite);
 	
+
+	//obsolete
 	//constructeur priorité 0
-	Consommable(std::string nom,std::string description, std::function<void(Entite&, int)> effet,std::string formule,Ciblage ciblage);
+	Consommable(std::string nom,std::string description,int price, std::function<void(Entite&, int)> effet,std::string formule,Ciblage ciblage);
 	
 	//pour lire les Consommable depuis un fichier
 	//utilisation d'indices
-	Consommable(std::string nom, std::string description, int iEffect, std::string formule, int iCiblage, int priority);
+	Consommable(std::string nom, std::string description,int price, int iEffect, std::string formule, int iCiblage, int priority);
 
 	// toujours appelé quand competence attaché à Entite
 	void ajouterPossesseur(Entite* nouvPossesseur);
@@ -32,4 +34,5 @@ public:
 	std::string getNom();
 	std::string getDescription();
 	Ciblage getCiblage();
+	int getPrice();
 };

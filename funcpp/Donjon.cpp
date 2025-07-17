@@ -27,6 +27,8 @@ Donjon::Donjon(Perso* player,int colSize,int lineSize) {
 	this->player = player;
 	this->colSize = colSize;
 	this->lineSize = lineSize;
+	this->lastRoom = new EmptyRoom;
+	this->lastRoomState = SalleType::Empty;
 	initFloor();
 }
 
@@ -44,8 +46,9 @@ void Donjon::initFloor() {
 }
 
 void Donjon::move() {
-	Direction direction = Obtention::getDirection(floor[currentY][currentX]);//choose a direction
-	floor[currentY][currentX]->setIStateSalle(SalleType::Empty);//Change the last room state to EmptyRoom
+	Direction direction = Obtention::getDirection(floor[currentY][currentX]);
+	floor[currentY][currentX]->setIStateSalle(lastRoom,lastRoomState);
+	//floor[currentY][currentX]->setIStateSalle(SalleType::Empty);//Change the last room state to EmptyRoom
 	switch (direction) {
 		case NORTH:currentY--; break;
 		case SOUTH:currentY++; break;
@@ -54,8 +57,16 @@ void Donjon::move() {
 		default:Utilitaire::unexpectedExit("Probleme avec les directions");
 	}
 	Affichage::clear();
-	floor[currentY][currentX]->passage(*player);//move to the new room//Salle->passage();
-
+	bool emptiedTheRoom = floor[currentY][currentX]->passage(*player);//move to the new room
+	if (emptiedTheRoom) {
+		lastRoom = floor[currentY][currentX]->getState();
+		lastRoomState = floor[currentY][currentX]->getSalleType();
+	}
+	else {
+		lastRoom = new EmptyRoom;
+		lastRoomState = SalleType::Empty;
+	}
+	
 	//à changer pour gérer les different state
 	floor[currentY][currentX]->setIStateSalle(SalleType::Current);//change the state of the room to CurrentRoom
 }

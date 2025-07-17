@@ -27,11 +27,23 @@ static std::string remplacer(std::string formule,Entite& attaquant, Entite& defe
     std::string formuleARenvoyer = formule;
     std::map<std::string, int> stringARemplacer = {
         {"u.ap", attaquant.getAttaque()},
+        {"u.am", attaquant.getAttaqueMagique()},
         {"u.dp", attaquant.getDefence()},
+        {"u.dm", attaquant.getDefenceMagique()},
         {"u.vi", attaquant.getVitesse()},
+        {"u.pv", attaquant.getPv()},
+        {"u.mv", attaquant.getPvMax()},
+        {"u.pm", attaquant.getPm()},
+        {"u.mm", attaquant.getPmMax()},
         {"c.ap", defenseur.getAttaque()},
+        {"c.am", defenseur.getAttaqueMagique()},
         {"c.dp", defenseur.getDefence()},
-        {"c.vi", defenseur.getVitesse()}
+        {"c.dm", defenseur.getDefenceMagique()},
+        {"c.vi", defenseur.getVitesse()},
+        {"c.pv", defenseur.getPv()},
+        {"c.mv", defenseur.getPvMax()},
+        {"c.pm", defenseur.getPm()},
+        {"c.mm", defenseur.getPmMax()}
     };
 
     size_t position;

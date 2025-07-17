@@ -15,8 +15,8 @@ std::string Inventaire::toString() {
 
 Inventaire::Inventaire() :nbConsommable{ 0 }, tailleInventaire(TAILLE_DE_BASE_INVENTAIRE),
 	casque{ "non equipe","pas de description",0,0 },
-	arme{ "non equipe", "pas de description", 0 },
-	armure{ "non equipe","pas de description",0 },
+	arme{ "non equipe", "pas de description", 0,0 },
+	armure{ "non equipe","pas de description",0,0 },
 	botte{ "non equipe","pas de description",0 } {
 	inventaire.fill(NULL);
 }

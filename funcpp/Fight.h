@@ -15,7 +15,7 @@ class Fight
 public:
 	const static int NB_MONSTRE_MAX = 3;
 private:
-	std::vector<Monstre>& ennemis;
+	std::vector<Monstre> ennemis;
 	Perso* joueur;
 public:
 	std::string toSring();

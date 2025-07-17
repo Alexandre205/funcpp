@@ -1,4 +1,4 @@
 casque_en_os un_casque_fait_en_os 1 10 10
-epee_de_fer un_simple_epee_en_fer 2 10
-armure_de_fleur pourquoi_porter_ca_? 3 1
+epee_de_fer un_simple_epee_en_fer 2 10 0
+armure_de_fleur pourquoi_porter_ca_? 3 1 1
 bottes_en_cuir de_tres_belle_bottes 4 10

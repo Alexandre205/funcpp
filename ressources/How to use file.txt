@@ -2,8 +2,15 @@ the token existing for the formule are
 	u = user
 	c = target
 	.ap = physical attack
+	.am = magical attack
 	.dp = physical defence
+	.dm = magical defence
 	.vi = speed
+	.pv = health
+	.pm = mana
+	.mv = max health
+	.mm = max mana
+
 exemple
 	u.ap = user physicale attack
 	c.vi = target speed
@@ -20,7 +27,7 @@ indice for ciblage :
 	3 : SelfCible
 
 structure d'un monstre dans le fichier
-	nom pv pm attaque defense vitesse nombre_de_competence
+	nom pv pm attaque attaque_magique defense defence_magique vitesse nb_gold_laché_quand_tué nombre_de_competence
 	nom_competence description_comp indice_d'effet formule indice_de_ciblage cout_en_pm priorité
 
 structure d'un consommable dans le fichier

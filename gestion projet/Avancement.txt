@@ -7,22 +7,30 @@ Optimisation:
 	voir si je peux pas mettre des truc en const
 	optimiser la création de string complexe avec des builder
 	changer certain string par des char* où c'est utile
-
-	Accelérer l'initialisation du donjon surtout au niveau des mur extérieur
+	Faire des delete et des destructor
+		|-> utiliser des pointeurs natif au c++
+	Accelérer l'initialisation du donjon surtout au niveau des murs extérieurs
 		Essayer de faire le tout en une seule boucle
+
+Amélioration syntaxique
+	Revoir les noms des variables de Salle (surtout pour SalleType et IStateSalle)
+	|-> apres avoir pris un coffre je ne pouvais pas utiliser des objets alors que j'en  avais
+	
+	Passer le programme en UTF-16
+
+Bug hunting
+	Bug ou je ne pouvais pas utiliser un objets alors que j'en avais
 
 Faire des fichier pour stocker le texte à afficher en => Stocker les string dans une map
 Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
-Faire des delete et des destructor
-|-> utiliser des pointeurs natif au c++
 Anglaitiser le code, pas les textes juste le code
 
-Decider où je mets la variable classe
+
 Faire la gestion des loot des monstres avec la structure loot
 
 Utiliser le pattern State pour les effets de statut infligé au Entite
-|>Le entite aurons un tableau de state qui sera parcouru
+|>Le entite aurons un tableau de state qui sera parcouru chaque tour
 
 interface state{
 	void avancer dans state();
@@ -36,14 +44,4 @@ bruler implement state{
 	}
 }
 
-Rajouter des token pour les pv,pvMax,pm et pmMax
-
-Modifier ISalleStae.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
-|-> Création procédurale
-
-ne pas toujours transformer les room passées en emptyRoom => peut-etre renvoyer un boolean pour savoir si oui ou non il faut garder le state
-faire le code du marchand + 
-fight
-|-> probleme, on peut pas utiliser des pointeur vers les ressources sinon on detruit les monstre
-|=> Utiliser un constructeur de copie pour copier les monstres pointés
-|-> faire un deep copy constructor pour monstre voir si cela regle le probleme
+Creation de perso 

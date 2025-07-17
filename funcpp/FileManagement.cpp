@@ -12,12 +12,12 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 	
 	while (!file.eof()) {
 		std::string nom;
-		int pv, pm, atk, def, vit, nbComp;
+		int pv, pm, atk, atk_m, def, def_m, vit, nbGold, nbComp;
 
 		//récupere toute les informations en avance dans le fichier
-		file >> nom >> pv >> pm >> atk >> def >> vit >> nbComp;
+		file >> nom >> pv >> pm >> atk >> atk_m >> def >> def_m >> vit >> nbGold >> nbComp;
 		Utilitaire::polishMot(nom);
-		Monstre monstre = Monstre{ nom,pv,pm,atk,def,vit };
+		Monstre monstre = Monstre{ nom,pv,pm,atk,atk_m,def,def_m,vit,nbGold };
 		for (int i{ 0 }; i < nbComp; i++) {
 			std::string nomComp, descriptionComp, formuleComp;
 			int iEffet, iCiblage, coutPm, priorite;
@@ -27,9 +27,7 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 			monstre.apprendreCompetence(new Competence{ nomComp,descriptionComp,iEffet,formuleComp,iCiblage,coutPm,priorite });
 		}
 		monstres.push_back(monstre);
-		//std::cout << monstres[0].getCompetence(0)->toString(); affiche le possesseur
 	}
-	//std::cout << monstres[0].getCompetence(0)->toString(); n'affiche pas le possesseur
 	file.close();
 	return monstres;
 }
@@ -40,11 +38,11 @@ std::vector<Consommable> FileManagement::getConsumablesFromFile() {
 
 	while (!file.eof()) {
 		std::string nom, description, formule;
-		int iEffect, iCiblage, priority;
-		file >> nom >> description >> iEffect >> formule >> iCiblage >> priority;
+		int price,iEffect, iCiblage, priority;
+		file >> nom >> description >> price >> iEffect >> formule >> iCiblage >> priority;
 		Utilitaire::polishMot(nom);
 		Utilitaire::polishMot(description);
-		consumables.push_back(Consommable(nom, description, iEffect, formule, iCiblage, priority));
+		consumables.push_back(Consommable(nom, description,price, iEffect, formule, iCiblage, priority));
 	}
 	return consumables;
 }
@@ -63,14 +61,14 @@ DataEquipment FileManagement::getEquipmentFromFile() {
 			data.casques.push_back( Casque(nom,description,pv,pm));
 			break;
 		case 2:
-			int atk;
-			file >> atk;
-			data.armes.push_back( Arme(nom, description, atk));
+			int atk,atk_m;
+			file >> atk >> atk_m;
+			data.armes.push_back( Arme(nom, description, atk,atk_m));
 			break;
 		case 3:
-			int def;
-			file >> def;
-			data.armures.push_back( Armure(nom, description, def));
+			int def,def_m;
+			file >> def >> def_m;
+			data.armures.push_back( Armure(nom, description, def,def_m));
 			break;
 		case 4:
 			int vit;

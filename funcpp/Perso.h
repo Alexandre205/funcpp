@@ -12,10 +12,10 @@ public:
     std::string toString();
 
     //constructeur sans gold
-    Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
+    Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse);
 
     //constructeur de base
-    Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse,int nbGold);
+    Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int nbGold);
 
     //obsolete
     void attaqueDeBase(Entite& cible);
@@ -27,6 +27,9 @@ public:
     int getAttaque();
     int getDefence();
     int getVitesse();
+
+    int getNbGold();
+    void modifyNbGold(int modifier);
 
     //ici lanceur et joueur sont égaux
     ActionPerforme getAction(Perso& joueur, std::vector<Monstre>& monstres);

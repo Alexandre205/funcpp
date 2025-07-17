@@ -9,12 +9,12 @@ std::string Fight::toSring() {
 	return listeMonstrePresent();
 }
 
-Fight::Fight(Perso* joueur, std::vector<Monstre>& ennemis) : joueur{ joueur }, ennemis{ ennemis } {
-	/*int i = 0;
+Fight::Fight(Perso* joueur, std::vector<Monstre>& ennemis) : joueur{ joueur } {
+	int i = 0;
 	while (i < NB_MONSTRE_MAX && i<ennemis.size()) {
 		addEnnemis(ennemis[i]);
 		i++;
-	}*/
+	}
 }
 
 void Fight::addEnnemis(Monstre ennemi) {
@@ -49,11 +49,17 @@ void Fight::majOrdreDAction(std::deque<Entite*>& ordreDAction) {
 }
 void Fight::lancerCombat() {
 	// afficher ennemis
+	int recompense = 0;
 	std::deque<Entite*> ordreDAction;
 	ordreDAction.push_back(joueur);
+	std::string s;
 	for (Monstre& p : ennemis) {
 		ordreDAction.push_back(&p);
+		recompense += p.goldLache();
+		s.append(p.toString() + "\n");
 	}
+	s.append("Que faites vous ?\n");
+	Affichage::afficher(s);
 
 	majOrdreDAction(ordreDAction);
 
@@ -72,6 +78,7 @@ void Fight::lancerCombat() {
 			}
 			actionPerforme.insert(it, choixActuel);
 		}
+		
 		// 2.effectuer les actions dans l'ordre
 		for (ActionPerforme actionActuel : actionPerforme) {
 			if (!actionActuel.lanceur->estVivant()) {
@@ -96,11 +103,18 @@ void Fight::lancerCombat() {
 		ordreDAction.erase(std::remove_if(ordreDAction.begin(), ordreDAction.end(), [](Entite* e) {return !e->getNom().compare(""); }), ordreDAction.end()); //obligatoire pour éviter les pointeur vide
 		majOrdreDAction(ordreDAction);
 		actionPerforme.clear();
+		s.clear();
+		for (Monstre& p : ennemis) {
+			s.append(p.toString() + "\n");
+		}
+		s.append("Que faite vous ?\n");
+		Affichage::afficher(s);
 	}
 	Affichage::clear();
 	//Afficher un truc different en fonction de si on a gagner ou pas
 	if (joueur->estVivant()) {
-		Affichage::afficher("Vous avez gagner le combat\n");
+		Affichage::afficher("Vous avez gagner le combat\n Vous gagne "+std::to_string(recompense)+" golds\n");
+		joueur->modifyNbGold(recompense);
 	}
 	else {
 		Affichage::afficher("Vous etes mort\n");

@@ -1,4 +1,4 @@
-potion_rouge soigne_10_pv 2 10 3 100
-potion_bleu soigne_10_pm 3 10 3 100
-potion_vert soigne_10_pv_et_10_pm 4 10 3 100
-bombe inflige_30_degats_a_tout_les_ennemis 1 30 2 100
+potion_rouge soigne_10_pv 10 2 10 3 100
+potion_bleu soigne_10_pm 10 3 10 3 100
+potion_vert soigne_10_pv_et_10_pm 10 4 10 3 100
+bombe inflige_30_degats_a_tout_les_ennemis 10 1 30 2 100

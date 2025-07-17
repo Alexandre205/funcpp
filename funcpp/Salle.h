@@ -34,12 +34,16 @@ public:
 	std::string toString();
 	Salle();
 	Salle(SalleType stateSalle,int connexion);
-	void passage(Perso& joueur);
+
+	//return bool to know if the room must be emptied
+	bool passage(Perso& joueur);
 	void addConnexion(Connexion connexion);
 	void removeConnexion(Connexion connexion);
 	void setConnexion(int connexion);
 	void setIStateSalle(SalleType stateSalle);
+	void setIStateSalle(IStateSalle* stateSalle,SalleType salleType);
 	IStateSalle* getState();
+	SalleType getSalleType();
 	std::string getContentString();
 	bool hasNorthConnexion();
 	bool hasSouthConnexion();

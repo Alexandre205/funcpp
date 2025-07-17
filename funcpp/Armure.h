@@ -5,10 +5,12 @@ class Armure :
 {
 private:
     int defenceBonus;
+    int defenceMagiqueBonus;
 public:
 
     std::string toString();
 
-    Armure(std::string nom, std::string description, int defenceBonus);
+    Armure(std::string nom, std::string description, int defenceBonus, int defenceMagiqueBonus);
     int getDefenceBonus();
+    int getDefenceMagiqueBonus();
 };

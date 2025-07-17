@@ -8,12 +8,12 @@ std::string Perso::toString() {
 	return retour;
 }
 
-Perso::Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse,int nbGold) :
-	Entite{nom,pv,pm,attaque,defence,vitesse},nbGold{nbGold}{
+Perso::Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int nbGold) :
+	Entite{nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse},nbGold{nbGold}{
 	// ceci appel le constructeur par defaut de l'inventaire
 }
-Perso::Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse) 
-	:Perso{ nom,pv,pm,attaque,defence,vitesse,0 } {}
+Perso::Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse)
+	:Perso{ nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse,0 } {}
 
 
 // a supprimer //peut-etre //surement
@@ -46,6 +46,13 @@ int Perso::getVitesse() {
 	int test = vitesse + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
+int Perso::getNbGold() {
+	return nbGold;
+}
+void Perso::modifyNbGold(int modifier) {
+	nbGold += modifier; //faire attention ici les gold peuvent etre négatif
+}
+
 ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre>& monstres) {
 	std::vector<Entite*> ennemis;
 	//ennemis.reserve();

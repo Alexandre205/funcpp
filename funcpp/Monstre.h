@@ -7,6 +7,7 @@ class Monstre :
 {
 private:
     //Race
+    int goldRecompense;
     struct Loot
     {
         ILootable objet;
@@ -16,7 +17,7 @@ private:
 public:
     std::string toString();
     Monstre(const Monstre& monstre);
-    Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse);
+    Monstre(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int goldRecompense);
 
     void attaqueDeBase(Entite& cible);
     int goldLache();
