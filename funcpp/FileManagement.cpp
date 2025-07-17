@@ -61,14 +61,14 @@ DataEquipment FileManagement::getEquipmentFromFile() {
 			data.casques.push_back( Casque(nom,description,pv,pm));
 			break;
 		case 2:
-			int atk;
-			file >> atk;
-			data.armes.push_back( Arme(nom, description, atk));
+			int atk,atk_m;
+			file >> atk >> atk_m;
+			data.armes.push_back( Arme(nom, description, atk,atk_m));
 			break;
 		case 3:
-			int def;
-			file >> def;
-			data.armures.push_back( Armure(nom, description, def));
+			int def,def_m;
+			file >> def >> def_m;
+			data.armures.push_back( Armure(nom, description, def,def_m));
 			break;
 		case 4:
 			int vit;

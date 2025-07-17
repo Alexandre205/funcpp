@@ -26,11 +26,11 @@ Filtrer les intput (fichier et utilisateur)
 Mettre en ordre les fichier dans des dossier 
 Anglaitiser le code, pas les textes juste le code
 
-Decider où je mets la variable classe
+
 Faire la gestion des loot des monstres avec la structure loot
 
 Utiliser le pattern State pour les effets de statut infligé au Entite
-|>Le entite aurons un tableau de state qui sera parcouru
+|>Le entite aurons un tableau de state qui sera parcouru chaque tour
 
 interface state{
 	void avancer dans state();
@@ -45,4 +45,3 @@ bruler implement state{
 }
 
 Creation de perso 
-Ajouter degat magique 
