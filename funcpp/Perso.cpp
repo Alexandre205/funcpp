@@ -8,12 +8,12 @@ std::string Perso::toString() {
 	return retour;
 }
 
-Perso::Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse,int nbGold) :
-	Entite{nom,pv,pm,attaque,defence,vitesse},nbGold{nbGold}{
+Perso::Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int nbGold) :
+	Entite{nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse},nbGold{nbGold}{
 	// ceci appel le constructeur par defaut de l'inventaire
 }
-Perso::Perso(std::string nom, int pv, int pm, int attaque, int defence, int vitesse) 
-	:Perso{ nom,pv,pm,attaque,defence,vitesse,0 } {}
+Perso::Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse)
+	:Perso{ nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse,0 } {}
 
 
 // a supprimer //peut-etre //surement

@@ -46,4 +46,3 @@ bruler implement state{
 
 Creation de perso 
 Ajouter degat magique 
-

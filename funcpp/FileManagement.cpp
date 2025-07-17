@@ -12,12 +12,12 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 	
 	while (!file.eof()) {
 		std::string nom;
-		int pv, pm, atk, def, vit, nbGold, nbComp;
+		int pv, pm, atk, atk_m, def, def_m, vit, nbGold, nbComp;
 
 		//récupere toute les informations en avance dans le fichier
-		file >> nom >> pv >> pm >> atk >> def >> vit >> nbGold >> nbComp;
+		file >> nom >> pv >> pm >> atk >> atk_m >> def >> def_m >> vit >> nbGold >> nbComp;
 		Utilitaire::polishMot(nom);
-		Monstre monstre = Monstre{ nom,pv,pm,atk,def,vit,nbGold };
+		Monstre monstre = Monstre{ nom,pv,pm,atk,atk_m,def,def_m,vit,nbGold };
 		for (int i{ 0 }; i < nbComp; i++) {
 			std::string nomComp, descriptionComp, formuleComp;
 			int iEffet, iCiblage, coutPm, priorite;

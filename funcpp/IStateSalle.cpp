@@ -19,7 +19,7 @@ bool EmptyRoom::passage(Perso& joueur) {
 FightRoom::FightRoom() {
 	int nbMonster = Utilitaire::getGeneratedInteger(1, Fight::NB_MONSTRE_MAX);
 	for (int i{ 0 }; i < nbMonster; i++) {
-		ennemis.push_back(Ressources::dataMonsters[Utilitaire::getGeneratedInteger(0, Ressources::dataMonsters.size() - 1)]);
+		ennemis.push_back(Ressources::dataMonsters[Utilitaire::getGeneratedInteger(0, (int)Ressources::dataMonsters.size() - 1)]);
 	}
 	/*std::vector<Monstre> m = Ressources::dataMonsters;
 	for (Monstre ennemi : m) {

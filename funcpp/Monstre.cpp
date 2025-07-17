@@ -7,10 +7,10 @@ std::string Monstre::toString() {
 }
 
 
-Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int defence, int vitesse,int goldRecompense)
-	:Entite{ nom,pv,pm,attaque,defence,vitesse }, goldRecompense{goldRecompense} {
+Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int goldRecompense)
+	:Entite{ nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse }, goldRecompense{goldRecompense} {
 }
-Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom, monstre.pv, monstre.pm, monstre.attaque, monstre.defence, monstre.vitesse,monstre.goldRecompense) {
+Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom, monstre.pv, monstre.pm, monstre.attaque,monstre.attaqueMagique, monstre.defence,monstre.defenceMagique, monstre.vitesse,monstre.goldRecompense) {
 	for (int i{ 0 }; i < monstre.nbCompetence;i++) {
 		this->apprendreCompetence(new Competence(monstre.competences[i]));
 	}
