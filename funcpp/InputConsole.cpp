@@ -62,7 +62,7 @@ ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Entite*>&
 	//int indiceEnnemis = getValidInt(1, (int)ennemis.size(), "Mauvais choix d\'ennemis\n" + liste)-1;
 
 	//action.cibles = std::vector<Entite*>{ ennemis[indiceEnnemis] };
-
+	Affichage::clear();
 	return action;
 }
 int Obtention::getCibleIndice(std::vector<Entite*>& cibles) {

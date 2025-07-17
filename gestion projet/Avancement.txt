@@ -45,6 +45,5 @@ bruler implement state{
 }
 
 Creation de perso 
+Ajouter degat magique 
 
-Modifier ISalleStalle.FigthRoom::passage pour faire un bon systeme d'apparition d'ennemis
-|-> Création procédurale

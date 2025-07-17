@@ -17,20 +17,17 @@ bool EmptyRoom::passage(Perso& joueur) {
 }
 
 FightRoom::FightRoom() {
-	std::vector<Monstre> m = Ressources::dataMonsters;
+	int nbMonster = Utilitaire::getGeneratedInteger(1, Fight::NB_MONSTRE_MAX);
+	for (int i{ 0 }; i < nbMonster; i++) {
+		ennemis.push_back(Ressources::dataMonsters[Utilitaire::getGeneratedInteger(0, Ressources::dataMonsters.size() - 1)]);
+	}
+	/*std::vector<Monstre> m = Ressources::dataMonsters;
 	for (Monstre ennemi : m) {
 		ennemis.push_back(ennemi);
-	}
+	}*/
 }
 bool FightRoom::passage(Perso& joueur) {
-	
-	std::string listeMonstre{"Vous entrez dans une salle avec des monstres\n"};
-	for (Monstre ennemi : ennemis) {
-		listeMonstre.append(ennemi.toString()+"\n");
-	}
-	listeMonstre.append("Que faite vous ?\n");
-	Affichage::afficher(listeMonstre);
-
+	Affichage::afficher("Vous entrez dans une salle avec des monstres\n");
 	Fight f{ &joueur, ennemis };
 	f.lancerCombat();
 	return false;
