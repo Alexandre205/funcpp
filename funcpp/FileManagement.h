@@ -17,9 +17,16 @@ struct DataEquipment {
 
 namespace FileManagement {
 	namespace {
+#ifdef DEBUG
 		const char* NOM_FILE_MONSTRE = "../ressources/Monstres.txt";
 		const char* NOM_FILE_CONSUMABLE = "../ressources/Consumable.txt";
 		const char* NOM_FILE_EQUIPEMENT = "../ressources/Equipment.txt";
+#else
+		//on mettra à part une autre fois
+		const char* NOM_FILE_MONSTRE = "../../ressources/Monstres.txt";
+		const char* NOM_FILE_CONSUMABLE = "../../ressources/Consumable.txt";
+		const char* NOM_FILE_EQUIPEMENT = "../../ressources/Equipment.txt";
+#endif // DEBUG
 	}
 	
 	std::vector<Monstre> getMonstersFromFile();

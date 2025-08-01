@@ -16,7 +16,6 @@
 int main(int argc, char* argv[]) {
 	Ressources::initRessources();
 	Utilitaire::initSeed();
-
 	Perso p1{ "Alex",100,10,50,50,50,50,50,10 };
 	p1.apprendreCompetence(new Competence{ "attaque", "al", Effets::infligerDegat, "15", Ciblage::Mono, 0 });
 	p1.apprendreCompetence(new Competence{ "super attaque","al",Effets::infligerDegat,"100",Ciblage::Multi,10 });
@@ -27,6 +26,7 @@ int main(int argc, char* argv[]) {
 	Donjon* d = DungeonGenerator::generateDonjon(&p1);
 	d->explore();
 	
-	Affichage::afficher("\n\nFIN");
+	Affichage::afficher("\n\nFIN\n");
+	
 	return EXIT_SUCCESS;
 }
