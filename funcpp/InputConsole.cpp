@@ -25,17 +25,15 @@ ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Entite*>&
 	Affichage::afficher(liste);
 
 	int choix = getValidInt(1, joueur.getNbCompetence() + plusOneIfItems, "Mauvais choix de competence\n" + liste) - 1;
+	while (choix < joueur.getNbCompetence() && joueur.getCompetence(choix)->getCoutPm() > joueur.getPm()) {
+		Affichage::afficher("Impossible de lancer " + joueur.getCompetence(choix)->getNom() + ", pas assez de pm\n" + liste);
+		choix = getValidInt(1, joueur.getNbCompetence() + plusOneIfItems, "Mauvais choix de competence\n" + liste) - 1;
+	}
 	if (choix < joueur.getNbCompetence()) {
 		//utiliser la competence choisie
 		Competence* comp = joueur.getCompetence(choix);
-
-		while (comp->getCoutPm()>joueur.getPm()) {
-			Affichage::afficher("Impossible de lancer " + comp->getNom() + ", pas assez de pm\n"+liste);
-			comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
-		}
-
 		action.action = comp;
-		std::vector<Entite*> allie = { &joueur }; //permet de rajouter des Entite alliées au besoin
+		std::vector<Entite*> allie = { &joueur }; //permetra de rajouter des Entite alliées au besoin
 		action.cibles = action.action->getCibles(ennemis, allie);
 	}
 	else {
