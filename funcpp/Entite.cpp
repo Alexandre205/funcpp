@@ -41,18 +41,15 @@ void Entite::modifierStat(int& stat, int modifSubi, int statMax) {
 }
 void Entite::altererPv(int modifSubi) {
 	modifierStat(pv, modifSubi, getPvMax());
-	Affichage::afficher("pv\n");
 }
 void Entite::altererPm(int modifSubi) {
 	modifierStat(pm, modifSubi, getPmMax());
-	Affichage::afficher("pm\n");
 }
 void Entite::altererPvMax(int modifSubi) {
 	modifierStat(pvMax, modifSubi, STAT_MAX);
 	if (pv > getPvMax()) {
 		pv = getPvMax();
 	}
-	Affichage::afficher("pv max\n");
 	Utilitaire::testHandler(pvMax != STAT_MAX, "check limite pvMax");
 }
 void Entite::altererPmMax(int modifSubi) {
@@ -60,32 +57,26 @@ void Entite::altererPmMax(int modifSubi) {
 	if (pm > getPmMax()) {
 		pm = getPmMax();
 	}
-	Affichage::afficher("pm max\n");
 	Utilitaire::testHandler(pmMax != STAT_MAX, "check limite pmMax");
 }
 void Entite::altererAttaque(int modifSubi) {
 	modifierStat(attaque, modifSubi, STAT_MAX);
-	Affichage::afficher("atk\n");
 	Utilitaire::testHandler(attaque != STAT_MAX, "check limite attaque");
 }
 void Entite::altererAttaqueMagique(int modifSubi) {
 	modifierStat(attaqueMagique, modifSubi, STAT_MAX);
-	Affichage::afficher("atk_m\n");
 	Utilitaire::testHandler(attaqueMagique != STAT_MAX, "check limite atk_m");
 }
 void Entite::altererDefence(int modifSubi) {
 	modifierStat(defence, modifSubi, STAT_MAX);
-	Affichage::afficher("def\n");
 	Utilitaire::testHandler(defence != STAT_MAX, "check limite defence");
 }
 void Entite::altererDefenceMagique(int modifSubi) {
 	modifierStat(defenceMagique, modifSubi, STAT_MAX);
-	Affichage::afficher("def_m\n");
 	Utilitaire::testHandler(defenceMagique != STAT_MAX, "check limite def_m");
 }
 void Entite::altererVitesse(int modifSubi) {
 	modifierStat(vitesse, modifSubi, STAT_MAX);
-	Affichage::afficher("vit\n");
 	Utilitaire::testHandler(vitesse != STAT_MAX, "check limite vitesse");
 }
 

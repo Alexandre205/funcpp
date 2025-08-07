@@ -64,8 +64,8 @@ void Fight::lancerCombat() {
 	majOrdreDAction(ordreDAction);
 
 	std::list<ActionPerforme> actionPerforme;
-
-	while (!isFinished()) {
+	bool endOfFight = false;
+	while (!endOfFight) {
 		// 1.choix des action
 		for (Entite* entite : ordreDAction) {
 			ActionPerforme choixActuel = entite->getAction(*this->joueur,ennemis);
@@ -81,10 +81,7 @@ void Fight::lancerCombat() {
 		
 		// 2.effectuer les actions dans l'ordre
 		for (ActionPerforme actionActuel : actionPerforme) {
-			if (!actionActuel.lanceur->estVivant()) {
-				Affichage::afficher(actionActuel.lanceur->getNom() + " est mort. Impossible de lancer son attaque\n");
-			}
-			else {
+			if(actionActuel.lanceur->estVivant()) {
 				//si il y a un bug en rapport avec le droit d'utilisation d'une competence creuse ici
 				int i = 0;
 				while (i < actionActuel.cibles.size() && !actionActuel.cibles[i]->estVivant()) {
@@ -95,25 +92,38 @@ void Fight::lancerCombat() {
 				}
 				else {
 					actionActuel.action->utiliser(actionActuel.cibles);
+					for (Entite* ent : actionActuel.cibles) {
+						if (!ent->estVivant()) {
+							Affichage::afficher(ent->getNom() + " est mort\n");
+						}
+					}
 				}
 			}
 		}
-		//3.remettre en ordre
+
+		//3.effacer les monstres mort 
 		ennemis.erase(std::remove_if(ennemis.begin(), ennemis.end(), [](Monstre& m) {return !m.estVivant(); }), ennemis.end());
 		ordreDAction.erase(std::remove_if(ordreDAction.begin(), ordreDAction.end(), [](Entite* e) {return !e->getNom().compare(""); }), ordreDAction.end()); //obligatoire pour éviter les pointeur vide
-		majOrdreDAction(ordreDAction);
-		actionPerforme.clear();
-		s.clear();
-		for (Monstre& p : ennemis) {
-			s.append(p.toString() + "\n");
+
+		
+		endOfFight = isFinished();
+		if (!endOfFight) {
+			//4.remettre en ordre
+			majOrdreDAction(ordreDAction);
+			actionPerforme.clear();
+			s.clear();
+			for (Monstre& p : ennemis) {
+				s.append(p.toString() + "\n");
+			}
+			s.append("Que faite vous ?\n");
+			Affichage::afficher(s);
 		}
-		s.append("Que faite vous ?\n");
-		Affichage::afficher(s);
 	}
+	//ajouter possiblement un petit lag le temps de pouvoir lire le texte
 	Affichage::clear();
 	//Afficher un truc different en fonction de si on a gagner ou pas
 	if (joueur->estVivant()) {
-		Affichage::afficher("Vous avez gagner le combat\n Vous gagne "+std::to_string(recompense)+" golds\n");
+		Affichage::afficher("Vous avez gagner le combat\nVous gagne "+std::to_string(recompense)+" golds\n");
 		joueur->modifyNbGold(recompense);
 	}
 	else {

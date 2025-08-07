@@ -86,6 +86,7 @@ Direction Obtention::getDirection(Salle* salle) {
 Perso Obtention::getNewStartPerso() {
 	//recup nom
 	
+	//utiliser des constantes pour les point et les stats initiales
 	int pointADistribuer{ 25 };
 	std::array<std::pair<std::string, int>, 7> stats = { {
 		{"Pv", 15},
