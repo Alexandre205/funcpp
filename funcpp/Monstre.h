@@ -17,9 +17,7 @@ private:
 public:
     std::string toString();
     Monstre(const Monstre& monstre);
-    Monstre(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int goldRecompense);
-
-    void attaqueDeBase(Entite& cible);
+    Monstre(std::string nom, std::array<int, NB_STAT> stats, int goldRecompense);
     int goldLache();
 
     // faire un bon truc comme algorithme une fois le systeme de combat amélioré

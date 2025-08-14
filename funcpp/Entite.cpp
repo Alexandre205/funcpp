@@ -1,8 +1,10 @@
 #include "Entite.h"
 #include "Utilitaire.h"
+
+const std::array<std::string, Entite::NB_STAT> Entite::statToString = { "PvMax","PmMax","AtkP","AtkM","DefP","DefM","Vit" };
 std::string Entite::toString() {
 	using namespace std;
-	string output = nom + " (" + to_string(pv) + "/" + to_string(getPvMax()) + "pv)(" + to_string(pm) + "/" + to_string(getPmMax()) + "pm)(" + to_string(getAttaque()) + " atk, " + to_string(getDefence()) + " def, " + to_string(getVitesse()) + " vit)\n";
+	string output = nom + " (" + to_string(getPv()) + "/" + to_string(getPvMax()) + "pv)(" + to_string(getPm()) + "/" + to_string(getPmMax()) + "pm)(" + to_string(getAttaque()) + " atk_p, " + to_string(getDefence()) + " def_p, " + to_string(getVitesse()) + " vit)\n";
 	int i = 0;
 	for (i; i < nbCompetence; i++) {
 		output += competences[i].toString() + "\n";
@@ -13,17 +15,9 @@ std::string Entite::toString() {
 	return output;
 }
 
-Entite::Entite(){};
-//Entite::Entite(const Entite& entite):
-//	Entite(entite.nom,entite.pv,entite.pvMax,entite.pm,entite.pmMax,entite.attaque,entite.defence,entite.vitesse){ }
-Entite::Entite(std::string nom, int pv, int pvMax, int pm, int pmMax, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse) :
-	nom{ nom }, pv{ pv }, pvMax{ pvMax }, pm{ pm }, pmMax{ pmMax }, attaque{ attaque },attaqueMagique{ attaqueMagique },
-	defence{ defence }, defenceMagique{ defenceMagique }, vitesse{vitesse}, nbCompetence{ 0 }
-{
-	// quelque modification de robustesse a prevoir
-}
-Entite::Entite(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse):
-	Entite(nom, pv, pv, pm, pm,attaque,attaqueMagique,defence,defenceMagique,vitesse){}
+Entite::Entite(){};//pas utile je pense
+Entite::Entite(std::string nom, std::array<int, NB_STAT> stats) :
+	nom{ nom }, stats{ stats }, nbCompetence{ 0 }, pv{ stats[Stats::PV_MAX] }, pm{stats[Stats::PM_MAX]} {}
 
 bool Entite::comparerVitesse(Entite* e1, Entite* e2) {
 	return  e1->getVitesse()>e2->getVitesse();
@@ -46,38 +40,38 @@ void Entite::altererPm(int modifSubi) {
 	modifierStat(pm, modifSubi, getPmMax());
 }
 void Entite::altererPvMax(int modifSubi) {
-	modifierStat(pvMax, modifSubi, STAT_MAX);
+	modifierStat(stats[Stats::PV_MAX], modifSubi, STAT_MAX);
 	if (pv > getPvMax()) {
 		pv = getPvMax();
 	}
-	Utilitaire::testHandler(pvMax != STAT_MAX, "check limite pvMax");
+	Utilitaire::testHandler(stats[Stats::PV_MAX] != STAT_MAX, "check limite pvMax");
 }
 void Entite::altererPmMax(int modifSubi) {
-	modifierStat(pmMax, modifSubi, STAT_MAX);
+	modifierStat(stats[Stats::PM_MAX], modifSubi, STAT_MAX);
 	if (pm > getPmMax()) {
 		pm = getPmMax();
 	}
-	Utilitaire::testHandler(pmMax != STAT_MAX, "check limite pmMax");
+	Utilitaire::testHandler(stats[Stats::PM_MAX] != STAT_MAX, "check limite pmMax");
 }
 void Entite::altererAttaque(int modifSubi) {
-	modifierStat(attaque, modifSubi, STAT_MAX);
-	Utilitaire::testHandler(attaque != STAT_MAX, "check limite attaque");
+	modifierStat(stats[Stats::ATK_P], modifSubi, STAT_MAX);
+	Utilitaire::testHandler(stats[Stats::ATK_P] != STAT_MAX, "check limite attaque");
 }
 void Entite::altererAttaqueMagique(int modifSubi) {
-	modifierStat(attaqueMagique, modifSubi, STAT_MAX);
-	Utilitaire::testHandler(attaqueMagique != STAT_MAX, "check limite atk_m");
+	modifierStat(stats[Stats::ATK_M], modifSubi, STAT_MAX);
+	Utilitaire::testHandler(stats[Stats::ATK_M] != STAT_MAX, "check limite atk_m");
 }
 void Entite::altererDefence(int modifSubi) {
-	modifierStat(defence, modifSubi, STAT_MAX);
-	Utilitaire::testHandler(defence != STAT_MAX, "check limite defence");
+	modifierStat(stats[Stats::DEF_P], modifSubi, STAT_MAX);
+	Utilitaire::testHandler(stats[Stats::DEF_P] != STAT_MAX, "check limite defence");
 }
 void Entite::altererDefenceMagique(int modifSubi) {
-	modifierStat(defenceMagique, modifSubi, STAT_MAX);
-	Utilitaire::testHandler(defenceMagique != STAT_MAX, "check limite def_m");
+	modifierStat(stats[Stats::DEF_M], modifSubi, STAT_MAX);
+	Utilitaire::testHandler(stats[Stats::DEF_M] != STAT_MAX, "check limite def_m");
 }
 void Entite::altererVitesse(int modifSubi) {
-	modifierStat(vitesse, modifSubi, STAT_MAX);
-	Utilitaire::testHandler(vitesse != STAT_MAX, "check limite vitesse");
+	modifierStat(stats[Stats::VIT], modifSubi, STAT_MAX);
+	Utilitaire::testHandler(stats[Stats::VIT] != STAT_MAX, "check limite vitesse");
 }
 
 void Entite::apprendreCompetence(Competence *newComp) {
@@ -87,40 +81,43 @@ void Entite::apprendreCompetence(Competence *newComp) {
 		nbCompetence++;
 	}
 	else {
-		//Proposer dans désapprendre une
+		//Proposer d'en désapprendre une
 		Utilitaire::writeInLog("Deja trops de competence");
 	}
 }
 
 std::string Entite::getNom() { return nom; }
-bool Entite::estVivant() {return pv > 0;}
+bool Entite::estVivant() {return pv > 0; }
 
 int Entite::getPv() {
 	return pv;
 }
 int Entite::getPvMax() {
-	return pvMax <= STAT_MAX_EFFECTIVE ? pvMax : STAT_MAX_EFFECTIVE;
+	return stats[Stats::PV_MAX] <= STAT_MAX_EFFECTIVE ? stats[Stats::PV_MAX] : STAT_MAX_EFFECTIVE;
 }
 int Entite::getPm() {
 	return pm;
 }
 int Entite::getPmMax() {
-	return pmMax <= STAT_MAX_EFFECTIVE ? pmMax : STAT_MAX_EFFECTIVE;
+	return stats[Stats::PM_MAX] <= STAT_MAX_EFFECTIVE ? stats[Stats::PM_MAX] : STAT_MAX_EFFECTIVE;
 }
 int Entite::getAttaque() {
-	return attaque<= STAT_MAX_EFFECTIVE ? attaque:STAT_MAX_EFFECTIVE;
+	return stats[Stats::ATK_P] <= STAT_MAX_EFFECTIVE ? stats[Stats::ATK_P] : STAT_MAX_EFFECTIVE;
 }
 int Entite::getAttaqueMagique() {
-	return attaqueMagique <= STAT_MAX_EFFECTIVE ? attaqueMagique : STAT_MAX_EFFECTIVE;
+	return stats[Stats::ATK_M] <= STAT_MAX_EFFECTIVE ? stats[Stats::ATK_M] : STAT_MAX_EFFECTIVE;
 }
 int Entite::getDefence() {
-	return defence <= STAT_MAX_EFFECTIVE ? defence : STAT_MAX_EFFECTIVE;
+	return stats[Stats::DEF_P] <= STAT_MAX_EFFECTIVE ? stats[Stats::DEF_P] : STAT_MAX_EFFECTIVE;
 }
 int Entite::getDefenceMagique() {
-	return defenceMagique <= STAT_MAX_EFFECTIVE ? defenceMagique : STAT_MAX_EFFECTIVE;
+	return stats[Stats::DEF_M] <= STAT_MAX_EFFECTIVE ? stats[Stats::DEF_M] : STAT_MAX_EFFECTIVE;
 }
 int Entite::getVitesse() {
-	return vitesse <= STAT_MAX_EFFECTIVE ? vitesse : STAT_MAX_EFFECTIVE;
+	return stats[Stats::VIT] <= STAT_MAX_EFFECTIVE ? stats[Stats::VIT] : STAT_MAX_EFFECTIVE;
+}
+std::array<int, Entite::NB_STAT>* Entite::getStats() {
+	return &stats;
 }
 int Entite::getNbCompetence() {
 	return nbCompetence;
@@ -132,7 +129,7 @@ Competence* Entite::getCompetence(int indice) {
 std::string Entite::getListCompetence() {
 	std::string liste="";
 	for (int i = 0; i < nbCompetence; i++) {
-		liste.append(std::to_string(i + 1) + this->getCompetence(i)->toString() + "\n");
+		liste.append(std::to_string(i + 1) +"- " + this->getCompetence(i)->toString() + "\n");
 	}
 
 	return liste;

@@ -86,33 +86,44 @@ Direction Obtention::getDirection(Salle* salle) {
 Perso Obtention::getNewStartPerso() {
 	//recup nom
 	
+	std::string nom;
+	Affichage::afficher("Choisissez un nom\n");
+	std::cin >> nom;
 	//utiliser des constantes pour les point et les stats initiales
 	int pointADistribuer{ 25 };
-	std::array<std::pair<std::string, int>, 7> stats = { {
-		{"Pv", 15},
-		{"Pm", 10},
-		{"AtkP", 10},
-		{"AtkM", 10},
-		{"DefP", 10},
-		{"DefM", 10},
-		{"Vit", 10}
-	} };
+	std::array<int, Entite::NB_STAT> stats = {15,10,10,10,10,10,10};
+	Affichage::afficher("Distribution des stats\n");
 
 	//Afficher les stats et proposer de placer des point dans certaines catégorie
 	while (pointADistribuer > 0) {
 		std::string s = "Reste " + std::to_string(pointADistribuer) + " points a distribuer\n";
-		for (size_t i = 0; i < stats.size(); ++i) {
-			s += std::to_string(i + 1) + ". " + stats[i].first + " = " + std::to_string(stats[i].second) + "\n";
+		for (int i = 0; i < Entite::NB_STAT; ++i) {
+			s += std::to_string(i + 1) + ". " + Entite::statToString[i] + " = " + std::to_string(stats[i]) + "\n";
 		}
-		Affichage::afficher(s);
+		Affichage::afficher(s);//faut pas afficher pmMax et pvMax
 
-		int choix = getValidInt(1, 7, "Numero de stat invalide") - 1;
-		Affichage::afficher("Rajouter combien de "+stats[choix].first +" ?\n" + std::to_string(stats[choix].second) + " + ");
-		int addValue = Obtention::getValidInt(0, pointADistribuer, "Pas le bon nombre de point\nRajouter combien de " + stats[choix].first + " ?\n" + std::to_string(stats[choix].second) + " + ");
-		stats[choix].second += addValue;
+		int choix = getValidInt(1, Entite::NB_STAT, "Numero de stat invalide") - 1;
+		Affichage::afficher("Rajouter combien de "+ Entite::statToString[choix] +" ?\n" + std::to_string(stats[choix]) + " + ");
+		int addValue = Obtention::getValidInt(0, pointADistribuer, "Pas le bon nombre de point\nRajouter combien de " + Entite::statToString[choix] + " ?\n" + std::to_string(stats[choix]) + " + ");
+		stats[choix] += addValue;
 		pointADistribuer -= addValue;
 	}
-	Perso p{ "DEBUG",stats[0].second,stats[1].second,stats[2].second,stats[3].second,stats[4].second,stats[5].second,stats[6].second };
+	Perso p{ nom,stats};
 	p.apprendreCompetence(new Competence{ "attaque", "Inflige des degats", Effets::infligerDegat, "u.ap-(c.dp/4)*3", Ciblage::Mono, 0 });
+
+	std::array<Competence, 4> competencesPossible = { //zone,magie,puissant physique,prio
+		Competence{"Coup large","Inflige des degats physique a tout les ennemis",Effets::infligerDegat,"u.ap-(c.dp/4)*3",Ciblage::Multi,5},
+		Competence{"Coup magique","Inflige des degats magique",Effets::infligerDegat,"u.am-(c.dm/4)*3",Ciblage::Mono,5},
+		Competence{"Coup puissant","Inflige de lourd degat",Effets::infligerDegat,"(u.ap*2)-(c.dp/4)*3",Ciblage::Mono,5},
+		Competence{"Coup rapide","Inflige des degat, frappe en premier",Effets::infligerDegat,"u.ap-(c.dp/4)*3",Ciblage::Mono,5,1}
+	};
+	std::string s = "Choisissez une competence\n";
+	for (int i{ 0 }; i < competencesPossible.size(); i++) {
+		s.append(std::to_string(i+1) + "." + competencesPossible[i].toString() + "\n");
+	}
+	Affichage::afficher(s);
+	int choix = getValidInt(1, (int)competencesPossible.size(), "Mauvais choix de competence");
+	p.apprendreCompetence(new Competence(competencesPossible[choix-1]));
+	Affichage::clear();
 	return p;
 }

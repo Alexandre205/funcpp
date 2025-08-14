@@ -10,21 +10,18 @@ private:
 public:
     std::string toString();
 
-    //constructeur sans gold
-    Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse);
+    Perso(std::string nom, std::array<int, NB_STAT> stats);
+    //Perso(std::string nom, std::array<int, NB_STAT> stats,int nbGold);
 
-    //constructeur de base
-    Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int nbGold);
-
-    //obsolete
-    void attaqueDeBase(Entite& cible);
 
     Inventaire* getInventaire();
 
     int getPvMax();
     int getPmMax();
     int getAttaque();
+    //int getAttaqueMagique();
     int getDefence();
+    //int getDefenceMagique();
     int getVitesse();
 
     int getNbGold();

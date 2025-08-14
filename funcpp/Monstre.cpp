@@ -3,24 +3,20 @@
 #include"Utilitaire.h"
 
 std::string Monstre::toString() {
-	return getNom() + " (" + std::to_string(pv) + "/" + std::to_string(getPvMax()) + "pv)";
+	return getNom() + " (" + std::to_string(getPv()) + "/" + std::to_string(getPvMax()) + "pv)";
 }
 
 
-Monstre::Monstre(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int goldRecompense)
-	:Entite{ nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse }, goldRecompense{goldRecompense} {
-}
-Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom, monstre.pv, monstre.pm, monstre.attaque,monstre.attaqueMagique, monstre.defence,monstre.defenceMagique, monstre.vitesse,monstre.goldRecompense) {
+
+Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom,monstre.stats, monstre.goldRecompense) {
 	for (int i{ 0 }; i < monstre.nbCompetence;i++) {
 		this->apprendreCompetence(new Competence(monstre.competences[i]));
 	}
 }
 
+Monstre::Monstre(std::string nom, std::array<int, NB_STAT> stats, int goldRecompense) : Entite{ nom,stats }, goldRecompense{ goldRecompense } {};
 
-// obsolete
-void Monstre::attaqueDeBase(Entite& cible) {
-	cible.altererPv(this->getAttaque());
-}
+
 int Monstre::goldLache() {
 	return goldRecompense;
 }

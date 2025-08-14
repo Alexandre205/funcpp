@@ -8,42 +8,31 @@ std::string Perso::toString() {
 	return retour;
 }
 
-Perso::Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse,int nbGold) :
-	Entite{nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse},nbGold{nbGold}{
-	// ceci appel le constructeur par defaut de l'inventaire
-}
-Perso::Perso(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse)
-	:Perso{ nom,pv,pm,attaque,attaqueMagique,defence,defenceMagique,vitesse,0 } {}
 
-
-// a supprimer //peut-etre //surement
-void Perso::attaqueDeBase(Entite& cible) {
-	int degatInflige = getAttaque() - cible.getDefence();
-	cible.altererPv(degatInflige>=1?degatInflige:1);
-}
+Perso::Perso(std::string nom, std::array<int, NB_STAT> stats) : Entite{ nom,stats }, nbGold{ 0 } {};
 
 Inventaire* Perso::getInventaire() {
 	return &inventaire;
 }
 
 int Perso::getPvMax() {
-	int test = pvMax + inventaire.getCasque().getPvBonus();
+	int test = stats[Stats::PV_MAX] + inventaire.getCasque().getPvBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
 int Perso::getPmMax(){
-	int test = pmMax + inventaire.getCasque().getPmBonus();
+	int test = stats[Stats::PM_MAX] + inventaire.getCasque().getPmBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
 int Perso::getAttaque() {
-	int test = attaque + inventaire.getArme().getAttaqueBonus();
+	int test = stats[Stats::ATK_P] + inventaire.getArme().getAttaqueBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
 int Perso::getDefence() {
-	int test = defence + inventaire.getArmure().getDefenceBonus();
+	int test = stats[Stats::DEF_P] + inventaire.getArmure().getDefenceBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
 int Perso::getVitesse() {
-	int test = vitesse + inventaire.getBotte().getVitesseBonus();
+	int test = stats[Stats::VIT] + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
 int Perso::getNbGold() {
