@@ -255,6 +255,7 @@ void Utilitaire::testHandler(bool test, const char* message) {
     }
     else {
         std::cout << "Fichier log non ouvert";
+        system("pause");
         exit(EXIT_FAILURE);
     }
 }

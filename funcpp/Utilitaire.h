@@ -13,7 +13,11 @@ namespace Utilitaire
 		static bool randomGeneratorActivate = false;
 		static std::mt19937 randomNumberGenerator;
 		static std::mt19937 seedNumberGenerator;
+#ifdef DEBUG
 		const char* NOM_FICHIER_LOG = "../ressources/log.txt";
+#else
+		const char* NOM_FICHIER_LOG = "../../ressources/log.txt";
+#endif // DEBUG
 		static int seed;
 	}
 	int applicationFormuleDeDegat(std::string formuleThéorique,Entite& attaquant,Entite& defenseur);

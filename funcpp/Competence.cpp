@@ -46,6 +46,7 @@ void Competence::ajouterPossesseur(Entite *nouvPossesseur) {
 void Competence::utiliser(std::vector<Entite*> cibles) {
 	Affichage::afficher(possesseur->getNom() + " utilise " + nom + ", -");
 	possesseur->altererPm(-coutPm);
+	Affichage::afficher(" pm\n");
 	for (Entite* cible : cibles) {
 		int valeurAjoute = Utilitaire::applicationFormuleDeDegat(this->formule,*possesseur,*cible);
 		this->effet(*cible, valeurAjoute);

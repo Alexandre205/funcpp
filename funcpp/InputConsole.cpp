@@ -25,17 +25,15 @@ ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Entite*>&
 	Affichage::afficher(liste);
 
 	int choix = getValidInt(1, joueur.getNbCompetence() + plusOneIfItems, "Mauvais choix de competence\n" + liste) - 1;
+	while (choix < joueur.getNbCompetence() && joueur.getCompetence(choix)->getCoutPm() > joueur.getPm()) {
+		Affichage::afficher("Impossible de lancer " + joueur.getCompetence(choix)->getNom() + ", pas assez de pm\n" + liste);
+		choix = getValidInt(1, joueur.getNbCompetence() + plusOneIfItems, "Mauvais choix de competence\n" + liste) - 1;
+	}
 	if (choix < joueur.getNbCompetence()) {
 		//utiliser la competence choisie
 		Competence* comp = joueur.getCompetence(choix);
-
-		while (comp->getCoutPm()>joueur.getPm()) {
-			Affichage::afficher("Impossible de lancer " + comp->getNom() + ", pas assez de pm\n"+liste);
-			comp = joueur.getCompetence(getValidInt(1, joueur.getNbCompetence(), "Mauvais choix de competence\n" + liste) - 1);
-		}
-
 		action.action = comp;
-		std::vector<Entite*> allie = { &joueur }; //permet de rajouter des Entite alliées au besoin
+		std::vector<Entite*> allie = { &joueur }; //permetra de rajouter des Entite alliées au besoin
 		action.cibles = action.action->getCibles(ennemis, allie);
 	}
 	else {
@@ -43,25 +41,13 @@ ActionPerforme Obtention::getActionPerforme(Perso& joueur, std::vector<Entite*>&
 		liste.clear();
 		liste.append(joueur.getInventaire()->getConsumableList());
 		Affichage::afficher(liste);
-		
+
 		int choixObjet = getValidInt(1, joueur.getInventaire()->getNbConsommable() + plusOneIfItems, "Mauvais choix d'objet\n" + liste) - 1;
 		action.action = joueur.getInventaire()->getConsumable(choixObjet);
 		joueur.getInventaire()->supprimerConsommable(choixObjet);
 		std::vector<Entite*> allie = { &joueur };
 		action.cibles = action.action->getCibles(ennemis, allie);
 	}
-	
-	
-	
-	//liste.clear();
-	//int i = 0;
-	//for (i; i < ennemis.size(); i++) {
-	//	liste.append(std::to_string(i+1) + " " + ennemis[i]->getNom() + "\n");
-	//}
-	//Affichage::afficher(liste);
-	//int indiceEnnemis = getValidInt(1, (int)ennemis.size(), "Mauvais choix d\'ennemis\n" + liste)-1;
-
-	//action.cibles = std::vector<Entite*>{ ennemis[indiceEnnemis] };
 	Affichage::clear();
 	return action;
 }
@@ -96,4 +82,37 @@ Direction Obtention::getDirection(Salle* salle) {
 	Utilitaire::testHandler(numConnexion > 1, "Pas de connxion dans la salle");
 	Affichage::afficher(s);
 	return directionPossible[getValidInt(1, numConnexion-1, "Impossible d'aller par la\n")-1];
+}
+Perso Obtention::getNewStartPerso() {
+	//recup nom
+	
+	//utiliser des constantes pour les point et les stats initiales
+	int pointADistribuer{ 25 };
+	std::array<std::pair<std::string, int>, 7> stats = { {
+		{"Pv", 15},
+		{"Pm", 10},
+		{"AtkP", 10},
+		{"AtkM", 10},
+		{"DefP", 10},
+		{"DefM", 10},
+		{"Vit", 10}
+	} };
+
+	//Afficher les stats et proposer de placer des point dans certaines catégorie
+	while (pointADistribuer > 0) {
+		std::string s = "Reste " + std::to_string(pointADistribuer) + " points a distribuer\n";
+		for (size_t i = 0; i < stats.size(); ++i) {
+			s += std::to_string(i + 1) + ". " + stats[i].first + " = " + std::to_string(stats[i].second) + "\n";
+		}
+		Affichage::afficher(s);
+
+		int choix = getValidInt(1, 7, "Numero de stat invalide") - 1;
+		Affichage::afficher("Rajouter combien de "+stats[choix].first +" ?\n" + std::to_string(stats[choix].second) + " + ");
+		int addValue = Obtention::getValidInt(0, pointADistribuer, "Pas le bon nombre de point\nRajouter combien de " + stats[choix].first + " ?\n" + std::to_string(stats[choix].second) + " + ");
+		stats[choix].second += addValue;
+		pointADistribuer -= addValue;
+	}
+	Perso p{ "DEBUG",stats[0].second,stats[1].second,stats[2].second,stats[3].second,stats[4].second,stats[5].second,stats[6].second };
+	p.apprendreCompetence(new Competence{ "attaque", "Inflige des degats", Effets::infligerDegat, "u.ap-(c.dp/4)*3", Ciblage::Mono, 0 });
+	return p;
 }

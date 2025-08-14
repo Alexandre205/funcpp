@@ -14,17 +14,23 @@ Optimisation:
 
 Amélioration syntaxique
 	Revoir les noms des variables de Salle (surtout pour SalleType et IStateSalle)
-	|-> apres avoir pris un coffre je ne pouvais pas utiliser des objets alors que j'en  avais
 	
 	Passer le programme en UTF-16
+	Anglaitiser le code, pas les textes juste le code
+	Utiliser des constante au lieu de valeur magique
 
-Bug hunting
-	Bug ou je ne pouvais pas utiliser un objets alors que j'en avais
 
 Faire des fichier pour stocker le texte à afficher en => Stocker les string dans une map
+Placer les fichier ressources release autre part
 Filtrer les intput (fichier et utilisateur)
-Mettre en ordre les fichier dans des dossier 
-Anglaitiser le code, pas les textes juste le code
+Mettre en ordre les fichier dans des dossier
+
+Equilibrage des stats, du donjon,...
+Modifier la distribution des objets dans les endroit ou on peut les récuperer (coffre,marchand)
+	|-> il faut modier les rate + le prix en fonction des étages et il faut aussi rajouter les équipements
+Modifier la génération des fight pour monter la difficulté avec les étages
+	|?> Faire un fichier monstres par étages ?
+
 
 
 Faire la gestion des loot des monstres avec la structure loot
@@ -43,5 +49,6 @@ bruler implement state{
 		nbTour restant--
 	}
 }
-
-Creation de perso 
+montée de niveau
+placer les stats dans un tableau/vector/map pour en simplifier la manipulation
+implémenter l'affichage des truc avec SDL3

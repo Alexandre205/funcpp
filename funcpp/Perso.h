@@ -6,7 +6,6 @@ class Perso :
 {
 private:
     int nbGold;
-    //Classe classe
     Inventaire inventaire;
 public:
     std::string toString();
