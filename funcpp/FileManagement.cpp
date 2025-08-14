@@ -8,8 +8,6 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 	std::ifstream file{ NOM_FILE_MONSTRE };
 	Utilitaire::testHandler(file.is_open(), "Ressource manquante Monstres.txt");
 	std::vector<Monstre> monstres;
-	
-	
 	while (!file.eof()) {
 		std::string nom;
 		int pv, pm, atk, atk_m, def, def_m, vit, nbGold, nbComp;
@@ -17,7 +15,7 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 		//récupere toute les informations en avance dans le fichier
 		file >> nom >> pv >> pm >> atk >> atk_m >> def >> def_m >> vit >> nbGold >> nbComp;
 		Utilitaire::polishMot(nom);
-		Monstre monstre = Monstre{ nom,pv,pm,atk,atk_m,def,def_m,vit,nbGold };
+		Monstre monstre = Monstre{ nom,{pv,pm,atk,atk_m,def,def_m,vit},nbGold };//pv,pvMax,pm,pmMax
 		for (int i{ 0 }; i < nbComp; i++) {
 			std::string nomComp, descriptionComp, formuleComp;
 			int iEffet, iCiblage, coutPm, priorite;
@@ -50,6 +48,7 @@ DataEquipment FileManagement::getEquipmentFromFile() {
 	std::ifstream file{ NOM_FILE_EQUIPEMENT };
 	Utilitaire::testHandler(file.is_open(), "Ressource manquante Equipment.txt");
 	DataEquipment data;
+	
 	while (!file.eof()) {
 		std::string nom, description;
 		int indiceTypeEquipment;

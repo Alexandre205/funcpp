@@ -6,7 +6,7 @@
 
 
 std::string Competence::toString() {
-	return "- " + nom + " " + std::to_string(coutPm) + " pm. ";
+	return nom + ", " + description + "," + std::to_string(coutPm) + " pm.";
 }
 
 Competence::Competence() {};
