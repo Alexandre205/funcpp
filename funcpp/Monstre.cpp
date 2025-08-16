@@ -8,17 +8,20 @@ std::string Monstre::toString() {
 
 
 
-Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom,monstre.stats, monstre.goldRecompense) {
+Monstre::Monstre(const Monstre& monstre) : Monstre(monstre.nom,monstre.stats, monstre.goldRecompense,monstre.expRecompense) {
 	for (int i{ 0 }; i < monstre.nbCompetence;i++) {
 		this->apprendreCompetence(new Competence(monstre.competences[i]));
 	}
 }
 
-Monstre::Monstre(std::string nom, std::array<int, NB_STAT> stats, int goldRecompense) : Entite{ nom,stats }, goldRecompense{ goldRecompense } {};
+Monstre::Monstre(std::string nom, std::array<int, NB_STAT> stats, int goldRecompense, int expRecompense) : Entite{ nom,stats }, goldRecompense{ goldRecompense }, expRecompense{expRecompense} {};
 
 
 int Monstre::goldLache() {
 	return goldRecompense;
+}
+int Monstre::getExpRecompense() {
+	return expRecompense;
 }
 ActionPerforme Monstre::getAction(Perso& joueur, std::vector<Monstre>& monstres) {
 	ActionPerforme action{ this };

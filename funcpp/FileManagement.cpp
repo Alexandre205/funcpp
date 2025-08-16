@@ -10,12 +10,12 @@ std::vector<Monstre> FileManagement::getMonstersFromFile() {
 	std::vector<Monstre> monstres;
 	while (!file.eof()) {
 		std::string nom;
-		int pv, pm, atk, atk_m, def, def_m, vit, nbGold, nbComp;
+		int pv, pm, atk, atk_m, def, def_m, vit, nbGold, exp, nbComp;
 
 		//récupere toute les informations en avance dans le fichier
-		file >> nom >> pv >> pm >> atk >> atk_m >> def >> def_m >> vit >> nbGold >> nbComp;
+		file >> nom >> pv >> pm >> atk >> atk_m >> def >> def_m >> vit >> nbGold >> exp >> nbComp;
 		Utilitaire::polishMot(nom);
-		Monstre monstre = Monstre{ nom,{pv,pm,atk,atk_m,def,def_m,vit},nbGold };//pv,pvMax,pm,pmMax
+		Monstre monstre = Monstre{ nom,{pv,pm,atk,atk_m,def,def_m,vit},nbGold,exp };//pv,pvMax,pm,pmMax
 		for (int i{ 0 }; i < nbComp; i++) {
 			std::string nomComp, descriptionComp, formuleComp;
 			int iEffet, iCiblage, coutPm, priorite;
@@ -42,6 +42,7 @@ std::vector<Consommable> FileManagement::getConsumablesFromFile() {
 		Utilitaire::polishMot(description);
 		consumables.push_back(Consommable(nom, description,price, iEffect, formule, iCiblage, priority));
 	}
+	file.close();
 	return consumables;
 }
 DataEquipment FileManagement::getEquipmentFromFile() {
@@ -77,5 +78,21 @@ DataEquipment FileManagement::getEquipmentFromFile() {
 		default:Utilitaire::unexpectedExit("Probleme avec l'indice d'équipement de " + nom);
 		}
 	}
+	file.close();
+	return data;
+}
+std::map<int, std::vector<Competence>> FileManagement::getPlayerCompFromFile() {
+	std::ifstream file{ NOM_FILE_PLAYER_COMP };
+	std::map<int, std::vector<Competence>> data;
+	Utilitaire::testHandler(file.is_open(), "Ressource manquante PlayerCompetences.txt");
+	while (!file.eof()) {
+		std::string nom, description, formule;
+		int level, iEffet, iCiblage, coutPm, priorite;
+		file >> level >> nom >> description >> iEffet >> formule >> iCiblage >> coutPm >> priorite;
+		Utilitaire::polishMot(nom);
+		Utilitaire::polishMot(description);
+		data[level].emplace_back(nom,description,iEffet,formule,iCiblage,coutPm,priorite);
+	}
+	file.close();
 	return data;
 }

@@ -27,7 +27,7 @@ indice for ciblage :
 	3 : SelfCible
 
 structure d'un monstre dans le fichier
-	nom pv pm attaque attaque_magique defense defence_magique vitesse nb_gold_laché_quand_tué nombre_de_competence
+	nom pv pm attaque attaque_magique defense defence_magique vitesse nb_gold_laché_quand_tué exp_gagné_quand_tué nombre_de_competence
 	nom_competence description_comp indice_d'effet formule indice_de_ciblage cout_en_pm priorité
 
 structure d'un consommable dans le fichier
@@ -40,3 +40,6 @@ indice de type d'equipement:
 	4 : bottes
 structure d'un équipement dans le fichier
 	nom description indice_type_equipement [bonus1] [bonus2]
+
+structure d'une competence de personnage dans le fichier
+	level_d'apprentissage nom description_comp indice_d'effet formule indice_de_ciblage cout_en_pm priorité

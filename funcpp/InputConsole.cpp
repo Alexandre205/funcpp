@@ -3,6 +3,8 @@
 #include <limits>
 #include"AffichageConsole.h"
 #include"Utilitaire.h"
+#include"Ressources.h"
+
 int Obtention::getValidInt(int lowerValue, int upperValue,std::string textInvalid) {
 	int nb = -1;
 	std::cin >> nb;
@@ -88,7 +90,10 @@ Perso Obtention::getNewStartPerso() {
 	
 	std::string nom;
 	Affichage::afficher("Choisissez un nom\n");
-	std::cin >> nom;
+	do {
+		
+		std::getline(std::cin, nom);
+	} while (nom.size() == 0);
 	//utiliser des constantes pour les point et les stats initiales
 	int pointADistribuer{ 25 };
 	std::array<int, Entite::NB_STAT> stats = {15,10,10,10,10,10,10};
@@ -100,7 +105,7 @@ Perso Obtention::getNewStartPerso() {
 		for (int i = 0; i < Entite::NB_STAT; ++i) {
 			s += std::to_string(i + 1) + ". " + Entite::statToString[i] + " = " + std::to_string(stats[i]) + "\n";
 		}
-		Affichage::afficher(s);//faut pas afficher pmMax et pvMax
+		Affichage::afficher(s);
 
 		int choix = getValidInt(1, Entite::NB_STAT, "Numero de stat invalide") - 1;
 		Affichage::afficher("Rajouter combien de "+ Entite::statToString[choix] +" ?\n" + std::to_string(stats[choix]) + " + ");
@@ -109,21 +114,16 @@ Perso Obtention::getNewStartPerso() {
 		pointADistribuer -= addValue;
 	}
 	Perso p{ nom,stats};
-	p.apprendreCompetence(new Competence{ "attaque", "Inflige des degats", Effets::infligerDegat, "u.ap-(c.dp/4)*3", Ciblage::Mono, 0 });
+	p.apprendreCompetence(new Competence{ Ressources::dataPlayerComp[0][0] });
 
-	std::array<Competence, 4> competencesPossible = { //zone,magie,puissant physique,prio
-		Competence{"Coup large","Inflige des degats physique a tout les ennemis",Effets::infligerDegat,"u.ap-(c.dp/4)*3",Ciblage::Multi,5},
-		Competence{"Coup magique","Inflige des degats magique",Effets::infligerDegat,"u.am-(c.dm/4)*3",Ciblage::Mono,5},
-		Competence{"Coup puissant","Inflige de lourd degat",Effets::infligerDegat,"(u.ap*2)-(c.dp/4)*3",Ciblage::Mono,5},
-		Competence{"Coup rapide","Inflige des degat, frappe en premier",Effets::infligerDegat,"u.ap-(c.dp/4)*3",Ciblage::Mono,5,1}
-	};
+	;
 	std::string s = "Choisissez une competence\n";
-	for (int i{ 0 }; i < competencesPossible.size(); i++) {
-		s.append(std::to_string(i+1) + "." + competencesPossible[i].toString() + "\n");
+	for (int i{ 0 }; i < Ressources::dataPlayerComp[1].size(); i++) {
+		s.append(std::to_string(i+1) + "." + Ressources::dataPlayerComp[1][i].toString() + "\n");
 	}
 	Affichage::afficher(s);
-	int choix = getValidInt(1, (int)competencesPossible.size(), "Mauvais choix de competence");
-	p.apprendreCompetence(new Competence(competencesPossible[choix-1]));
+	int choix = getValidInt(1, (int)Ressources::dataPlayerComp[1].size(), "Mauvais choix de competence");
+	p.apprendreCompetence(new Competence(Ressources::dataPlayerComp[1][choix-1]));
 	Affichage::clear();
 	return p;
 }

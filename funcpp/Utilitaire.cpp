@@ -64,7 +64,7 @@ static std::stack<std::string> shuntingYard(std::string formuleMathematique) {
         sortie.push("0");
     }
     for (std::string::iterator it = formuleMathematique.begin(); it != formuleMathematique.end(); it++) {
-        if (isdigit(*it)) {
+        if (isdigit(*it) || *it == '.') {
             nombre += *it;
         }
         else {
@@ -98,8 +98,7 @@ static std::stack<std::string> shuntingYard(std::string formuleMathematique) {
                                 pileOperateur.pop();
                             }
                             if (pileOperateur.empty()) {
-                                Utilitaire::writeInLog("Il manque le caractere '('");
-                                exit(EXIT_FAILURE);
+                                Utilitaire::unexpectedExit("Il manque le caractere '('");
                             }
                             pileOperateur.pop();
                         }
@@ -108,8 +107,7 @@ static std::stack<std::string> shuntingYard(std::string formuleMathematique) {
                                 //si je passe pas par une étape comme ça le message est corrompus
                                 std::string errorMessage = "Caractere invalide rencontre ";
                                 errorMessage.push_back(*it);
-                                Utilitaire::writeInLog(errorMessage.c_str());
-                                exit(EXIT_FAILURE);
+                                Utilitaire::unexpectedExit(errorMessage);
                             }
                         }
                     }
@@ -128,15 +126,15 @@ static std::stack<std::string> shuntingYard(std::string formuleMathematique) {
     return sortie;
 }
 static int calculeNotationPolonaiseInverse(std::queue<std::string> pileDeCalcule) {
-    std::stack<int> sortie;
+    std::stack<double> sortie;
     while (!pileDeCalcule.empty()) {
         if (isdigit(pileDeCalcule.front()[0])) {
-            sortie.push(std::stoi(pileDeCalcule.front().c_str()));
+            sortie.push(std::stof(pileDeCalcule.front().c_str()));
         }
         else {
-            int b = sortie.top();
+            double b = sortie.top();
             sortie.pop();
-            int a = sortie.top();
+            double a = sortie.top();
             sortie.pop();
             if (pileDeCalcule.front() == "+") {
                 sortie.push(a + b);
@@ -171,8 +169,10 @@ static int calculeNotationPolonaiseInverse(std::queue<std::string> pileDeCalcule
         Utilitaire::writeInLog("La sortie est completement vide ou est encore trops remplie");
         exit(EXIT_FAILURE);
     }
-    return sortie.top();
+    return (int)sortie.top();
 }
+
+
 
 int Utilitaire::applicationFormuleDeDegat(std::string formuleThéorique, Entite& attaquant, Entite& defenseur) {
     std::string formuleMathematique = remplacer(formuleThéorique, attaquant, defenseur);

@@ -9,7 +9,12 @@ std::string Perso::toString() {
 }
 
 
-Perso::Perso(std::string nom, std::array<int, NB_STAT> stats) : Entite{ nom,stats }, nbGold{ 0 } {};
+Perso::Perso(std::string nom, std::array<int, NB_STAT> stats, int level, int exp) :
+	Entite{ nom,stats,level }, nbGold{ 0 }, exp{ exp } {
+}
+Perso::Perso(std::string nom, std::array<int, NB_STAT> stats) :
+	Perso{ nom,stats,1,0 } {
+}
 
 Inventaire* Perso::getInventaire() {
 	return &inventaire;
@@ -35,6 +40,7 @@ int Perso::getVitesse() {
 	int test = stats[Stats::VIT] + inventaire.getBotte().getVitesseBonus();
 	return test <= STAT_MAX_EFFECTIVE ? test : STAT_MAX_EFFECTIVE;
 }
+
 int Perso::getNbGold() {
 	return nbGold;
 }
@@ -42,6 +48,22 @@ void Perso::modifyNbGold(int modifier) {
 	nbGold += modifier; //faire attention ici les gold peuvent etre négatif
 }
 
+int Perso::getExp() { 
+	return exp;
+};
+void Perso::modifyExp(int modifier) {
+	exp += modifier;
+	if (exp < 0) {
+		exp = 0;
+	}
+	else {
+		if (exp >= 100) {
+			level += exp / 100;
+			exp %= 100;
+			//check leveling
+		}
+	}
+}
 ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre>& monstres) {
 	std::vector<Entite*> ennemis;
 	//ennemis.reserve();
