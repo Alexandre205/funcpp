@@ -55,3 +55,4 @@ Finir la création de personnage
 	- competence
 Ressource::competenceJoueur[levelD'apprentissage][indice]
 -> une map de vector : la clé est le level d'apprentissage les competences
++->pourquoi pas rajouter des conditions d'apprentissage telle : une map de vector de pair = std::map<int,std::vector<std::pair<Compentence,Condition>>

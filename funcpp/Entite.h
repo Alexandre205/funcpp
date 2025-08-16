@@ -35,7 +35,6 @@ public:
 	std::string toString();
 
 	Entite();
-	//Entite(const Entite& entite);
 	Entite(std::string nom, std::array<int, NB_STAT> stats,int level);
 	Entite(std::string nom, std::array<int, NB_STAT> stats);
 	//Entite(std::string nom,int pv,int pvMax,int pm,int pmMax, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse);

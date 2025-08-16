@@ -57,9 +57,11 @@ void Perso::modifyExp(int modifier) {
 		exp = 0;
 	}
 	else {
-		level += exp / 100;
-		exp %= 100;
-		//check leveling
+		if (exp >= 100) {
+			level += exp / 100;
+			exp %= 100;
+			//check leveling
+		}
 	}
 }
 ActionPerforme Perso::getAction(Perso& joueur, std::vector<Monstre>& monstres) {

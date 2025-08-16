@@ -1,24 +1,24 @@
-loup 15 10 15 5 10 10 20 5 1
+loup 15 10 15 5 10 10 20 5 5 1
 coup_de_griffe inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 
-grand_loup 20 15 15 10 10 15 25 10 1
+grand_loup 20 15 15 10 10 15 25 10 10 1
 coup_de_griffe inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 
-slime 15 5 10 15 15 10 10 5 1
+slime 15 5 10 15 15 10 10 5 5 1
 jet_de_slime inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 
-gobelin 15 15 10 5 10 15 10 15 2
+gobelin 15 15 10 5 10 15 10 15 10 2
 coup inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 soin soigne_le_lanceur 2 u.ap/2 3 5 0
 
-gobelin_archer 15 15 15 5 10 10 15 15 2
+gobelin_archer 15 15 15 5 10 10 15 15 15 2
 tir inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 tir_rapide inflige_des_degats_frappe_en_premier 1 ((u.ap/2)+(u.vi))-(c.dp/4)*3 1 5 1
 
-gobelin_chevalier 20 15 20 10 20 10 15 15 2
+gobelin_chevalier 20 15 20 10 20 10 15 15 15 2
 tranche inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 coup_de_bouclier inflige_des_degats_en_fonction_sa_defence 1 u.dp-(c.dp/4)*3 1 4 0
 
-gobelin_mage 15 20 10 20 10 20 10 15 2
+gobelin_mage 15 20 10 20 10 20 10 15 15 2
 coup_de_baton inflige_des_degats 1 u.ap-(c.dp/4)*3 1 0 0
 rayon_magique inflige_des_degats_magique 1 u.am-(c.dm/4)*3 1 5 0

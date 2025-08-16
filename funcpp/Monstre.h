@@ -8,6 +8,7 @@ class Monstre :
 private:
     //Race
     int goldRecompense;
+    int expRecompense;
     struct Loot
     {
         ILootable objet;
@@ -17,8 +18,9 @@ private:
 public:
     std::string toString();
     Monstre(const Monstre& monstre);
-    Monstre(std::string nom, std::array<int, NB_STAT> stats, int goldRecompense);
+    Monstre(std::string nom, std::array<int, NB_STAT> stats, int goldRecompense,int expRecompense);
     int goldLache();
+    int getExpRecompense();
 
     // faire un bon truc comme algorithme une fois le systeme de combat amélioré
     ActionPerforme getAction(Perso& joueur, std::vector<Monstre>& monstres);
