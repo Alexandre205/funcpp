@@ -88,7 +88,7 @@ Perso Obtention::getNewStartPerso() {
 	
 	std::string nom;
 	Affichage::afficher("Choisissez un nom\n");
-	std::cin >> nom;
+	std::getline(std::cin, nom);
 	//utiliser des constantes pour les point et les stats initiales
 	int pointADistribuer{ 25 };
 	std::array<int, Entite::NB_STAT> stats = {15,10,10,10,10,10,10};
