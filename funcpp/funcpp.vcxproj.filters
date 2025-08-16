@@ -217,6 +217,9 @@
     <Text Include="..\ressources\Consumable.txt">
       <Filter>Fichiers de ressources\Ressources</Filter>
     </Text>
+    <Text Include="..\ressources\PlayerCompetences.txt">
+      <Filter>Fichiers de ressources\Ressources</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="funcpp.rc">

@@ -83,6 +83,7 @@
     <Text Include="..\ressources\How to use file.txt" />
     <Text Include="..\ressources\log.txt" />
     <Text Include="..\ressources\Monstres.txt" />
+    <Text Include="..\ressources\PlayerCompetences.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="funcpp.rc" />

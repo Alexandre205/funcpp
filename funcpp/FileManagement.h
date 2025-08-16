@@ -1,5 +1,6 @@
 #pragma once
 #include<vector>
+#include<map>
 
 #include"Monstre.h"
 #include"Consommable.h"
@@ -21,15 +22,18 @@ namespace FileManagement {
 		const char* NOM_FILE_MONSTRE = "../ressources/Monstres.txt";
 		const char* NOM_FILE_CONSUMABLE = "../ressources/Consumable.txt";
 		const char* NOM_FILE_EQUIPEMENT = "../ressources/Equipment.txt";
+		const char* NOM_FILE_PLAYER_COMP = "../ressources/PlayerCompetences.txt";
 #else
 		//on mettra à part une autre fois
 		const char* NOM_FILE_MONSTRE = "../../ressources/Monstres.txt";
 		const char* NOM_FILE_CONSUMABLE = "../../ressources/Consumable.txt";
 		const char* NOM_FILE_EQUIPEMENT = "../../ressources/Equipment.txt";
+		const char* NOM_FILE_PLAYER_COMP = "../../ressources/PlayerCompetences.txt";
 #endif // DEBUG
 	}
 	
 	std::vector<Monstre> getMonstersFromFile();
 	std::vector<Consommable> getConsumablesFromFile();
 	DataEquipment getEquipmentFromFile();
+	std::map<int, std::vector<Competence>> getPlayerCompFromFile();
 }

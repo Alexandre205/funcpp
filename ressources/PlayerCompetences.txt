@@ -1,0 +1,5 @@
+0 Attaque Inflige_des_degats 1 u.ap-(c.dp*0.75) 1 0 0
+1 Coup_large Inflige_des_degats_physique_a_tout_les_ennemis 1 u.ap-(c.dp*0.75) 2 5 0
+1 Coup_magique Inflige_des_degat_magique 1 u.am-(c.dm*0.75) 1 5 0
+1 Coup_puissant Inflige_de_lourd_degat_physique 1 (u.ap*2)-(c.dp*0.75) 1 5 0
+1 Coup_rapide Inflige_des_degat_physique,_frappe_en_premier 1 u.ap-(c.dp*0.75) 1 5 1
