@@ -16,8 +16,12 @@ std::string Entite::toString() {
 }
 
 Entite::Entite(){};//pas utile je pense
-Entite::Entite(std::string nom, std::array<int, NB_STAT> stats) :
-	nom{ nom }, stats{ stats }, nbCompetence{ 0 }, pv{ stats[Stats::PV_MAX] }, pm{stats[Stats::PM_MAX]} {}
+Entite::Entite(std::string nom, std::array<int, NB_STAT> stats,int level) :
+	nom{ nom }, stats{ stats }, level{level}, nbCompetence{ 0 }, pv{ stats[Stats::PV_MAX] }, pm{ stats[Stats::PM_MAX] } {
+}
+Entite::Entite(std::string nom, std::array<int, NB_STAT> stats) : 
+	Entite{ nom,stats,1 } {
+}
 
 bool Entite::comparerVitesse(Entite* e1, Entite* e2) {
 	return  e1->getVitesse()>e2->getVitesse();

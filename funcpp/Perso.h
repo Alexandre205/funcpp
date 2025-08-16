@@ -6,11 +6,13 @@ class Perso :
 {
 private:
     int nbGold;
+    int exp;
     Inventaire inventaire;
 public:
     std::string toString();
 
     Perso(std::string nom, std::array<int, NB_STAT> stats);
+    Perso(std::string nom, std::array<int, NB_STAT> stats,int level,int exp);
     //Perso(std::string nom, std::array<int, NB_STAT> stats,int nbGold);
 
 
@@ -26,6 +28,9 @@ public:
 
     int getNbGold();
     void modifyNbGold(int modifier);
+
+    int getExp();
+    void modifyExp(int modifier);
 
     //ici lanceur et joueur sont égaux
     ActionPerforme getAction(Perso& joueur, std::vector<Monstre>& monstres);

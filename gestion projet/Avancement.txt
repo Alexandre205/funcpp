@@ -54,4 +54,4 @@ implémenter l'affichage des truc avec SDL3
 Finir la création de personnage 
 	- competence
 Ressource::competenceJoueur[levelD'apprentissage][indice]
-Modifier shunting yard pour prendre en compte des float
+-> une map de vector : la clé est le level d'apprentissage les competences

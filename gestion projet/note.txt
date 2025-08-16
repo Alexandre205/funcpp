@@ -114,6 +114,5 @@ Pour afficher un beau donjon on vas reprendre l'affichage de donjon.c
 
 Pour l'obtention des déplacement, on commence par une obtention numérique classique et si je veux alors utilisation des fleches directionnel
 
-Il semblerait que certain donjon on des sortie dans le vide => faire attantion
-|-> faire du debugage quand le systeme de seed sera operationel
-|-> ça a l'air d'etre tjs est et ouest
+Les Monstres ont une variable d'expérience qu'il donne au jour lorsqu'il meurt
+	Lorsque que le joueur obtiens 100 exp il monte d'un niveau 

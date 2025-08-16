@@ -21,11 +21,11 @@ protected:
 	std::string nom;
 	int pv, pm;
 	int nbCompetence;
+	int level;
 	std::array<Competence,NB_COMP_MAX> competences;
 private:
 	
 
-	//int level, int exp
 	//class
 	//statut
 
@@ -36,6 +36,7 @@ public:
 
 	Entite();
 	//Entite(const Entite& entite);
+	Entite(std::string nom, std::array<int, NB_STAT> stats,int level);
 	Entite(std::string nom, std::array<int, NB_STAT> stats);
 	//Entite(std::string nom,int pv,int pvMax,int pm,int pmMax, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse);
 	//Entite(std::string nom, int pv, int pm, int attaque, int attaqueMagique, int defence, int defenceMagique, int vitesse);
