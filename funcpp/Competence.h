@@ -28,7 +28,7 @@ public:
 	//constructeur priorité 0
 	Competence(std::string nom, std::string description, std::function<void(Entite&, int)> effet, std::string formuleDeDegat, Ciblage ciblage, int coutPm);
 
-	//pour lire les compentece depuis un fichier
+	//pour lire les competence depuis un fichier
 	//utilisation d'indices
 	Competence(std::string nom, std::string description, int iEffet, std::string formule, int iICiblage, int coutPm, int priorite);
 

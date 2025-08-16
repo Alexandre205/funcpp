@@ -90,7 +90,10 @@ Perso Obtention::getNewStartPerso() {
 	
 	std::string nom;
 	Affichage::afficher("Choisissez un nom\n");
-	std::getline(std::cin, nom);
+	do {
+		
+		std::getline(std::cin, nom);
+	} while (nom.size() == 0);
 	//utiliser des constantes pour les point et les stats initiales
 	int pointADistribuer{ 25 };
 	std::array<int, Entite::NB_STAT> stats = {15,10,10,10,10,10,10};
@@ -102,7 +105,7 @@ Perso Obtention::getNewStartPerso() {
 		for (int i = 0; i < Entite::NB_STAT; ++i) {
 			s += std::to_string(i + 1) + ". " + Entite::statToString[i] + " = " + std::to_string(stats[i]) + "\n";
 		}
-		Affichage::afficher(s);//faut pas afficher pmMax et pvMax
+		Affichage::afficher(s);
 
 		int choix = getValidInt(1, Entite::NB_STAT, "Numero de stat invalide") - 1;
 		Affichage::afficher("Rajouter combien de "+ Entite::statToString[choix] +" ?\n" + std::to_string(stats[choix]) + " + ");
