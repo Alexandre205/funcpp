@@ -13,183 +13,213 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Objet">
-      <UniqueIdentifier>{fbac7d95-cf9a-4175-b24a-34da05a20f32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Objet">
-      <UniqueIdentifier>{1e6acc65-498b-417a-990a-0037a98a94c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Objet\Equipement">
-      <UniqueIdentifier>{ff33aecd-8952-42b4-b952-2adfb47aec6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Objet\Equipement">
-      <UniqueIdentifier>{4d94213a-6dea-4592-b016-fc428be29146}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers de ressources\Gestion de projet">
       <UniqueIdentifier>{33000419-81c9-48c3-a031-bfe501a3ee09}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers de ressources\Ressources">
       <UniqueIdentifier>{690e37da-6995-49b5-8959-7bd53c302372}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\app">
+      <UniqueIdentifier>{eea7704e-a1f2-4d61-b25a-723605738fe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\app">
+      <UniqueIdentifier>{40cc3777-9628-4a49-b229-654c44370806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\game">
+      <UniqueIdentifier>{65a38a3c-1820-484a-a8fd-c37bca2253df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\game\Objet">
+      <UniqueIdentifier>{1e6acc65-498b-417a-990a-0037a98a94c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\game\Objet\Equipement">
+      <UniqueIdentifier>{4d94213a-6dea-4592-b016-fc428be29146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\game">
+      <UniqueIdentifier>{40cb9d79-46c6-44a4-a0f4-093f06963cf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\game\Objet">
+      <UniqueIdentifier>{fbac7d95-cf9a-4175-b24a-34da05a20f32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\game\Objet\Equipement">
+      <UniqueIdentifier>{ff33aecd-8952-42b4-b952-2adfb47aec6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Entite.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Perso.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Monstre.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Fight.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Inventaire.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Fichiers sources\Objet</Filter>
+      <Filter>Fichiers sources\game\Objet</Filter>
     </ClCompile>
     <ClCompile Include="Consommable.cpp">
-      <Filter>Fichiers sources\Objet</Filter>
+      <Filter>Fichiers sources\game\Objet</Filter>
     </ClCompile>
     <ClCompile Include="Arme.cpp">
-      <Filter>Fichiers sources\Objet\Equipement</Filter>
+      <Filter>Fichiers sources\game\Objet\Equipement</Filter>
     </ClCompile>
     <ClCompile Include="Armure.cpp">
-      <Filter>Fichiers sources\Objet\Equipement</Filter>
+      <Filter>Fichiers sources\game\Objet\Equipement</Filter>
     </ClCompile>
     <ClCompile Include="Botte.cpp">
-      <Filter>Fichiers sources\Objet\Equipement</Filter>
+      <Filter>Fichiers sources\game\Objet\Equipement</Filter>
     </ClCompile>
     <ClCompile Include="Casque.cpp">
-      <Filter>Fichiers sources\Objet\Equipement</Filter>
+      <Filter>Fichiers sources\game\Objet\Equipement</Filter>
     </ClCompile>
-    <ClCompile Include="Competence.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Fichiers sources\app</Filter>
     </ClCompile>
-    <ClCompile Include="Effets.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Utilitaire.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources\app</Filter>
     </ClCompile>
     <ClCompile Include="AffichageConsole.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="ICiblage.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="InputConsole.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManagement.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Salle.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Competence.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
     <ClCompile Include="Donjon.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="IStateSalle.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
     <ClCompile Include="DungeonGenerator.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Effets.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Entite.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Fight.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManagement.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="ICiblage.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="InputConsole.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventaire.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="IStateSalle.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
     <ClCompile Include="IUsable.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Monstre.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Perso.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
     <ClCompile Include="Ressources.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Salle.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilitaire.cpp">
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Fichiers sources\app</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entite.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Perso.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Monstre.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Fight.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Inventaire.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>Fichiers d%27en-tête\Objet</Filter>
+      <Filter>Fichiers d%27en-tête\game\Objet</Filter>
     </ClInclude>
     <ClInclude Include="Consommable.h">
-      <Filter>Fichiers d%27en-tête\Objet</Filter>
+      <Filter>Fichiers d%27en-tête\game\Objet</Filter>
     </ClInclude>
     <ClInclude Include="Arme.h">
-      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+      <Filter>Fichiers d%27en-tête\game\Objet\Equipement</Filter>
     </ClInclude>
     <ClInclude Include="Armure.h">
-      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+      <Filter>Fichiers d%27en-tête\game\Objet\Equipement</Filter>
     </ClInclude>
     <ClInclude Include="Botte.h">
-      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
+      <Filter>Fichiers d%27en-tête\game\Objet\Equipement</Filter>
     </ClInclude>
     <ClInclude Include="Casque.h">
-      <Filter>Fichiers d%27en-tête\Objet\Equipement</Filter>
-    </ClInclude>
-    <ClInclude Include="Competence.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Effets.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Utilitaire.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\game\Objet\Equipement</Filter>
     </ClInclude>
     <ClInclude Include="AffichageConsole.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="IUsable.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="ICiblage.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="InputConsole.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManagement.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Salle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Competence.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
     <ClInclude Include="Donjon.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="IStateSalle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
     <ClInclude Include="DungeonGenerator.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="ILootable.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Effets.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Entite.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
     <ClInclude Include="Equipment.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Fight.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManagement.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="ICiblage.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="ILootable.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="InputConsole.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventaire.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="IStateSalle.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="IUsable.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Monstre.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Perso.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
     <ClInclude Include="Ressources.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Salle.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilitaire.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Fichiers d%27en-tête\app</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Fichiers d%27en-tête\app</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête\app</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -220,10 +250,5 @@
     <Text Include="..\ressources\PlayerCompetences.txt">
       <Filter>Fichiers de ressources\Ressources</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="funcpp.rc">
-      <Filter>Fichiers de ressources</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

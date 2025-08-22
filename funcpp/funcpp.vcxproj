@@ -23,8 +23,11 @@
     <ClCompile Include="Arme.cpp" />
     <ClCompile Include="Armure.cpp" />
     <ClCompile Include="Botte.cpp" />
+    <ClCompile Include="Option.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="IStateSalle.cpp" />
     <ClCompile Include="IUsable.cpp" />
     <ClCompile Include="Ressources.cpp" />
@@ -51,8 +54,11 @@
     <ClInclude Include="Arme.h" />
     <ClInclude Include="Armure.h" />
     <ClInclude Include="Botte.h" />
+    <ClInclude Include="Option.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="ILootable.h" />
     <ClInclude Include="IStateSalle.h" />
     <ClInclude Include="Ressources.h" />
@@ -84,9 +90,6 @@
     <Text Include="..\ressources\log.txt" />
     <Text Include="..\ressources\Monstres.txt" />
     <Text Include="..\ressources\PlayerCompetences.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="funcpp.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -185,7 +188,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\alexa\librairie externe\SDL3-devel-3.2.18-VC\SDL3-3.2.18\lib\x86;C:\Users\alexa\librairie externe\SDL3_ttf-devel-3.1.0-VC\SDL3_ttf-3.1.0\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\alexa\librairie externe\SDL3-devel-3.2.18-VC\SDL3-3.2.18\lib\x64;C:\Users\alexa\librairie externe\SDL3_ttf-devel-3.1.0-VC\SDL3_ttf-3.1.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL3.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -205,7 +208,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL3.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\alexa\librairie externe\SDL3-devel-3.2.18-VC\SDL3-3.2.18\lib\x86;C:\Users\alexa\librairie externe\SDL3_ttf-devel-3.1.0-VC\SDL3_ttf-3.1.0\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\alexa\librairie externe\SDL3-devel-3.2.18-VC\SDL3-3.2.18\lib\x64;C:\Users\alexa\librairie externe\SDL3_ttf-devel-3.1.0-VC\SDL3_ttf-3.1.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
