@@ -13,7 +13,7 @@ static Game* game;
 
 SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[]) {
     SDL_SetAppMetadata("funcpp", "1.0", "a game in c++");
-    if (!SDL_Init(SDL_INIT_VIDEO) || !TTF_Init() || !SDL_CreateWindowAndRenderer("exemple", 1600, 900, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
+    if (!SDL_Init(SDL_INIT_VIDEO) || !TTF_Init() || !SDL_CreateWindowAndRenderer("exemple", 1600, 900, 0, &window, &renderer)) {
         SDL_Log(SDL_GetError());
         return SDL_APP_FAILURE;
     }
@@ -25,17 +25,18 @@ SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event) {
     if (event->type == SDL_EVENT_QUIT) {
         return SDL_APP_SUCCESS;
     }
-    return game->processInput(event);
+    game->processInput(event);
 	return SDL_APP_CONTINUE;
 }
 SDL_AppResult SDL_AppIterate(void* appstate) {
-    game->update();
+    SDL_AppResult result = game->update();
     game->render(renderer);
     SDL_RenderPresent(renderer);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(renderer);
-	return SDL_APP_CONTINUE;
+	return result;
 }
+#include"DungeonGenerator.h"
 void SDL_AppQuit(void* appstate, SDL_AppResult result) {
 	TTF_Quit();
 	SDL_Quit();

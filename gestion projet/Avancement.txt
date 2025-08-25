@@ -11,7 +11,7 @@ Optimisation:
 		|-> utiliser des pointeurs natif au c++
 	Accelérer l'initialisation du donjon surtout au niveau des murs extérieurs
 		Essayer de faire le tout en une seule boucle
-
+	Faire un rendu optimiser où on redessine uniquement les éléments qui change
 Amélioration syntaxique
 	Revoir les noms des variables de Salle (surtout pour SalleType et IStateSalle)
 	
@@ -48,4 +48,6 @@ Utiliser le pattern State pour les effets de statut infligé au Entite
 			nbTour restant--
 		}
 	}
+implementer l'affichage resizable
+implémenter l'affichage en fonction de la taille de la fenetre
 implémenter l'affichage des truc avec SDL3

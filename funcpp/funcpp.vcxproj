@@ -47,6 +47,7 @@
     <ClCompile Include="Monstre.cpp" />
     <ClCompile Include="Perso.cpp" />
     <ClCompile Include="Fight.cpp" />
+    <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="Utilitaire.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +79,7 @@
     <ClInclude Include="Monstre.h" />
     <ClInclude Include="Perso.h" />
     <ClInclude Include="Fight.h" />
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="Utilitaire.h" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +186,7 @@
       <PreprocessorDefinitions>WIN32;DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\alexa\librairie externe\SDL3-devel-3.2.18-VC\SDL3-3.2.18\include;C:\Users\alexa\librairie externe\SDL3_ttf-devel-3.1.0-VC\SDL3_ttf-3.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -201,6 +204,7 @@
       <PreprocessorDefinitions>WIN32;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\alexa\librairie externe\SDL3-devel-3.2.18-VC\SDL3-3.2.18\include;C:\Users\alexa\librairie externe\SDL3_ttf-devel-3.1.0-VC\SDL3_ttf-3.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

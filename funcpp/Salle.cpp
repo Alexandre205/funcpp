@@ -4,7 +4,7 @@
 
 
 //bon enfaite je vais pas garder ça
-std::map< SalleType,RoomInfo> Salle::infoRoom = {
+std::map< SalleType, RoomInfo> Salle::infoRoom = {
 	{SalleType::Empty   ,{"Empty room\n"," "}},
 	{SalleType::Wall    ,{"Wall\n"," "}},
 	{SalleType::Battle  ,{"Figth\n","\033[0;31mF\033[0;37m"}},
