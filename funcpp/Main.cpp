@@ -18,6 +18,7 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[]) {
         return SDL_APP_FAILURE;
     }
     game = new Game();
+    SDL_StartTextInput(window);
     
 	return SDL_APP_CONTINUE;
 }
@@ -40,6 +41,7 @@ SDL_AppResult SDL_AppIterate(void* appstate) {
 void SDL_AppQuit(void* appstate, SDL_AppResult result) {
 	TTF_Quit();
 	SDL_Quit();
+    SDL_StopTextInput(window);
     delete game;
     Affichage::afficher("\n\nFIN");
 }

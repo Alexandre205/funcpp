@@ -3,9 +3,9 @@
 #include"Ressources.h"
 #include"Utilitaire.h"
 
-Game::Game() : requestQuit{false} {
+Game::Game() : requestQuit{ false }, donjon{ nullptr }, player{nullptr} {
 	Ressources::initRessources();
-	//Utilitaire::initSeed();
+	Utilitaire::initSeed();
 	setCurrentState(new GameStateStartMenu(*this));
 }
 SDL_AppResult Game::update(){
@@ -27,4 +27,16 @@ void Game::setCurrentState(GameState* state) {
 }
 void Game::requestClosing() {
 	requestQuit = true;
+}
+void Game::setPlayer(std::string nom,std::array<int,Entite::NB_STAT> stats,Competence choseComp) {
+	player = new Perso{nom,stats};
+	player->apprendreCompetence(new Competence(Ressources::dataPlayerComp[0][0]));
+	player->apprendreCompetence(new Competence(choseComp));
+}
+void Game::setDonjon() {
+	if (player) {
+		donjon = DungeonGenerator::generateDonjon(player);
+	}
+}
+void Game::startExploring() {
 }

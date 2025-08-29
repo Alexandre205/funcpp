@@ -1,6 +1,6 @@
 #include"TextBox.h"
 
-TextBox::TextBox(SDL_Color fontColor, SDL_Color backgroundColor, SDL_FRect rect) :fontColor{ fontColor }, backgroundColor{ backgroundColor }, rect{ rect }, lastUsedLine{0} {
+TextBox::TextBox(SDL_FRect rect) : rect{ rect }, lastUsedLine{0} {
 	float heigth{ rect.h / lines.size() };
 	float yPos{rect.y};
 	for (int i{ 0 }; i < lines.size(); i++) {
@@ -10,14 +10,14 @@ TextBox::TextBox(SDL_Color fontColor, SDL_Color backgroundColor, SDL_FRect rect)
 	}
 }
 void TextBox::render(SDL_Renderer* renderer) {
-	SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
+	SDL_SetRenderDrawColor(renderer, 255,255,255,255);
 	SDL_RenderFillRect(renderer, &rect);
 	TTF_Font* font = TTF_OpenFont("C:/Windows/Fonts/Arial.ttf", 96);
 	for (Line line : lines) {
 		//50 char + '\0'
 		std::string s( 51,' ' );
 		s.replace(s.begin(),s.begin()+(int)line.text.size()+1, line.text);
-		SDL_Surface* surface = TTF_RenderText_Blended_Wrapped(font, s.c_str(), 0, fontColor, 0);
+		SDL_Surface* surface = TTF_RenderText_Blended_Wrapped(font, s.c_str(), 0, {0,0,0,255}, 0);
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 		SDL_RenderTexture(renderer, texture, NULL, &line.rect);
 		SDL_DestroyTexture(texture);

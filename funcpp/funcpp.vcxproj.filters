@@ -135,6 +135,9 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Fichiers sources\app</Filter>
     </ClCompile>
+    <ClCompile Include="AppUtilities.cpp">
+      <Filter>Fichiers sources\app</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -225,6 +228,9 @@
       <Filter>Fichiers d%27en-tête\app</Filter>
     </ClInclude>
     <ClInclude Include="TextBox.h">
+      <Filter>Fichiers d%27en-tête\app</Filter>
+    </ClInclude>
+    <ClInclude Include="AppUtilities.h">
       <Filter>Fichiers d%27en-tête\app</Filter>
     </ClInclude>
   </ItemGroup>

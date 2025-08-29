@@ -16,4 +16,7 @@ public:
     void render(SDL_Renderer* renderer);
     void setCurrentState(GameState* newState);
     void requestClosing();
+    void setPlayer(std::string nom,std::array<int,Entite::NB_STAT> stats,Competence choseComp);
+    void setDonjon();
+    void startExploring();
 };

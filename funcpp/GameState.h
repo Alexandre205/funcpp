@@ -38,9 +38,29 @@ public:
 };
 class GameStateFight : public GameState {
 private:
-
+    TextBox textBox;
 public:
     GameStateFight(Game& refGame);
+    void render(SDL_Renderer* renderer);
+    void update();
+    void processInput(SDL_Event* event);
+};
+class GameStateCreatingCharacter : public GameState {
+    struct StatRepresentation{
+        int value;
+        std::string text;
+        SDL_FRect positionValue;
+    };
+private:
+    int cursor;
+    int cursorValMax;
+    std::string name;
+    SDL_FRect nameBox;
+    std::array<StatRepresentation, Entite::NB_STAT> arrStat;
+    bool showSpellSelection;
+    std::array<Competence, 4> arrComp;
+public:
+    GameStateCreatingCharacter(Game& refGame);
     void render(SDL_Renderer* renderer);
     void update();
     void processInput(SDL_Event* event);
@@ -48,8 +68,17 @@ public:
 class GameStateMenuOverlay : public GameState {
 private:
     GameState* lastState;
+    SDL_FRect menuArea;
+    SDL_Color backgroundColor;
+
+    //those are facultative
+    std::vector<Option> options;
+    int cursor;
+    std::vector<std::string> texts;
+    TextBox* textBox;
 public:
-    GameStateMenuOverlay(Game& refGame,GameState* lastState);
+    GameStateMenuOverlay(Game& refGame, GameState* lastState, SDL_FRect menuArea, SDL_Color backgroundColor, std::vector<Option> options, std::vector<std::string> texts, TextBox* textBox);
+    GameStateMenuOverlay(Game& refGame, GameState* lastState, SDL_FRect menuArea, SDL_Color backgroundColor);
     void render(SDL_Renderer* renderer);
     void update();
     void processInput(SDL_Event* event);

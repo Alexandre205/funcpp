@@ -48,7 +48,6 @@ void Donjon::initFloor() {
 void Donjon::move() {
 	Direction direction = Obtention::getDirection(floor[currentY][currentX]);
 	floor[currentY][currentX]->setIStateSalle(lastRoom,lastRoomState);
-	//floor[currentY][currentX]->setIStateSalle(SalleType::Empty);//Change the last room state to EmptyRoom
 	switch (direction) {
 		case NORTH:currentY--; break;
 		case SOUTH:currentY++; break;
