@@ -18,5 +18,6 @@ public:
     void requestClosing();
     void setPlayer(std::string nom,std::array<int,Entite::NB_STAT> stats,Competence choseComp);
     void setDonjon();
+    Donjon* getDonjon();
     void startExploring();
 };

@@ -65,9 +65,10 @@ void GameStateDonjon::update() {
 }
 void GameStateDonjon::render(SDL_Renderer *renderer) {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
-	SDL_FRect rect = { 25,25,1550,575 }; //espace d'affichage du donjon
+	SDL_FRect rect = { 125,50,1350,525 };//espace d'affichage du donjon
 	SDL_RenderFillRect(renderer,&rect);
 	textBox.render(renderer);
+	AppUtilities::renderDonjon(renderer, game.getDonjon(), rect);
 }
 void GameStateDonjon::processInput(SDL_Event* event) {
 	if (event->type == SDL_EVENT_KEY_DOWN) {

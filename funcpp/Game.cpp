@@ -1,6 +1,7 @@
 #include"Game.h"
 #include"GameState.h"
 #include"Ressources.h"
+#include"AppUtilities.h"
 #include"Utilitaire.h"
 
 Game::Game() : requestQuit{ false }, donjon{ nullptr }, player{nullptr} {
@@ -30,7 +31,7 @@ void Game::requestClosing() {
 }
 void Game::setPlayer(std::string nom,std::array<int,Entite::NB_STAT> stats,Competence choseComp) {
 	player = new Perso{nom,stats};
-	player->apprendreCompetence(new Competence(Ressources::dataPlayerComp[0][0]));
+	player->apprendreCompetence(new Competence(Ressources::dataPlayerComp[0][0]));//competence de base
 	player->apprendreCompetence(new Competence(choseComp));
 }
 void Game::setDonjon() {
@@ -38,5 +39,12 @@ void Game::setDonjon() {
 		donjon = DungeonGenerator::generateDonjon(player);
 	}
 }
+Donjon* Game::getDonjon() {
+	return donjon;
+}
 void Game::startExploring() {
+	if (donjon) {
+		
+		//donjon->explore();
+	}
 }

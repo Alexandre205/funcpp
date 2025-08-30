@@ -45,6 +45,7 @@ void Donjon::initFloor() {
 	}
 }
 
+//maj
 void Donjon::move() {
 	Direction direction = Obtention::getDirection(floor[currentY][currentX]);
 	floor[currentY][currentX]->setIStateSalle(lastRoom,lastRoomState);
@@ -65,10 +66,9 @@ void Donjon::move() {
 		lastRoom = new EmptyRoom;
 		lastRoomState = SalleType::Empty;
 	}
-	
-	//à changer pour gérer les different state
-	floor[currentY][currentX]->setIStateSalle(SalleType::Current);//change the state of the room to CurrentRoom
+	floor[currentY][currentX]->setIStateSalle(SalleType::Current);
 }
+//maj
 void Donjon::explore() {
 	Affichage::afficher("Vous penetrez dans le donjon.\n");
 	//Mettre a jour la boucle pour pouvoir perdre
