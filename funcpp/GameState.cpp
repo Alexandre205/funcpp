@@ -11,7 +11,7 @@ GameState::~GameState() {
 }
 
 GameStateStartMenu::GameStateStartMenu(Game& game) : GameState{ game }, cursor{0} {
-	options[0] = { {500,600,100,50},"New Game",[&game,this]() {game.setCurrentState(new GameStateCreatingCharacter(game)); } };
+	options[0] = { {500,600,100,50},"New Game",[&game]() {game.setCurrentState(new GameStateCreatingCharacter(game)); } };
 	options[1] = { {700,600,100,50},"Continue",[&game]() {game.setCurrentState(new GameStateDonjon(game)); }};
 	options[2] = { {900,600,100,50},"Quit",[&game]() {game.requestClosing(); } };
 }

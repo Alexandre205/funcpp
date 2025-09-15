@@ -49,5 +49,8 @@ Utiliser le pattern State pour les effets de statut infligé au Entite
 		}
 	}
 implementer l'affichage resizable
-implémenter l'affichage en fonction de la taille de la fenetre
+
+revoir l'affichage du donjon (genre vraiment c'est n'importe quoi)
+implémenter l'affichage en fonction de la taille de la fenetre 
+	-> voir affichage donjon surtout les couloirs
 implémenter l'affichage des truc avec SDL3
